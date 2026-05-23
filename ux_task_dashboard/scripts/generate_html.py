@@ -220,7 +220,7 @@ def main():
             <!-- Content -->
             <div class="absolute left-[16px] top-1/2 transform -translate-y-1/2 flex items-center font-sans">
                 <h2 class="text-[#C9C2B8] text-[15px] sm:text-[16px] font-normal leading-[110%] tracking-wide">
-                    Mobile App UX <span class="text-[#C59A5D] font-semibold">Improvements &amp;</span> UI Redesign
+                    Mobile App UX Improvements &amp; UI Redesign
                 </h2>
             </div>
 
@@ -296,15 +296,12 @@ def main():
                             <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                         </div>
                         <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
-                            Product UX Improvements & UI Redesign
+                            Estimated Task List
                         </h3>
                     </div>
 
                     <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
-                    <div class="flex items-center justify-between mt-[18px] mb-3 pl-0 pr-1">
-                        <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font flex items-center gap-2">
-                            <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
-                        </h2>
+                    <div class="flex items-center justify-end mt-[18px] mb-3 pl-0 pr-1">
                         <div class="flex items-center gap-2">
                             <button onclick="expandSidebar()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
                                 <i class="fa-solid fa-folder-open text-[8px] opacity-70"></i> Expand
