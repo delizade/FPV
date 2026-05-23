@@ -204,7 +204,7 @@
     </div>
 
     <!-- HERO BANNER (Frame 18 - Normal State) -->
-    <div class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-8 select-none rounded-none font-sans">
+    <div id="hero-banner" class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-8 select-none rounded-b font-sans">
         <!-- Background image -->
         <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
         
@@ -270,7 +270,7 @@
                     </div>
 
                     <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
-                    <div class="flex items-center justify-between mb-3 px-2">
+                    <div class="flex items-center justify-between mb-3 pl-0 pr-1">
                         <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font flex items-center gap-2">
                             <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
                         </h2>
@@ -1112,8 +1112,10 @@
             
             // Sticky Scroll Header morph listener
             const stickyHeader = document.getElementById('sticky-scroll-header');
+            const heroBanner = document.getElementById('hero-banner');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
+                const threshold = heroBanner ? heroBanner.offsetHeight - 62 : 500;
+                if (window.scrollY > threshold) {
                     stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
                     stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
                 } else {
