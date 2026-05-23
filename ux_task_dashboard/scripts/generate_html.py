@@ -671,11 +671,11 @@ def main():
             
             if (level === 0) {{
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
-                containerClass += "rounded bg-stone-950/30 border border-stone-900/80 hover:border-brand-500/25 mb-6 shadow-lg shadow-black/30";
+                containerClass += "rounded bg-stone-950/30 border border-stone-900/80 hover:border-brand-500/25 mb-6 shadow-lg shadow-black/30 pb-4";
                 
                 // If there's a description, reduce bottom padding to bring title and description closer.
                 // Removed border-b separator under main task block.
-                const pbClass = node.description ? "pb-0 pt-4" : "py-4";
+                const pbClass = "pt-4 pb-0";
                 headerBgClass += `bg-transparent hover:bg-stone-900/15 ${{pbClass}} rounded-t`;
                 borderStyle = "border-l-4 border-l-brand-900/40 hover:border-l-brand-500/80 transition-all duration-300";
             }} else {{
