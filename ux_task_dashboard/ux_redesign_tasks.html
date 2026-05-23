@@ -289,9 +289,9 @@
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[28px] pb-[10px] -mx-6 px-6 border-b border-stone-900/60 mb-5 -mt-6 transition-all duration-300">
+                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[30px] pb-0 -ml-6 pl-6 mb-5 -mt-6 transition-all duration-300">
                     <!-- DESKTOP LAYOUT -->
-                    <div class="hidden sm:flex items-center justify-between px-2">
+                    <div id="stats-inner-desktop" class="hidden sm:flex items-center justify-between px-2 pb-1.5 border-b border-stone-900/60">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
                         <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
                             <div>
@@ -315,7 +315,7 @@
                     </div>
 
                     <!-- MOBILE LAYOUT -->
-                    <div class="flex sm:hidden items-center justify-between px-2">
+                    <div id="stats-inner-mobile" class="flex sm:hidden items-center justify-between px-2 pb-1.5 border-b border-stone-900/60">
                         <!-- Left: Stacked stats (two lines) -->
                         <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
                             <div>
@@ -1115,6 +1115,8 @@
             const stickyHeader = document.getElementById('sticky-scroll-header');
             const heroBanner = document.getElementById('hero-banner');
             const statsBar = document.getElementById('right-stats-bar');
+            const statsInnerDesktop = document.getElementById('stats-inner-desktop');
+            const statsInnerMobile = document.getElementById('stats-inner-mobile');
             window.addEventListener('scroll', () => {
                 const rect = heroBanner ? heroBanner.getBoundingClientRect() : null;
                 const isPastBanner = rect && rect.height > 100 ? (rect.bottom <= 0) : (window.scrollY > 560);
@@ -1122,13 +1124,25 @@
                     stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
                     stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     if (statsBar) {
-                        statsBar.classList.add('backdrop-blur-md');
+                        statsBar.classList.add('backdrop-blur-md', 'border-b', 'border-stone-900/60');
+                    }
+                    if (statsInnerDesktop) {
+                        statsInnerDesktop.classList.remove('border-b', 'border-stone-900/60');
+                    }
+                    if (statsInnerMobile) {
+                        statsInnerMobile.classList.remove('border-b', 'border-stone-900/60');
                     }
                 } else {
                     stickyHeader.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     stickyHeader.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
                     if (statsBar) {
-                        statsBar.classList.remove('backdrop-blur-md');
+                        statsBar.classList.remove('backdrop-blur-md', 'border-b', 'border-stone-900/60');
+                    }
+                    if (statsInnerDesktop) {
+                        statsInnerDesktop.classList.add('border-b', 'border-stone-900/60');
+                    }
+                    if (statsInnerMobile) {
+                        statsInnerMobile.classList.add('border-b', 'border-stone-900/60');
                     }
                 }
             });
