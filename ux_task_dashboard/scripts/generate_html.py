@@ -288,7 +288,7 @@ def main():
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
             <aside class="hidden lg:block lg:col-span-1">
-                <div class="glass-effect p-4 rounded sticky top-[120px] overflow-y-auto max-h-[calc(100vh-9rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                <div class="glass-effect p-4 rounded sticky top-[120px] overflow-y-auto max-h-[calc(100vh-9rem)] border border-brand-900/10 shadow-xl shadow-black/20 -mt-6">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                     <div class="mb-5 pb-4 border-b border-brand-900/20">
@@ -301,7 +301,7 @@ def main():
                     </div>
 
                     <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
-                    <div class="flex items-center justify-between mb-3 pl-0 pr-1">
+                    <div class="flex items-center justify-between mt-[18px] mb-3 pl-0 pr-1">
                         <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font flex items-center gap-2">
                             <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
                         </h2>
@@ -331,7 +331,7 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="sticky top-[62px] z-20 bg-[#0a0806]/85 backdrop-blur-md pt-4 pb-2 w-full border-b border-stone-900/60 mb-5 -mt-6">
+                <div class="sticky top-[62px] z-20 bg-[#0a0806]/85 backdrop-blur-md pt-[28px] pb-[10px] w-full border-b border-stone-900/60 mb-5 -mt-6">
                     <!-- DESKTOP LAYOUT -->
                     <div class="hidden sm:flex items-center justify-between px-2">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
