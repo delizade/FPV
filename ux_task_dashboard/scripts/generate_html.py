@@ -325,13 +325,13 @@ def main():
                     <div id="stats-inner-desktop" class="hidden sm:flex h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
                         <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
-                            <div>
-                                <span class="text-slate-200 font-bold text-sm font-mono" id="total-count-stat">0</span> Total Tasks
-                            </div>
-                            <div class="text-slate-750">|</div>
                             <div class="flex items-center gap-1.5">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
                                 <span class="text-slate-200 font-bold text-sm font-mono" id="total-time-stat">0h</span> Estimated Time
+                            </div>
+                            <div class="text-slate-750">|</div>
+                            <div style="color: hsl(38, 10%, 45%)">
+                                <span class="font-bold text-sm font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat">0</span> Total Tasks
                             </div>
                         </div>
                         <!-- Right: Elegant Expand All / Collapse All controls -->
@@ -349,12 +349,12 @@ def main():
                     <div id="stats-inner-mobile" class="flex sm:hidden h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
                         <!-- Left: Stacked stats (two lines) -->
                         <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
-                            <div>
-                                <span class="text-slate-200 font-bold font-mono" id="total-count-stat-mobile">0</span> Tasks
-                            </div>
                             <div class="flex items-center gap-1">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
                                 <span class="text-slate-200 font-bold font-mono" id="total-time-stat-mobile">0h</span> Est. Time
+                            </div>
+                            <div style="color: hsl(38, 10%, 45%)">
+                                <span class="font-bold font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat-mobile">0</span> Tasks
                             </div>
                         </div>
                         <!-- Right: Icon-only chevron buttons -->
