@@ -1,0 +1,656 @@
+[
+  {
+    "id": "86expf9fg",
+    "old_name": "Sector & Competitor Research",
+    "new_name": "1.1 - Sector & Competitor Research",
+    "level": 1
+  },
+  {
+    "id": "86expf9fm",
+    "old_name": "Mood Board & Visual Direction",
+    "new_name": "1.2 - Mood Board & Visual Direction",
+    "level": 1
+  },
+  {
+    "id": "86expf9ft",
+    "old_name": "General Design Concept Definition",
+    "new_name": "1.3 - General Design Concept Definition",
+    "level": 1
+  },
+  {
+    "id": "86expf9g0",
+    "old_name": "Initial Design Proposal",
+    "new_name": "2.1 - Initial Design Proposal",
+    "level": 1
+  },
+  {
+    "id": "86expf9g3",
+    "old_name": "[REVISION 1] Client Feedback & Iterations",
+    "new_name": "2.2 - [REVISION 1] Client Feedback & Iterations",
+    "level": 1
+  },
+  {
+    "id": "86expf9g6",
+    "old_name": "Concept Improvements",
+    "new_name": "2.3 - Concept Improvements",
+    "level": 1
+  },
+  {
+    "id": "86expf9gg",
+    "old_name": "Iterative UX Audit, Improvements & Solutions (Screen-Level)",
+    "new_name": "3.1 - Iterative UX Audit, Improvements & Solutions (Screen-Level)",
+    "level": 1
+  },
+  {
+    "id": "86expf9p1",
+    "old_name": "Wordmark & Emblem Rework ",
+    "new_name": "4.1 - Wordmark & Emblem Rework",
+    "level": 1
+  },
+  {
+    "id": "86expf9p0",
+    "old_name": "App Icon Design",
+    "new_name": "4.2 - App Icon Design",
+    "level": 1
+  },
+  {
+    "id": "86expw16u",
+    "old_name": "Typography solutions",
+    "new_name": "4.3 - Typography solutions",
+    "level": 1
+  },
+  {
+    "id": "86expw7rx",
+    "old_name": "Preparing Color Pallets",
+    "new_name": "4.4 - Preparing Color Pallets",
+    "level": 1
+  },
+  {
+    "id": "86expf9p9",
+    "old_name": "Icon Set",
+    "new_name": "4.5 - Icon Set",
+    "level": 1
+  },
+  {
+    "id": "86expf9p3",
+    "old_name": "Design System Setup — Tokens, Components & Styles",
+    "new_name": "4.6 - Design System Setup — Tokens, Components & Styles",
+    "level": 1
+  },
+  {
+    "id": "86expf9pc",
+    "old_name": "    Visual Asset Creation & Curation",
+    "new_name": "4.7 - Visual Asset Creation & Curation",
+    "level": 1
+  },
+  {
+    "id": "86expvbtv",
+    "old_name": "1. Authentication & Onboarding",
+    "new_name": "5.1 - Authentication & Onboarding",
+    "level": 1
+  },
+  {
+    "id": "86expvbtz",
+    "old_name": "1.1 Client Portal Login Screen",
+    "new_name": "5.1.1 - Client Portal Login Screen",
+    "level": 2
+  },
+  {
+    "id": "86expvbu1",
+    "old_name": "1.2 Client Portal Registration Modal",
+    "new_name": "5.1.2 - Client Portal Registration Modal",
+    "level": 2
+  },
+  {
+    "id": "86expvbu5",
+    "old_name": "1.3 Forgot Password / Credentials Reset Wizard",
+    "new_name": "5.1.3 - Forgot Password / Credentials Reset Wizard",
+    "level": 2
+  },
+  {
+    "id": "86expveeq",
+    "old_name": "1.0 Contextual Onboarding Design",
+    "new_name": "5.1.4 - Contextual Onboarding Design",
+    "level": 2
+  },
+  {
+    "id": "86expvepu",
+    "old_name": "Splash Screen",
+    "new_name": "5.1.4.A - Splash Screen",
+    "level": 3
+  },
+  {
+    "id": "86expvera",
+    "old_name": "Contextual welcome screen",
+    "new_name": "5.1.4.B - Contextual welcome screen",
+    "level": 3
+  },
+  {
+    "id": "86expvbtw",
+    "old_name": "2. Home Page (Dashboard)",
+    "new_name": "5.2 - Home Page (Dashboard)",
+    "level": 1
+  },
+  {
+    "id": "86expvbty",
+    "old_name": "2.1 Main Dashboard Layout Solution/s",
+    "new_name": "5.2.1 - Main Dashboard Layout Solution/s",
+    "level": 2
+  },
+  {
+    "id": "86expvbu8",
+    "old_name": "2.2 My Orders Module",
+    "new_name": "5.2.2 - My Orders Module",
+    "level": 2
+  },
+  {
+    "id": "86expvbu0",
+    "old_name": "2.2 Notifications Screen / Alerts Feed",
+    "new_name": "5.2.3 - Notifications Screen / Alerts Feed",
+    "level": 2
+  },
+  {
+    "id": "86expvbu3",
+    "old_name": "2.3 Main Navigation Design",
+    "new_name": "5.2.4 - Main Navigation Design",
+    "level": 2
+  },
+  {
+    "id": "86expvbu7",
+    "old_name": "3. Account Page",
+    "new_name": "5.3 - Account Page",
+    "level": 1
+  },
+  {
+    "id": "86expvbua",
+    "old_name": "3.1 Account Bar",
+    "new_name": "5.3.1 - Account Bar",
+    "level": 2
+  },
+  {
+    "id": "86expvbuf",
+    "old_name": "3.1.1 Profile Edit Modal",
+    "new_name": "5.3.1.A - Profile Edit Modal",
+    "level": 3
+  },
+  {
+    "id": "86expvbuc",
+    "old_name": "3.2 Account Actions",
+    "new_name": "5.3.2 - Account Actions",
+    "level": 2
+  },
+  {
+    "id": "86expvbuh",
+    "old_name": "3.2.1 Orders",
+    "new_name": "5.3.2.A - Orders",
+    "level": 3
+  },
+  {
+    "id": "86expvbum",
+    "old_name": "3.2.1.A Open Orders",
+    "new_name": "5.3.2.A.1 - Open Orders",
+    "level": 4
+  },
+  {
+    "id": "86expvbuk",
+    "old_name": "3.2.1.B Completed Orders",
+    "new_name": "5.3.2.A.2 - Completed Orders",
+    "level": 4
+  },
+  {
+    "id": "86expvbur",
+    "old_name": "Search & Search Result",
+    "new_name": "5.3.2.A.3 - Search & Search Result",
+    "level": 4
+  },
+  {
+    "id": "86expvbun",
+    "old_name": "3.3 AutoFill Preferences",
+    "new_name": "5.3.3 - AutoFill Preferences",
+    "level": 2
+  },
+  {
+    "id": "86expvbut",
+    "old_name": "3.3.1 Point of Contact",
+    "new_name": "5.3.3.A - Point of Contact",
+    "level": 3
+  },
+  {
+    "id": "86expvbuu",
+    "old_name": "3.3.2 Deliverables",
+    "new_name": "5.3.3.B - Deliverables",
+    "level": 3
+  },
+  {
+    "id": "86expvbv0",
+    "old_name": "3.3.3 Plan Formatting",
+    "new_name": "5.3.3.C - Plan Formatting",
+    "level": 3
+  },
+  {
+    "id": "86expvbv2",
+    "old_name": "3.3.4 Plan Contact Info",
+    "new_name": "5.3.3.D - Plan Contact Info",
+    "level": 3
+  },
+  {
+    "id": "86expvbv4",
+    "old_name": "3.4 Wallet",
+    "new_name": "5.3.4 - Wallet",
+    "level": 2
+  },
+  {
+    "id": "86expvbv9",
+    "old_name": "Payment Methods List",
+    "new_name": "5.3.4.A - Payment Methods List",
+    "level": 3
+  },
+  {
+    "id": "86expvbva",
+    "old_name": "Add New Payment Modal",
+    "new_name": "5.3.4.B - Add New Payment Modal",
+    "level": 3
+  },
+  {
+    "id": "86expvbvb",
+    "old_name": "3.5 Favorites (Content is unknown)",
+    "new_name": "5.3.5 - Favorites (Content is unknown)",
+    "level": 2
+  },
+  {
+    "id": "86expvbvu",
+    "old_name": "3.6 Settings",
+    "new_name": "5.3.6 - Settings",
+    "level": 2
+  },
+  {
+    "id": "86expvbvv",
+    "old_name": "[3.7 Beta Feedback Hub]",
+    "new_name": "5.3.7 - Beta Feedback Hub",
+    "level": 2
+  },
+  {
+    "id": "86expvbup",
+    "old_name": "5. Orders",
+    "new_name": "5.4 - Orders",
+    "level": 1
+  },
+  {
+    "id": "86expvbuv",
+    "old_name": "5.8 (Missing) Self Scan",
+    "new_name": "5.4.1 - (Missing) Self Scan",
+    "level": 2
+  },
+  {
+    "id": "86expvbuw",
+    "old_name": "5.1 Create New Order",
+    "new_name": "5.4.2 - Create New Order",
+    "level": 2
+  },
+  {
+    "id": "86expvbuz",
+    "old_name": "5.0 Order Selection Main Screen",
+    "new_name": "5.4.2.A - Order Selection Main Screen",
+    "level": 3
+  },
+  {
+    "id": "86expvbuy",
+    "old_name": "5.1 Marketable Plan Residential & Wizard (11-Step Flow)",
+    "new_name": "5.4.2.B - Marketable Plan Residential & Wizard (11-Step Flow)",
+    "level": 3
+  },
+  {
+    "id": "86expvbv6",
+    "old_name": "5.2 (Missing) Marketable Plans for Commercial / Mizxed Use ",
+    "new_name": "5.4.2.C - (Missing) Marketable Plans for Commercial / Mizxed Use",
+    "level": 3
+  },
+  {
+    "id": "86expvbv5",
+    "old_name": "5.3 (Missing) Remodeling Plans for Residental",
+    "new_name": "5.4.2.D - (Missing) Remodeling Plans for Residental",
+    "level": 3
+  },
+  {
+    "id": "86expvbvq",
+    "old_name": "5.4 (Missing) Remodeling Plans for Commercial / Mixed Use",
+    "new_name": "5.4.2.E - (Missing) Remodeling Plans for Commercial / Mixed Use",
+    "level": 3
+  },
+  {
+    "id": "86expvbvr",
+    "old_name": "5.5 (Missing) Purchae and Rebrand Existing FPV Plan",
+    "new_name": "5.4.2.F - (Missing) Purchae and Rebrand Existing FPV Plan",
+    "level": 3
+  },
+  {
+    "id": "86expvbvw",
+    "old_name": "5.6 (Missing) Create Plans from Existing Plans",
+    "new_name": "5.4.2.G - (Missing) Create Plans from Existing Plans",
+    "level": 3
+  },
+  {
+    "id": "86expvbvy",
+    "old_name": "5.7 Search Inventory & Checkout Flow (3 sub pages)",
+    "new_name": "5.4.2.H - Search Inventory & Checkout Flow (3 sub pages)",
+    "level": 3
+  },
+  {
+    "id": "86expvbv3",
+    "old_name": "5.2 Order Details",
+    "new_name": "5.4.3 - Order Details",
+    "level": 2
+  },
+  {
+    "id": "86expvbv8",
+    "old_name": "5.2.1 Messages",
+    "new_name": "5.4.3.A - Messages",
+    "level": 3
+  },
+  {
+    "id": "86expvbv7",
+    "old_name": "5.2.2 Summary",
+    "new_name": "5.4.3.B - Summary",
+    "level": 3
+  },
+  {
+    "id": "86expvbvp",
+    "old_name": "5.2.3 Requested Services & Scheduling",
+    "new_name": "5.4.3.C - Requested Services & Scheduling",
+    "level": 3
+  },
+  {
+    "id": "86expvbvt",
+    "old_name": "5.2.4 Contact",
+    "new_name": "5.4.3.D - Contact",
+    "level": 3
+  },
+  {
+    "id": "86expvbvx",
+    "old_name": "5.2.5 Survey Units",
+    "new_name": "5.4.3.E - Survey Units",
+    "level": 3
+  },
+  {
+    "id": "86expvbvz",
+    "old_name": "5.2.6 Site Access",
+    "new_name": "5.4.3.F - Site Access",
+    "level": 3
+  },
+  {
+    "id": "86expvbw5",
+    "old_name": "5.2.7 Deliverables & 3D Matterport",
+    "new_name": "5.4.3.G - Deliverables & 3D Matterport",
+    "level": 3
+  },
+  {
+    "id": "86expvbw6",
+    "old_name": "5.2.8 Order Status Seperation",
+    "new_name": "5.4.3.H - Order Status Seperation",
+    "level": 3
+  },
+  {
+    "id": "86expvbw2",
+    "old_name": "6. About, Catalogs, Pricing & Services",
+    "new_name": "5.5 - About, Catalogs, Pricing & Services",
+    "level": 1
+  },
+  {
+    "id": "86expvbw8",
+    "old_name": "6.0 About Main Screen",
+    "new_name": "5.5.1 - About Main Screen",
+    "level": 2
+  },
+  {
+    "id": "86expvbw7",
+    "old_name": "6.2 Services",
+    "new_name": "5.5.2 - Services",
+    "level": 2
+  },
+  {
+    "id": "86expvbw9",
+    "old_name": "6.2.0 -Services Main Page",
+    "new_name": "5.5.2.A - Services Main Page",
+    "level": 3
+  },
+  {
+    "id": "86expvjtk",
+    "old_name": "Service Template Page Design",
+    "new_name": "5.5.2.A.1 - Service Template Page Design",
+    "level": 4
+  },
+  {
+    "id": "86expvjxp",
+    "old_name": "Sub Service Template Layout Design",
+    "new_name": "5.5.2.A.2 - Sub Service Template Layout Design",
+    "level": 4
+  },
+  {
+    "id": "86expvbwa",
+    "old_name": "6.2.1 - Marketable Tab",
+    "new_name": "5.5.2.B - Marketable Tab",
+    "level": 3
+  },
+  {
+    "id": "86expvbwf",
+    "old_name": "6.2.1.A Residential Floor Plan",
+    "new_name": "5.5.2.B.1 - Residential Floor Plan",
+    "level": 4
+  },
+  {
+    "id": "86expvbwe",
+    "old_name": "6.2.1.B Site Plans",
+    "new_name": "5.5.2.B.2 - Site Plans",
+    "level": 4
+  },
+  {
+    "id": "86expvbwq",
+    "old_name": "6.2.1.C Commersial Floor Plans",
+    "new_name": "5.5.2.B.3 - Commersial Floor Plans",
+    "level": 4
+  },
+  {
+    "id": "86expvbwh",
+    "old_name": "6.2.2 - As-Built Tab",
+    "new_name": "5.5.2.C - As-Built Tab",
+    "level": 3
+  },
+  {
+    "id": "86expvbwn",
+    "old_name": "6.2.2.A As-Build Floor Plans",
+    "new_name": "5.5.2.C.1 - As-Build Floor Plans",
+    "level": 4
+  },
+  {
+    "id": "86expvbwp",
+    "old_name": "6.2.2.B Interior Elevations",
+    "new_name": "5.5.2.C.2 - Interior Elevations",
+    "level": 4
+  },
+  {
+    "id": "86expvbwv",
+    "old_name": "6.2.2.C Roof Plans",
+    "new_name": "5.5.2.C.3 - Roof Plans",
+    "level": 4
+  },
+  {
+    "id": "86expvbww",
+    "old_name": "6.2.2.D Exteriour Elevations",
+    "new_name": "5.5.2.C.4 - Exteriour Elevations",
+    "level": 4
+  },
+  {
+    "id": "86expvbx1",
+    "old_name": "6.2.2.E Building Sections",
+    "new_name": "5.5.2.C.5 - Building Sections",
+    "level": 4
+  },
+  {
+    "id": "86expvbwy",
+    "old_name": "6.2.3 - 3D & Media Tab",
+    "new_name": "5.5.2.D - 3D & Media Tab",
+    "level": 3
+  },
+  {
+    "id": "86expvbx0",
+    "old_name": "6.2.3. 3D Walk-Through Tours",
+    "new_name": "5.5.2.D.1 - 3D Walk-Through Tours",
+    "level": 4
+  },
+  {
+    "id": "86expvbx2",
+    "old_name": "6.2.3.B 3D Animations",
+    "new_name": "5.5.2.D.2 - 3D Animations",
+    "level": 4
+  },
+  {
+    "id": "86expvbx7",
+    "old_name": "6.2.3.C 3D Rendering",
+    "new_name": "5.5.2.D.3 - 3D Rendering",
+    "level": 4
+  },
+  {
+    "id": "86expvbx8",
+    "old_name": "6.2.3.D Matterport Video",
+    "new_name": "5.5.2.D.4 - Matterport Video",
+    "level": 4
+  },
+  {
+    "id": "86expvbx9",
+    "old_name": "6.2.4 - Add-Ons Tab",
+    "new_name": "5.5.2.E - Add-Ons Tab",
+    "level": 3
+  },
+  {
+    "id": "86expvbxc",
+    "old_name": "6.2.4.A Exterior Add-On",
+    "new_name": "5.5.2.E.1 - Exterior Add-On",
+    "level": 4
+  },
+  {
+    "id": "86expvbxd",
+    "old_name": "6.2.4.B Furniture Add-On",
+    "new_name": "5.5.2.E.2 - Furniture Add-On",
+    "level": 4
+  },
+  {
+    "id": "86expvbxg",
+    "old_name": "6.2.4.C 2D/3D Plans From Scan",
+    "new_name": "5.5.2.E.3 - 2D/3D Plans From Scan",
+    "level": 4
+  },
+  {
+    "id": "86expvbxh",
+    "old_name": "6.2.4.D Square Footage Calculations",
+    "new_name": "5.5.2.E.4 - Square Footage Calculations",
+    "level": 4
+  },
+  {
+    "id": "86expvbxj",
+    "old_name": "6.2.4.E CAD File Release",
+    "new_name": "5.5.2.E.5 - CAD File Release",
+    "level": 4
+  },
+  {
+    "id": "86expvbwc",
+    "old_name": "6.3 Pricing",
+    "new_name": "5.5.3 - Pricing",
+    "level": 2
+  },
+  {
+    "id": "86expvbwj",
+    "old_name": "6.3.1 Zone Selection Sceen",
+    "new_name": "5.5.3.A - Zone Selection Sceen",
+    "level": 3
+  },
+  {
+    "id": "86expvbwk",
+    "old_name": "6.3.1.A Plans",
+    "new_name": "5.5.3.B - Plans",
+    "level": 3
+  },
+  {
+    "id": "86expvbwt",
+    "old_name": "6.3.1.B From Existing",
+    "new_name": "5.5.3.C - From Existing",
+    "level": 3
+  },
+  {
+    "id": "86expvbwu",
+    "old_name": "6.3.1.C Rendering",
+    "new_name": "5.5.3.D - Rendering",
+    "level": 3
+  },
+  {
+    "id": "86expvbwz",
+    "old_name": "6.3.1.D MatterPort",
+    "new_name": "5.5.3.E - MatterPort",
+    "level": 3
+  },
+  {
+    "id": "86expvbx5",
+    "old_name": "6.4 FVP Contact List (15+ States)",
+    "new_name": "5.5.4 - FVP Contact List (15+ States)",
+    "level": 2
+  },
+  {
+    "id": "86expvbxa",
+    "old_name": "6.5 (Not Ready) Live Chat Module Placeholder Screen",
+    "new_name": "5.5.5 - (Not Ready) Live Chat Module Placeholder Screen",
+    "level": 2
+  },
+  {
+    "id": "86exq5x9b",
+    "old_name": "Interactive Prototype Build",
+    "new_name": "6.1 - Interactive Prototype Build",
+    "level": 1
+  },
+  {
+    "id": "86exq5x9h",
+    "old_name": "[REVISION 2] Mid-Project Client Presentation & Feedback",
+    "new_name": "6.2 - [REVISION 2] Mid-Project Client Presentation & Feedback",
+    "level": 1
+  },
+  {
+    "id": "86exq5x9r",
+    "old_name": "Screen Revisions Based on Mid-Review Feedback",
+    "new_name": "6.3 - Screen Revisions Based on Mid-Review Feedback",
+    "level": 1
+  },
+  {
+    "id": "86expf9qd",
+    "old_name": "Final Design Polish & Consistency Check",
+    "new_name": "7.1 - Final Design Polish & Consistency Check",
+    "level": 1
+  },
+  {
+    "id": "86expw1pg",
+    "old_name": "Responsive Tablet Adaptation (UX, UI, components)",
+    "new_name": "7.2 - Responsive Tablet Adaptation (UX, UI, components)",
+    "level": 1
+  },
+  {
+    "id": "86expf9q2",
+    "old_name": "Selective Interaction Prototypes",
+    "new_name": "7.3 - Selective Interaction Prototypes",
+    "level": 1
+  },
+  {
+    "id": "86expf9qe",
+    "old_name": "[REVISION 3] Final Client Presentation",
+    "new_name": "7.4 - [REVISION 3] Final Client Presentation",
+    "level": 1
+  },
+  {
+    "id": "86expf9qk",
+    "old_name": "Figma Project Delivery",
+    "new_name": "7.5 - Figma Project Delivery",
+    "level": 1
+  },
+  {
+    "id": "86expf9q5",
+    "old_name": "Overall Feedback & Refinement Estimation",
+    "new_name": "7.6 - Overall Feedback & Refinement Estimation",
+    "level": 1
+  }
+]

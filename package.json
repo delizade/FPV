@@ -1,0 +1,24 @@
+{
+  "name": "clickup-mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for ClickUp API v2 Integration",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "start": "node dist/index.js",
+    "prebuild": "npm run clean"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

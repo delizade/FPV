@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floor Plan Visuals (FPV) - Complete App Hierarchy</title>
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Arial', 'Helvetica', 'sans-serif'],
+            mono: ['Arial', 'Helvetica', 'sans-serif'],
+          },
+          colors: {
+            obsidian: {
+              canvas: '#0A0B0D',
+              panel: '#13151A',
+              border: '#222630',
+              borderHover: '#313745',
+              fg: '#E3E6ED',
+              accent: '#FF5A00',
+              muted: '#8A92A6',
+              alert: '#EF4444',
+              success: '#10B981',
+              activeBg: '#1A1D24',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+    body {
+      background-color: #0A0B0D;
+      color: #E3E6ED;
+      -webkit-font-smoothing: antialiased;
+    }
+    .accordion-content {
+      display: none;
+    }
+    .accordion-content.open {
+      display: block;
+    }
+    /* Simple dynamic focus indicators for keyboard navigation */
+    button:focus-visible {
+      outline: 2px solid #FF5A00;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <!-- HEADER PANEL -->
+    <div class="border-b border-obsidian-border pb-6 space-y-3">
+      <div class="text-[10px] font-mono font-bold tracking-widest text-obsidian-accent uppercase">
+        FPV CORE DECK // STRUCTURAL SPECIFICATIONS VISUALIZER
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight text-obsidian-fg">
+        Floor Plan Visuals Mobile App Hierarchy
+      </h1>
+      <p class="text-xs text-obsidian-muted max-w-[80ch] leading-relaxed">
+        This ledger displays the complete, high-fidelity tree structure, page layouts, form parameters, state registries, and pricing grids of the FPV mobile application. Rendered strictly in custom Obsidian Dark theme using standard Arial typography and zero emojis to maintain clean design engineering readability.
+      </p>
+    </div>
+
+    <!-- GLOBAL ACCORDION CONTROLS -->
+    <div class="flex items-center justify-between border border-obsidian-border p-4 bg-obsidian-panel rounded-md text-xs font-mono">
+      <div class="text-obsidian-muted uppercase tracking-wider">
+        Global Panel Controls:
+      </div>
+      <div class="flex items-center space-x-3">
+        <button onclick="expandAll()" class="px-3 py-1.5 border border-obsidian-border hover:border-obsidian-accent rounded bg-obsidian-canvas text-obsidian-fg hover:text-obsidian-accent transition-colors font-bold uppercase cursor-pointer">
+          [Expand All]
+        </button>
+        <button onclick="collapseAll()" class="px-3 py-1.5 border border-obsidian-border hover:border-obsidian-accent rounded bg-obsidian-canvas text-obsidian-fg hover:text-obsidian-accent transition-colors font-bold uppercase cursor-pointer">
+          [Collapse All]
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN ACCORDION ROOT -->
+    <div class="space-y-4" id="accordion-root">
+
+      <!-- ==================== CATEGORY 1: AUTHENTICATION & ONBOARDING ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-auth', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">1. Authentication and Onboarding</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[1 Screen / 2 Modals]</span>
+        </button>
+        
+        <div id="cat-auth" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 1.1: Login -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-login', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Client Portal Login Screen</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 0.onboarding]</span>
+            </button>
+            
+            <div id="scr-login" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/0.onboarding/Screenshot 2026-05-21 at 19.23.01.png" class="text-obsidian-accent hover:underline">0.onboarding/Screenshot 2026-05-21 at 19.23.01.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/0_onboarding_login.png" alt="Client Portal Login Screen" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 0_onboarding_login.png</div>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">On-Screen Elements & Branding</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>Company Logo: Upper FPV brand symbol layout</li>
+                    <li>Main Header Text: "Client Portal" (Helvetica Bold)</li>
+                    <li>Email Address text input field</li>
+                    <li>Password text input field (masked characters)</li>
+                    <li>"Forgot Password?" coordinates link (text redirect trigger)</li>
+                  </ul>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Action Triggers & Integrations</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>Primary Button: "Login" (High-contrast corporate button)</li>
+                    <li>Social Authentication SSO: "Sign in with Google" button</li>
+                    <li>Social Authentication SSO: "Sign in with Apple" button</li>
+                    <li>Footer Action Link: "Don't have an account? Create one"</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Modals / Drawers under Login -->
+              <div class="space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Sub-Pages & Nested Modals:</div>
+
+                <!-- Registration Modal -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('mod-register', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Client Portal Registration (Create Account Form)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="mod-register" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted leading-relaxed font-sans">
+                      Standard account setup flow triggered by selecting "Create one" link.
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1.5">
+                        <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold">Registration Fields</div>
+                        <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                          <li>First Name</li>
+                          <li>Last Name</li>
+                          <li>Mobile Phone coordinates</li>
+                          <li>Broker Email address</li>
+                          <li>Password / Password Confirmation</li>
+                        </ul>
+                      </div>
+                      <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1.5">
+                        <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold">Agency & Secure Vault Credentials</div>
+                        <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                          <li>Real Estate Brokerage Agency Name</li>
+                          <li>State Licensure ID input</li>
+                          <li>NMI Payment Terms checkbox (for subsequent automated credit authorizations)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Forgot Password Modal -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('mod-forgot', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Credentials Reset (Forgot Password Wizard)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="mod-forgot" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2">
+                    <div class="text-obsidian-muted leading-relaxed font-sans">
+                      Recovery module for forgotten credentials.
+                    </div>
+                    <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1">
+                      <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold">Reset Workflow Fields</div>
+                      <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                        <li>Registered Account Email Address input</li>
+                        <li>Action: "Send Recovery Link" button</li>
+                        <li>Verification Code field (inputs 6-digit dynamic recovery key received by email)</li>
+                        <li>New Password input & Set Password action</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== CATEGORY 2: HOME DASHBOARD ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-home', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">2. Home Dashboard</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[2 Screens / 1 Feed]</span>
+        </button>
+        
+        <div id="cat-home" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 2.1: Dashboard Main -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-dashboard', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Home / Main Dashboard Screen</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 01.main screen]</span>
+            </button>
+            
+            <div id="scr-dashboard" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/01.main screen/Screenshot 2026-05-21 at 19.25.32.png" class="text-obsidian-accent hover:underline">01.main screen/Screenshot 2026-05-21 at 19.25.32.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/01_home_dashboard.png" alt="Home Dashboard Main" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 01_home_dashboard.png</div>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">App Header & Welcome Cards</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>Left Header: Profile Icon button (routes directly to the Account suite)</li>
+                    <li>Center Header: "Floor Plan Visuals" logo text</li>
+                    <li>Right Header: Notifications Bell Icon (includes a red badge indicator for unread logs)</li>
+                    <li>Welcome Card: "Welcome, Taylor!" with brief agency indicator status ("Morgan Realty")</li>
+                  </ul>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Schedules & Summaries Logs</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>My Orders summary grid (displays count values for Drafts, Pending Scan, Processing, Completed)</li>
+                    <li>Active Orders panel: contains active project card:
+                      <ul class="list-square pl-4 mt-0.5 text-obsidian-muted text-[11px] space-y-0.5">
+                        <li>Order: #DEMO-001</li>
+                        <li>Address: 123 Main St</li>
+                        <li>Status: Pending Scan</li>
+                        <li>Plan Detail: Plans + CAD</li>
+                      </ul>
+                    </li>
+                    <li>Upcoming Appointments card: shows reservation date, hour, assigned technician coordinator, and target address</li>
+                    <li>Latest FPV Announcement Banner: promotional slides highlighting system releases or custom tutorial cards</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 2.2: Notifications -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-notifications', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Notifications Screen (Alerts Feed)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 01.main screen]</span>
+            </button>
+            
+            <div id="scr-notifications" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/01.main screen/Screenshot 2026-05-21 at 19.25.42.png" class="text-obsidian-accent hover:underline">01.main screen/Screenshot 2026-05-21 at 19.25.42.png</a>
+              </div>
+
+              <!-- Page content details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Alert Feed Specifications</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>Header Navigation: Left Back Arrow, Title "Notifications"</li>
+                  <li>Notification List Cards:
+                    <ul class="list-square pl-4 mt-0.5 text-obsidian-muted text-[11px] space-y-1">
+                      <li>Visit Scheduling alert: "Order #DEMO-001 scheduled" (includes scheduled technician and date logs)</li>
+                      <li>Transaction billing alert: "Invoice paid" (includes amount, receipt coordinates, and success marks)</li>
+                      <li>Blueprint delivery alert: "CAD Draft completed" (includes direct download prompt action link)</li>
+                    </ul>
+                  </li>
+                  <li>Visual state indicators: clear read vs unread dot symbols next to alert cards</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== CATEGORY 3: ACCOUNT SETTINGS SUITE ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-account', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">3. Account settings suite</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[7 Screens & Modals]</span>
+        </button>
+        
+        <div id="cat-account" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 3.1: Account Main -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-account', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Account & Profile Settings Menu</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-account" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.25.53.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.25.53.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/02_account_main.png" alt="Account settings suite" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 02_account_main.png</div>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Profile Identity Card</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>User Name: "Taylor Morgan"</li>
+                    <li>Brokerage Agency: "Morgan Realty"</li>
+                    <li>Profile Image: circular avatar frame placeholder</li>
+                  </ul>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Primary Options Matrix</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>Edit Profile (launches Profile Editor drawer)</li>
+                    <li>My Orders (routes to complete projects ledger)</li>
+                    <li>AutoFill Preferences (launches standard coordinate automation settings)</li>
+                    <li>Payment Methods / Wallet (opens vault payment interfaces)</li>
+                    <li>Favorites (opens pinned searches list)</li>
+                    <li>Feedback Hub (routes to diagnostic beta reporter)</li>
+                    <li>Action: Logout Button (High-contrast red font styling)</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.2: Profile Editor Modal -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-profile-editor', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Profile Editor Modal</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-profile-editor" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.40.44.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.40.44.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Profile Field Registry</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>First Name text input field</li>
+                  <li>Last Name text input field</li>
+                  <li>Phone Number input field</li>
+                  <li>Email Address input field</li>
+                  <li>Company Name input field</li>
+                  <li>Company Account switch toggle (activates options sharing across partner agency members)</li>
+                  <li>Form Actions: "Cancel" button, "Save Changes" primary blue action button</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.3: Orders List -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-orders-list', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">All Projects Ledger (My Orders Listing)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-orders-list" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.26.12.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.26.12.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Ledger Specifications & Filter Systems</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>Selection Tabs: "Active" (ongoing technician scans and blueprint drafting) and "Past" (historical finalized files, download links, receipts)</li>
+                  <li>Order card structures:
+                    <ul class="list-square pl-4 mt-0.5 text-obsidian-muted text-[11px] space-y-0.5">
+                      <li>Unique Order ID number</li>
+                      <li>Placement Date coordinate timestamp</li>
+                      <li>Target Address coordinates</li>
+                      <li>Requested Services badging (Plans, CAD, Matterport, Add-ons)</li>
+                      <li>Status badge: Awaiting Appointment (orange), Completed (green), Cancelled (red)</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.4: AutoFill Preferences -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-autofill-pref', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">AutoFill Settings Preferences Form</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-autofill-pref" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.39.04.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.39.04.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/02_autofill_preferences.png" alt="AutoFill Settings Preferences" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 02_autofill_preferences.png</div>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Contact Point (POC) Default Settings</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>"Same as Account Info" checkbox toggle (auto-populates default client info into new reservations)</li>
+                    <li>Default Point of Contact (POC) Name field</li>
+                    <li>Default Point of Contact (POC) Phone number field</li>
+                    <li>Default Point of Contact (POC) Email coordinates</li>
+                  </ul>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Blueprint Deliverables & Plan Settings</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li>Default Deliverable PDF formats configuration</li>
+                    <li>Default Deliverable CAD Version release selector (AutoCAD 2018, AutoCAD 2020, Revit formats)</li>
+                    <li>Lot Features Preference checkboxes: "Show Dimension Lines", "Show Area Sizing Tiers"</li>
+                    <li>Compass Orientations layout radio selects: True North vs Entrance Door based</li>
+                    <li>Branding Scheme Defaults: Black & White standard vs Color drawings</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.5: Wallet -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-wallet-dash', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Credit Vault Wallet & Payment Forms</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-wallet-dash" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.26.35.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.26.35.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/02_wallet_main.png" alt="Wallet Payment Forms" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 02_wallet_main.png</div>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Secure Vault & Payment Method Elements</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>Security Warning Banner: NMI Secure Vault guidelines (details PCI compliance tokenization, ensuring full card details are never saved locally)</li>
+                  <li>Saved Credit Cards list: Visa **** 4242 (with expiration date MM/YY and "Default Card" active check)</li>
+                  <li>Action Trigger: "Add Payment Method" (launches new card modal form)</li>
+                </ul>
+              </div>
+
+              <!-- Add Payment Modal -->
+              <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                <button onclick="toggleAccordion('mod-add-payment', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                  <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Secure Credit Card Input Modal</span>
+                  <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                </button>
+                <div id="mod-add-payment" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                  <div class="text-obsidian-muted leading-relaxed font-sans">
+                    Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.26.46.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.26.46.png</a>
+                  </div>
+                  <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1">
+                    <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold">Secure Fields (Secure IFrame inputs)</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Cardholder Name (validation checking against registered billing name)</li>
+                      <li>PAN Card Number input field (strictly tokenized during typing)</li>
+                      <li>Expiration Date input field (MM/YY formatting)</li>
+                      <li>CVV security digits field</li>
+                      <li>"Set as Default Payment Method" checkbox toggle</li>
+                      <li>Action Triggers: "Save Card" primary button, "Cancel"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.6: Favorites -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-favorites', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Favorites and Pinned Properties Catalog</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-favorites" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.39.52.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.39.52.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Saved Searches & Properties</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>Pinned Properties log: lists target coordinates, sizing, and technician access lockbox notes for repeat visits</li>
+                  <li>Saved Search criteria: stores coordinates, sizing filters, state office categories for quick execution</li>
+                  <li>Action: "Execute Repeat Order" button shortcut</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 3.7: Feedback Hub -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-feedback-hub', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Beta Tester Feedback System</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 02.account]</span>
+            </button>
+            
+            <div id="scr-feedback-hub" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/02.account/Screenshot 2026-05-21 at 19.40.19.png" class="text-obsidian-accent hover:underline">02.account/Screenshot 2026-05-21 at 19.40.19.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Diagnostic Tickets Console</div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                  <li>Ticket log feed showing dynamic submissions from peer beta users</li>
+                  <li>Ticket Status indicators: "Open", "In Review", "Resolved", "Closed"</li>
+                  <li>Developer Response thread container</li>
+                  <li>Action: "Submit Diagnostic Feedback" button</li>
+                </ul>
+              </div>
+
+              <!-- Submit Feedback Modal -->
+              <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                <button onclick="toggleAccordion('mod-submit-feedback', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                  <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Submit Diagnostic Feedback Form</span>
+                  <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                </button>
+                <div id="mod-submit-feedback" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                  <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1">
+                    <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold">Feedback Ticket Fields</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Subject Line input field</li>
+                      <li>Diagnostic Detailed Description text area</li>
+                      <li>Ticket Classification selector dropdown (Bug, Suggestion, UI Alignments, Other)</li>
+                      <li>"Attach Screenshot" active selection container (triggers OS file dialog box)</li>
+                      <li>Action Triggers: "Submit Ticket", "Cancel"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== CATEGORY 4: PROJECT LOGISTICS & ORDER DETAILS ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-logistics', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">4. Project Logistics & Order Details</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[3 Screen States / 6 Drawers]</span>
+        </button>
+        
+        <div id="cat-logistics" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 4.1: Order Details -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-order-details', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Active Order Details Screen (#DEMO-001 - Pending Scan)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 03.order details]</span>
+            </button>
+            
+            <div id="scr-order-details" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/03.order details/Screenshot 2026-05-21 at 19.27.01.png" class="text-obsidian-accent hover:underline">03.order details/Screenshot 2026-05-21 at 19.27.01.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/03_order_details.png" alt="Active Order Details" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 03_order_details.png</div>
+              </div>
+
+              <!-- Details Banner -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Active Order Overview Banner</div>
+                <div class="grid grid-cols-2 gap-2 text-obsidian-fg">
+                  <div>Order ID: #DEMO-001</div>
+                  <div>Status: Pending Scan (Orange Alert Badge)</div>
+                  <div>Address: 123 Main St</div>
+                  <div>Requested Services: Plans + CAD</div>
+                  <div>Schedules visit coordinates: Technician assigned, awaiting visit</div>
+                </div>
+              </div>
+
+              <!-- Deep Nested Accordion Drawers for logistics details -->
+              <div class="space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Logistics Detail Accordion Drawers:</div>
+
+                <!-- Messages Chat -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-chat', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Messages Chat Room</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-chat" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2">
+                    <div class="text-obsidian-muted">Interactive dialog thread coordinate system linking client with the assigned surveyor technician or support team.</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Displays live messaging logs and image attachments capabilities.</li>
+                      <li>Form Input: "Type a message..." text field, and "Send" action trigger.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-contacts', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Contact Details Drawer</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-contacts" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-fg font-bold uppercase text-[10px] font-mono">Point of Contact (POC) Registries</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>POC Name: Taylor Morgan</li>
+                      <li>POC Verified Mobile Phone: +1 (555) 019-2834</li>
+                      <li>POC Email coordinates: taylor@morganrealty.com</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Survey Units -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-units', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Survey Units Drawer</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-units" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-fg font-bold uppercase text-[10px] font-mono font-bold">Property Structure Targets</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Total levels: 2 Stories</li>
+                      <li>Basement: Yes (unfinished basement drafting required)</li>
+                      <li>Attic: No (Omitted from scanning scope)</li>
+                      <li>Detached structures: Detached two-car garage (requires basic outer footprint drawings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Site Access -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-access', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Site Access Coordinates</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-access" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-fg font-bold uppercase text-[10px] font-mono">Access & Entry Keys</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Access Type: Lockbox on Front Door</li>
+                      <li>Lockbox Details: Sentrilok electronic key lockbox</li>
+                      <li>Lockbox Password / Code: *9271# (masked on screen)</li>
+                      <li>Special coordinates / Access notes: "Gate code #0293. Watch for dog on backyard area."</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Deliverables -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-deliver', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Deliverables Drawer</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-deliver" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-fg font-bold uppercase text-[10px] font-mono">Deliverables Formats Specification</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Requested blueprints format: High-resolution PDF blueprints</li>
+                      <li>AutoCAD output release format: AutoCAD DWG file (Releases version: 2020)</li>
+                      <li>Branding elements: FPV Standard Color palette drawings</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Matterport -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('det-matterport', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 3D Matterport Settings</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="det-matterport" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-fg font-bold uppercase text-[10px] font-mono font-bold">Sanal Tur Details</div>
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Matterport 3D Scanning additions: "Interior and Exterior scans" selected</li>
+                      <li>Virtual Dollhouse View: enabled</li>
+                      <li>Dynamic Measurement Tool: enabled</li>
+                      <li>Link Expiration preference: 3 Months standard hosting</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 4.2: Scheduled Visit -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-scheduled-appt', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Scheduled Appointment Screen (Awaiting Appointment - #DEMO-002)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 03.order details]</span>
+            </button>
+            
+            <div id="scr-scheduled-appt" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/03.order details/Screenshot 2026-05-21 at 19.27.08.png" class="text-obsidian-accent hover:underline">03.order details/Screenshot 2026-05-21 at 19.27.08.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-2">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Scheduled State Overview</div>
+                <div class="text-obsidian-fg leading-relaxed">
+                  Contains identical logistic detail drawer accordions to #DEMO-001 (Messages, POC, Sizing Units, Lockbox keys, PDF formats, 3D dollhouses), but shows a distinct orange status badge: <strong class="text-obsidian-accent">"Awaiting Appointment"</strong>. Visual alert highlights remind users that visiting scheduler slots are pending calendar completion.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 4.3: Completed Audit -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-completed-audit', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Completed Audit Screen (Closed / Finalized - #000-D004)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 03.order details]</span>
+            </button>
+            
+            <div id="scr-completed-audit" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/03.order details/Screenshot 2026-05-21 at 19.27.20.png" class="text-obsidian-accent hover:underline">03.order details/Screenshot 2026-05-21 at 19.27.20.png</a>
+              </div>
+
+              <!-- Details -->
+              <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel text-xs space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Closed State Features</div>
+                <div class="text-obsidian-fg leading-relaxed">
+                  Project files are completed. Displays a green success status badge: <strong class="text-obsidian-success">"Closed"</strong>.
+                </div>
+                <div class="flex flex-col sm:flex-row sm:space-x-3 space-y-2 sm:space-y-0 font-mono text-[10px]">
+                  <button class="px-4 py-2 border border-obsidian-border hover:border-obsidian-accent rounded bg-obsidian-panel hover:text-obsidian-accent font-bold uppercase transition-colors text-left sm:text-center cursor-pointer">
+                    [Action: View Plans]
+                  </button>
+                  <button class="px-4 py-2 border border-obsidian-border hover:border-obsidian-accent rounded bg-obsidian-panel hover:text-obsidian-accent font-bold uppercase transition-colors text-left sm:text-center cursor-pointer">
+                    [Action: View Invoice]
+                  </button>
+                </div>
+                <ul class="list-disc pl-4 space-y-1 text-obsidian-muted text-[11px] mt-2">
+                  <li>"View Plans" launches interactive high-resolution blueprint drawing PDF and AutoCAD online viewer sheets</li>
+                  <li>"View Invoice" pulls up complete transaction payment receipts details (enables printing and PDF invoice exports)</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== CATEGORY 5: ORDER NOW & WIZARDS ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-wizards', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">5. Order Now & Wizards</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[3 Screens & Wizards]</span>
+        </button>
+        
+        <div id="cat-wizards" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 5.1: Order Selection Hub -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-order-hub', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Order Selection Hub Dispatcher</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 04.Order Now]</span>
+            </button>
+            
+            <div id="scr-order-hub" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/04.Order Now/02. Screenshot 2026-05-21 at 20.15.34.png" class="text-obsidian-accent hover:underline">04.Order Now/02. Screenshot 2026-05-21 at 20.15.34.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/04_order_now_hub.png" alt="Order Selection Hub" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 04_order_now_hub.png</div>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">App Dispatcher Grid Option Cards</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                    <li><strong class="text-obsidian-fg">Marketable Plan</strong>: Active (launches 11-step Residential Wizard)</li>
+                    <li><strong class="text-obsidian-muted">As-Built Plan</strong>: Locked (Includes "Coming Soon" badge)</li>
+                    <li><strong class="text-obsidian-muted">3D Renderings</strong>: Locked (Includes "Coming Soon" badge)</li>
+                    <li><strong class="text-obsidian-muted">Site Plans</strong>: Locked (Includes "Coming Soon" badge)</li>
+                  </ul>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Coming Soon Overlay Box</div>
+                  <div class="text-obsidian-fg leading-relaxed">
+                    Triggered by selecting locked options. Overlays screen with a warning alert message: <em>"Feature coming soon. We are hard at work finalizing this module. Stay tuned!"</em> with closing action buttons.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 5.2: 11-Step Wizard -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-residential-wizard', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Marketable Plan Residential Wizard (11-Step Flow)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 04.Order Now]</span>
+            </button>
+            
+            <div id="scr-residential-wizard" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/04.Order Now/01. Marketable Plan for Residential" class="text-obsidian-accent hover:underline">04.Order Now/01. Marketable Plan for Residential</a>
+              </div>
+
+              <!-- Details -->
+              <div class="text-xs text-obsidian-muted leading-relaxed mb-2 font-mono">
+                Exhaustive data registry mapping all form interfaces of the 11-Step checkout flow:
+              </div>
+
+              <!-- Wizard step accordions -->
+              <div class="space-y-2">
+                
+                <!-- Step 1 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step1', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 1: Contact Info Form</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step1" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Client Contact Name input box</li>
+                      <li>Phone number input field</li>
+                      <li>Email coordinates input box</li>
+                      <li>Brokerage Affiliation / Office Name card selector</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step2', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 2: Property Address Search</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step2" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Google Places API autocomplete text search field</li>
+                      <li>Street Address line input box</li>
+                      <li>Unit/Suite optional input field</li>
+                      <li>City, State, Zip Code inputs</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step3', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 3: Level & Structure Builder</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step3" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Story/Floor Count selector options: 1 Story, 2 Stories, 3+ Stories</li>
+                      <li>Basement Option: Yes / No checkboxes (if Yes: Unfinished / Finished options)</li>
+                      <li>Attic Option: Yes / No checkboxes (if Yes: Habitable / Access Only options)</li>
+                      <li>Detached Structures checklist: Detached Garage, Guest House, Shed (requires coordinates)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step4', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 4: Matterport Custom Details</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step4" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>"Include 3D Matterport Tour" checkbox toggle</li>
+                      <li>Matterport options:
+                        <ul class="list-square pl-4 text-obsidian-muted text-[11px]">
+                          <li>Interior and Exterior scans selection</li>
+                          <li>Dollhouse view activation checkbox</li>
+                          <li>Virtual measurement tools checkbox</li>
+                          <li>3 Months standard hosting renewal checkboxes</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step5', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 5: Compass Orientations</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step5" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Layout orientation radio triggers:
+                        <ul class="list-square pl-4 text-obsidian-muted text-[11px]">
+                          <li>True North compass orientation based (matches land registry cards)</li>
+                          <li>Entrance Door based (forces entrance door to face bottom of drawing sheet)</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Steps 6-9 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step6-9', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Steps 6-9: Omitted in Original Mobile Analysis (Reserved for Custom Specs)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step6-9" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <div class="text-obsidian-muted italic">
+                      These steps are skipped in the verified mobile wireframes to reserve structures for subsequent custom developer features (e.g. customized color formatting preferences, on-site entry lockbox coordination notes, co-listing agent configurations).
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 10 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step10', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 10: Credit Checkout Details</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step10" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Cardholder Name</li>
+                      <li>PAN Card Number input field (runs tokenization script)</li>
+                      <li>Expiration Date (MM/YY) & CVV code</li>
+                      <li>NMI Secure credit terms checkboxes</li>
+                      <li>Action: "Submit Order" button</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Step 11 -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('wiz-step11', this)" class="w-full px-3 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">Step 11: Success Confirmation Screen</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="wiz-step11" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Confirmation text: "Order Successfully Created" success banner</li>
+                      <li>Order ID Registry: dynamic number tag (#DEMO-003)</li>
+                      <li>Verification notification text: "An email receipt and tracking invoice has been sent to your address."</li>
+                      <li>Action Trigger button: "Go to Active Order" (routes to Logistics logs)</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 5.3: Search Inventory -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-search-inventory', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Search Inventory & Checkout Flow Form</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 04.Order Now]</span>
+            </button>
+            
+            <div id="scr-search-inventory" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/04.Order Now/07. Search Inventory" class="text-obsidian-accent hover:underline">04.Order Now/07. Search Inventory</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/04_search_inventory_checkout.png" alt="Search Inventory & Checkout" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 04_search_inventory_checkout.png</div>
+              </div>
+
+              <!-- Details -->
+              <div class="space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Purchasing Engine & Sub-Pages:</div>
+
+                <!-- Search Box Console -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('sub-search-console', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Search Box Console Page</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="sub-search-console" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Large text input search box for Address or Property ID</li>
+                      <li>Filter options selector dropdowns: State, City, Zip Code, Sizing ranges (Sq Ft), and CAD file availability status</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Search Results List -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('sub-search-results', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Search Results List Page</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="sub-search-results" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2">
+                    <ul class="list-disc pl-4 space-y-0.5 text-obsidian-fg">
+                      <li>Matching property card lists:
+                        <ul class="list-square pl-4 text-obsidian-muted text-[11px]">
+                          <li>Property image thumbnail</li>
+                          <li>Total area size: "4,200 sq ft"</li>
+                          <li>AutoCAD DWG file status: "CAD File available" success badge</li>
+                          <li>Price tag coordinate: "$350 plans purchase cost"</li>
+                          <li>Action: "Select and Checkout" primary trigger button</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 4-Tab Checkout Wizard -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('sub-checkout-wizard', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Checkout Wizard (4-Tab Flow)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="sub-checkout-wizard" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    
+                    <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                      <button onclick="toggleAccordion('ch-tab1', this)" class="w-full px-2.5 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                        <span class="text-[10px] font-bold text-obsidian-fg uppercase tracking-wide">Tab 1: Account Info Form</span>
+                        <span class="font-mono text-[8px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                      </button>
+                      <div id="ch-tab1" class="accordion-content p-2.5 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1 text-obsidian-fg">
+                        <ul class="list-disc pl-4 space-y-0.5">
+                          <li>"Same as Account Info" default coordinate toggle</li>
+                          <li>Personal coordinates inputs: Name, phone, email</li>
+                          <li>Primary Point of Contact (POC) inputs</li>
+                          <li>"Save Card Details inside secure NMI Vault" consent checkbox</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                      <button onclick="toggleAccordion('ch-tab2', this)" class="w-full px-2.5 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                        <span class="text-[10px] font-bold text-obsidian-fg uppercase tracking-wide">Tab 2: Order Info Details</span>
+                        <span class="font-mono text-[8px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                      </button>
+                      <div id="ch-tab2" class="accordion-content p-2.5 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1 text-obsidian-fg">
+                        <ul class="list-disc pl-4 space-y-0.5">
+                          <li>Searched address match validation block</li>
+                          <li>Relationship to Property dropdown options: Listing Agent, Buyer's Agent, Homeowner, Appraiser, Developer, Other</li>
+                          <li>"Quote Me For" service scope dropdown options: Marketable Plans, Plans + CAD, CAD Only</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                      <button onclick="toggleAccordion('ch-tab3', this)" class="w-full px-2.5 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                        <span class="text-[10px] font-bold text-obsidian-fg uppercase tracking-wide">Tab 3: Final Steps</span>
+                        <span class="font-mono text-[8px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                      </button>
+                      <div id="ch-tab3" class="accordion-content p-2.5 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-1 text-obsidian-fg">
+                        <ul class="list-disc pl-4 space-y-0.5">
+                          <li>Co-listing Agent toggle switch: Yes / No (if Yes: input co-agent email and name)</li>
+                          <li>Referral Source text entry box (e.g. Google, Brokerage email list, technician cards)</li>
+                          <li>Comments / lockbox coordination text input area</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                      <button onclick="toggleAccordion('ch-tab4', this)" class="w-full px-2.5 py-1.5 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                        <span class="text-[10px] font-bold text-obsidian-fg uppercase tracking-wide">Tab 4: Terms and Conditions Form</span>
+                        <span class="font-mono text-[8px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                      </button>
+                      <div id="ch-tab4" class="accordion-content p-2.5 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2 text-obsidian-fg">
+                        <ul class="list-disc pl-4 space-y-0.5">
+                          <li>Cancellation and rescheduled reservation terms warning block</li>
+                          <li>Credit card terms note: "We do not accept AMEX payment methods."</li>
+                          <li>Billing disclaimer warning: "All vault transactions are subject to a 3% secure processing fee."</li>
+                          <li>Consent agreements checkboxes (2 items)</li>
+                          <li>Action: "Submit Order" button</li>
+                          <li>Validation: Red indicator error badges when mandatory coordinates are omitted</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ==================== CATEGORY 6: CATALOGS, PRICING & SERVICES ==================== -->
+      <div class="border border-obsidian-border rounded-md bg-obsidian-panel overflow-hidden">
+        <button onclick="toggleAccordion('cat-catalog', this)" class="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+            <span class="font-bold text-sm text-obsidian-fg uppercase tracking-wider">6. Catalogs, Pricing & Services</span>
+          </div>
+          <span class="font-mono text-[10px] text-obsidian-muted uppercase tracking-widest">[4 Screens / 4 Price Tables / 1 Directory]</span>
+        </button>
+        
+        <div id="cat-catalog" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+          
+          <!-- Screen 6.1: Services Catalog -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-services-catalog', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">FPV Interactive Services Catalog</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 05. About]</span>
+            </button>
+            
+            <div id="scr-services-catalog" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Services/Services-Main.png" class="text-obsidian-accent hover:underline">05. About/Services/Services-Main.png</a>
+              </div>
+
+              <!-- Main screenshot visual -->
+              <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                <img src="./screenshots/05_services_main.png" alt="Services Catalog Main" class="w-full h-auto rounded border border-obsidian-border">
+                <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 05_services_main.png</div>
+              </div>
+
+              <!-- Details of Catalog tabs -->
+              <div class="space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Catalog Section Toggles:</div>
+
+                <!-- Marketable tab -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('cat-tab-marketable', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 1. Marketable (Pazarlanabilir Hizmetler)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="cat-tab-marketable" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Services/01. Marketable/Screenshot 2026-05-21 at 20.25.26.png" class="text-obsidian-accent hover:underline">05. About/Services/01. Marketable/Screenshot 2026-05-21 at 20.25.26.png</a>
+                    </div>
+                    
+                    <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-2">
+                      <div class="font-bold text-obsidian-accent">Residential Floor Plans</div>
+                      <p class="leading-relaxed text-obsidian-fg">
+                        Overview: Comprehensive digital drawing layout showing precise placement of interior walls, rooms, entry doors, windows, and main coordinates tags. Features clear checklists detailing "Good For: MLS listings, print flyers, marketing packets."
+                      </p>
+                      <button class="font-mono text-[9px] px-3 py-1.5 border border-obsidian-border hover:border-obsidian-accent rounded bg-obsidian-canvas hover:text-obsidian-accent font-bold uppercase transition-colors cursor-pointer">
+                        [Action: View on Website]
+                      </button>
+                    </div>
+
+                    <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1">
+                      <div class="font-bold text-obsidian-fg">Site Plans</div>
+                      <p class="leading-relaxed text-obsidian-muted">
+                        Overview: Scaled mapping showing lot sizes, detached garage shapes, patio elements, driveway locations, and exterior property boundaries.
+                      </p>
+                    </div>
+
+                    <div class="border border-obsidian-border p-2.5 rounded bg-obsidian-panel space-y-1">
+                      <div class="font-bold text-obsidian-fg">Commercial Floor Plans</div>
+                      <p class="leading-relaxed text-obsidian-muted">
+                        Overview: Specialized layouts tailored for commercial workspace catalogs, offices, warehouses, detailing egress zones and structural pillars.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- As-Built tab -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('cat-tab-asbuilt', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 2. As-Built (Mevcut Durum - Ölçüm)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="cat-tab-asbuilt" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Services/02. As Build/_As Build Screenshot 2026-05-21 at 20.28.03.png" class="text-obsidian-accent hover:underline">05. About/Services/02. As Build/_As Build Screenshot 2026-05-21 at 20.28.03.png</a>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                      <li><strong class="text-obsidian-fg">As-Built Floor Plans</strong>: Detailed engineering blueprints capturing existing wall thickness, plumbing fixtures coordinates, ceiling heights.</li>
+                      <li><strong class="text-obsidian-fg">Exterior Elevations</strong>: Architectural side views highlighting building facades, roof lines, materials.</li>
+                      <li><strong class="text-obsidian-fg">Interior Elevations</strong>: Vertical cuts showcasing interior wall details (kitchen cabinets, fireplace layouts, built-in shelving).</li>
+                      <li><strong class="text-obsidian-fg">Building Sections</strong>: Cross-section views illustrating internal construction framing and wall profiles.</li>
+                      <li><strong class="text-obsidian-fg">Roof Plans</strong>: Aerial structural mapping of slopes, drainage coordinates, valleys, chimney placements.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 3D Media tab -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('cat-tab-3dmedia', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 3. 3D & Media (3D ve Görselleştirme)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="cat-tab-3dmedia" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Services/03. 3D and Media/Screenshot 2026-05-21 at 20.29.27.png" class="text-obsidian-accent hover:underline">05. About/Services/03. 3D and Media/Screenshot 2026-05-21 at 20.29.27.png</a>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                      <li><strong class="text-obsidian-fg">3D Walk-Through Tours</strong>: Dynamic virtual walkthrough models.</li>
+                      <li><strong class="text-obsidian-fg">3D Renderings</strong>: High-resolution visual renderings for exteriors and interior spaces.</li>
+                      <li><strong class="text-obsidian-fg">3D Animations</strong>: Fly-over visual animation videos or interior walk-thru videos.</li>
+                      <li><strong class="text-obsidian-fg">Matterport Video</strong>: Exported promotional clips generated directly from Matterport dollhouse coordinate grids.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Add-Ons tab -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('cat-tab-addons', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 4. Add-Ons (Ek Seçenekler)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="cat-tab-addons" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Services/04. AdsOn/Screenshot 2026-05-21 at 20.30.14.png" class="text-obsidian-accent hover:underline">05. About/Services/04. AdsOn/Screenshot 2026-05-21 at 20.30.14.png</a>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-obsidian-fg">
+                      <li><strong class="text-obsidian-fg">Exterior Add-On</strong>: Adds backyard elevations or basic site plans to standard interior drawings.</li>
+                      <li><strong class="text-obsidian-fg">Square Footage Calculations</strong>: Formal coordinate calculations and certificates of square footage.</li>
+                      <li><strong class="text-obsidian-fg">Furniture Add-On</strong>: Populates blueprint drawings with standard interior furniture symbols.</li>
+                      <li><strong class="text-obsidian-fg">CAD File Release</strong>: Supplies fully layered layered AutoCAD DWG file.</li>
+                      <li><strong class="text-obsidian-fg">2D/3D Plans From Scan</strong>: Generates flat blueprints directly from raw Matterport scanning data.</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 6.2: Pricing Grids -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-pricing-grids', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">Multi-State Pricing Grids Screen (Arizona Base)</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 05. About/Pricing]</span>
+            </button>
+            
+            <div id="scr-pricing-grids" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Tabs of Pricing tables -->
+              <div class="space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Exhaustive Pricing Tables:</div>
+
+                <!-- Table 1: Plans -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('pr-table-plans', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 1. PLANS Drafting Pricing Matrix</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="pr-table-plans" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Pricing/Screenshot 2026-05-21 at 20.31.11.png" class="text-obsidian-accent hover:underline">05. About/Pricing/Screenshot 2026-05-21 at 20.31.11.png</a>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-left font-mono text-[11px] text-obsidian-fg border-collapse">
+                        <thead>
+                          <tr class="border-b border-obsidian-border text-obsidian-muted uppercase text-[9px]">
+                            <th class="py-2 pr-4">Square Footage Bracket</th>
+                            <th class="py-2 px-4">Black & White (B&W) Plans</th>
+                            <th class="py-2 pl-4">Color Plans</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-obsidian-border">
+                          <tr>
+                            <td class="py-2 pr-4">0 - 1,000 sq ft</td>
+                            <td class="py-2 px-4">$150.00</td>
+                            <td class="py-2 pl-4">$200.00</td>
+                          </tr>
+                          <tr>
+                            <td class="py-2 pr-4">1,001 - 2,000 sq ft</td>
+                            <td class="py-2 px-4">$200.00</td>
+                            <td class="py-2 pl-4">$250.00</td>
+                          </tr>
+                          <tr>
+                            <td class="py-2 pr-4">2,001 - 3,000 sq ft</td>
+                            <td class="py-2 px-4">$250.00</td>
+                            <td class="py-2 pl-4">$300.00</td>
+                          </tr>
+                          <tr>
+                            <td class="py-2 pr-4">3,001 - 4,000 sq ft</td>
+                            <td class="py-2 px-4">$300.00</td>
+                            <td class="py-2 pl-4">$350.00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="p-2 border border-obsidian-border bg-obsidian-panel rounded text-[11px] text-obsidian-muted leading-relaxed font-sans">
+                      Note: Sizing ranges above 4,000 sq ft require a custom coordinate quote request. Pricing structures are automatically adjusted based on selected regional state offices.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Table 2: From Existing -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('pr-table-existing', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 2. FROM EXISTING Drafting Pricing Matrix</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="pr-table-existing" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Pricing/Screenshot 2026-05-21 at 20.31.19.png" class="text-obsidian-accent hover:underline">05. About/Pricing/Screenshot 2026-05-21 at 20.31.19.png</a>
+                    </div>
+                    <p class="text-obsidian-fg font-sans leading-relaxed">
+                      Pricing schedules for converting old blueprints, historical sketches, or paper designs into fully layered AutoCAD and PDF documents. Includes flat base drafting fees (e.g. starting at $100.00) plus incremental sizing fees and review revision rates.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Table 3: Renderings -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('pr-table-renderings', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 3. RENDERINGS Visuals Pricing Matrix</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="pr-table-renderings" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Pricing/Screenshot 2026-05-21 at 20.31.27.png" class="text-obsidian-accent hover:underline">05. About/Pricing/Screenshot 2026-05-21 at 20.31.27.png</a>
+                    </div>
+                    <ul class="list-disc pl-4 space-y-1 text-obsidian-fg font-sans">
+                      <li><strong class="text-obsidian-fg">3D Exterior Rendering</strong>: Custom photographic building facade visual pricing sheets.</li>
+                      <li><strong class="text-obsidian-fg">3D Interior Rendering</strong>: Room layout renderings (kitchen, living space cabinets and materials).</li>
+                      <li><strong class="text-obsidian-fg">Fly-Over Animation Video</strong>: Aerial drone-simulation visual clips.</li>
+                      <li><strong class="text-obsidian-fg">Interior Walk-Thru Animation Video</strong>: Dynamic camera movement walkthroughs.</li>
+                    </ul>
+                    <div class="p-2 border border-obsidian-border bg-obsidian-panel rounded text-[11px] text-obsidian-muted leading-relaxed font-sans">
+                      Note: "Please email your blueprint CAD/PDF files to our support address for a custom project quote."
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Table 4: Matterport -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('pr-table-matterport', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> 4. MATTERPORT walk-through Pricing Matrix</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="pr-table-matterport" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-4">
+                    
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Pricing/Screenshot 2026-05-21 at 20.31.29.png" class="text-obsidian-accent hover:underline">05. About/Pricing/Screenshot 2026-05-21 at 20.31.29.png</a>
+                    </div>
+
+                    <!-- Main screenshot visual -->
+                    <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel max-w-sm">
+                      <img src="./screenshots/05_pricing_matterport.png" alt="Matterport Pricing Matrix" class="w-full h-auto rounded border border-obsidian-border">
+                      <div class="text-[9px] text-center text-obsidian-muted font-mono mt-1">Screenshot: 05_pricing_matterport.png</div>
+                    </div>
+
+                    <!-- Matterport Base Services -->
+                    <div class="space-y-1.5 border border-obsidian-border p-2.5 rounded bg-obsidian-panel">
+                      <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Matterport Base Services</div>
+                      <div class="overflow-x-auto">
+                        <table class="w-full text-left font-mono text-[11px] text-obsidian-fg border-collapse">
+                          <thead>
+                            <tr class="border-b border-obsidian-border text-obsidian-muted uppercase text-[9px]">
+                              <th class="py-1 pr-4">Square Footage Bracket</th>
+                              <th class="py-1 pl-4 text-right">Drafting Cost</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-obsidian-border">
+                            <tr>
+                              <td class="py-1 pr-4">0 - 1,000 sq ft</td>
+                              <td class="py-1 pl-4 text-right">$250.00</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">1,001 - 2,000 sq ft</td>
+                              <td class="py-1 pl-4 text-right">$300.00</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">2,001 - 3,000 sq ft</td>
+                              <td class="py-1 pl-4 text-right">$350.00</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">3,001 - 4,000 sq ft</td>
+                              <td class="py-1 pl-4 text-right">$400.00</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">5,000+ sq ft</td>
+                              <td class="py-1 pl-4 text-right">$250.00 / hour</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- Matterport Add-Ons -->
+                    <div class="space-y-1.5 border border-obsidian-border p-2.5 rounded bg-obsidian-panel">
+                      <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Matterport Add-On Services & Pricing</div>
+                      <div class="overflow-x-auto">
+                        <table class="w-full text-left font-mono text-[11px] text-obsidian-fg border-collapse">
+                          <thead>
+                            <tr class="border-b border-obsidian-border text-obsidian-muted uppercase text-[9px]">
+                              <th class="py-1 pr-4">Add-On Service Option</th>
+                              <th class="py-1 pl-4 text-right">Fee Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-obsidian-border">
+                            <tr>
+                              <td class="py-1 pr-4">Outdoor Scans</td>
+                              <td class="py-1 pl-4 text-right">$100.00 / hour</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">Detached Scan (guest homes, sheds)</td>
+                              <td class="py-1 pl-4 text-right">$50.00 flat</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">Link Renewal (3 Months Hosting Extension)</td>
+                              <td class="py-1 pl-4 text-right">$75.00 / 3 Months</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">2D Floor Plan From Scan (Flat raw drawing)</td>
+                              <td class="py-1 pl-4 text-right">$150.00 flat</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">2D Color Floor Plan From Scan</td>
+                              <td class="py-1 pl-4 text-right">$200.00 flat</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">3D Color Floor Plan From Scan</td>
+                              <td class="py-1 pl-4 text-right">$250.00 flat</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">Matterport Video (Below 1,000 sq ft)</td>
+                              <td class="py-1 pl-4 text-right">$125.00 flat</td>
+                            </tr>
+                            <tr>
+                              <td class="py-1 pr-4">Matterport Video (Above 1,000 sq ft)</td>
+                              <td class="py-1 pl-4 text-right">+$50.00 per additional 1,000 sq ft</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Screen 6.3: About Main Page -->
+          <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+            <button onclick="toggleAccordion('scr-about-platform', this)" class="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors border-b border-transparent focus:outline-none cursor-pointer">
+              <div class="flex items-center space-x-3">
+                <span class="font-mono text-xs text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                <span class="text-xs font-bold text-obsidian-fg uppercase tracking-wide">About Platform & Contacts</span>
+              </div>
+              <span class="font-mono text-[9px] text-obsidian-muted uppercase">[Screenshot 05. About]</span>
+            </button>
+            
+            <div id="scr-about-platform" class="accordion-content bg-obsidian-canvas p-4 space-y-4 border-t border-obsidian-border">
+              
+              <!-- Original file link -->
+              <div class="text-[10px] font-mono text-obsidian-muted border-b border-obsidian-border pb-2">
+                Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Screenshot 2026-05-21 at 20.24.58.png" class="text-obsidian-accent hover:underline">05. About/Screenshot 2026-05-21 at 20.24.58.png</a>
+              </div>
+
+              <!-- Page content details -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">FPV Overview Branding Card</div>
+                  <p class="leading-relaxed text-obsidian-fg">
+                    Official overview of the Floor Plan Visuals (FPV) mobile application. Empowers real estate brokerages, agents, developers, and appraisers to order scaled residential layout blueprints, site maps, elevations, and virtual walkthrough tools seamlessly.
+                  </p>
+                </div>
+                <div class="border border-obsidian-border p-3 rounded bg-obsidian-panel space-y-2">
+                  <div class="font-mono text-[9px] text-obsidian-accent uppercase font-bold">Main Call to Actions</div>
+                  <ul class="list-disc pl-4 space-y-1 text-obsidian-fg font-mono text-[10px]">
+                    <li>[Action: Open Website] (launches external FPV corporate portal page)</li>
+                    <li>[Action: Services Catalog] (switches views to catalog tabs)</li>
+                    <li>[Action: Contact regional office] (triggers state telephone index)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Modals / Drawers under About -->
+              <div class="space-y-3">
+                <div class="font-mono text-[9px] text-obsidian-muted uppercase font-bold px-1">Sub-Pages & Placeholders:</div>
+
+                <!-- Regional Office Directory -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('sub-state-directory', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Regional Office Contact Directory (15+ States)</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="sub-state-directory" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-3">
+                    
+                    <div class="text-obsidian-muted font-sans leading-relaxed">
+                      Original Paths: 
+                      <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Screenshot 2026-05-21 at 20.25.02.png" class="text-obsidian-accent hover:underline">05. About/Screenshot 2026-05-21 at 20.25.02.png</a> &amp; 
+                      <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Screenshot 2026-05-21 at 20.25.06.png" class="text-obsidian-accent hover:underline">05. About/Screenshot 2026-05-21 at 20.25.06.png</a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-obsidian-fg">
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">California</div>
+                        <div class="text-[10px] text-obsidian-muted">San Francisco, Los Angeles, San Diego offices</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Arizona</div>
+                        <div class="text-[10px] text-obsidian-muted">Phoenix regional coordinator office</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Texas</div>
+                        <div class="text-[10px] text-obsidian-muted">Austin, Houston office centers</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Florida</div>
+                        <div class="text-[10px] text-obsidian-muted">Miami headquarters logistics center</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Washington DC</div>
+                        <div class="text-[10px] text-obsidian-muted">District central operations office</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Nevada</div>
+                        <div class="text-[10px] text-obsidian-muted">Reno/Tahoe coordination office</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Illinois</div>
+                        <div class="text-[10px] text-obsidian-muted">Chicago metropolitan service area</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">New York</div>
+                        <div class="text-[10px] text-obsidian-muted">NYC area drafting and measurement division</div>
+                      </div>
+                      <div class="border border-obsidian-border p-2 rounded bg-obsidian-panel">
+                        <div class="font-bold text-obsidian-accent">Other Registered States</div>
+                        <div class="text-[10px] text-obsidian-muted">Colorado (Denver), Connecticut, Oregon, Pennsylvania, Georgia (Atlanta), South Carolina (Charleston), Maryland, Virginia, Massachusetts (Boston), Washington (Seattle).</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chat Drawer Placeholder -->
+                <div class="border border-obsidian-border rounded bg-obsidian-panel overflow-hidden">
+                  <button onclick="toggleAccordion('sub-chat-drawer', this)" class="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-obsidian-activeBg transition-colors focus:outline-none cursor-pointer">
+                    <span class="text-[11px] font-bold text-obsidian-fg uppercase tracking-wider">>> Native Support Live Chat Module</span>
+                    <span class="font-mono text-[9px] text-obsidian-accent font-bold accordion-indicator">[+]</span>
+                  </button>
+                  <div id="sub-chat-drawer" class="accordion-content p-3 border-t border-obsidian-border bg-obsidian-canvas text-xs space-y-2">
+                    <div class="text-obsidian-muted">
+                      Original Path: <a href="file:///Volumes/Data/GoogleDrive/_works/Floor Plan Visuals/FPV Screenshots/05. About/Screenshot 2026-05-21 at 20.32.39.png" class="text-obsidian-accent hover:underline">05. About/Screenshot 2026-05-21 at 20.32.39.png</a>
+                    </div>
+                    <p class="text-obsidian-fg leading-relaxed">
+                      Placeholder screen for live in-app support chat. Displays dynamic informational badge: <strong class="text-obsidian-accent">"Chat Feature Coming Soon"</strong>. Shows brief details describing native connection queues which will link clients with support specialists.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DIAGNOSTIC FOOTER -->
+    <div class="pt-6 border-t border-obsidian-border text-center font-mono text-[9px] text-obsidian-muted uppercase tracking-widest">
+      FPV_Core_Deck // Compiled Structural Tree // Standard Arial // Zero Emojis // v2.5
+    </div>
+
+  </div>
+
+  <!-- ACCORDION ENGINE SCRIPTS -->
+  <script>
+    function toggleAccordion(id, btn) {
+      const content = document.getElementById(id);
+      const indicator = btn.querySelector('.accordion-indicator');
+      
+      const isOpen = content.classList.contains('open');
+      
+      if (isOpen) {
+        content.classList.remove('open');
+        indicator.textContent = '[+]';
+      } else {
+        content.classList.add('open');
+        indicator.textContent = '[-]';
+      }
+    }
+
+    // Recursively expand all accordions
+    function expandAll() {
+      const contents = document.querySelectorAll('.accordion-content');
+      const indicators = document.querySelectorAll('.accordion-indicator');
+      
+      contents.forEach(content => {
+        content.classList.add('open');
+      });
+      
+      indicators.forEach(indicator => {
+        indicator.textContent = '[-]';
+      });
+    }
+
+    // Recursively collapse all accordions
+    function collapseAll() {
+      const contents = document.querySelectorAll('.accordion-content');
+      const indicators = document.querySelectorAll('.accordion-indicator');
+      
+      contents.forEach(content => {
+        content.classList.remove('open');
+      });
+      
+      indicators.forEach(indicator => {
+        indicator.textContent = '[+]';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product UX Improvements & UI Redesign - ClickUp Task Explorer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#df9e38', // Sophisticated desaturated primary amber/gold
+                            600: '#c68426', // Warm bronze-amber
+                            700: '#a3671c',
+                            800: '#854f15',
+                            900: '#6c3e12',
+                            950: '#1b0d02',
+                        },
+                        darkbg: {
+                            card: '#151310', // Soft dark charcoal with amber undertone
+                            border: '#2a2219', // Dark desaturated bronze border
+                            accent: '#201810',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0806;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.03) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(59, 130, 246, 0.02) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        .outfit-font {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0d0b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2219;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c68426;
+        }
+        
+        .glass-effect {
+            background: rgba(21, 18, 15, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(223, 158, 56, 0.05);
+        }
+        
+        .glass-hover:hover {
+            background: rgba(21, 18, 15, 0.88);
+            border-color: rgba(223, 158, 56, 0.2);
+            box-shadow: 0 0 25px rgba(223, 158, 56, 0.08);
+            transform: translateY(-1px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .task-card-active {
+            border-color: rgba(223, 158, 56, 0.5) !important;
+            box-shadow: 0 0 20px rgba(223, 158, 56, 0.15) !important;
+        }
+        
+        /* Glow animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(223, 158, 56, 0.05); }
+            50% { box-shadow: 0 0 25px rgba(223, 158, 56, 0.15); }
+        }
+        .glowing-border {
+            animation: pulse-glow 3s infinite;
+        }
+        
+        .markdown-content p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .markdown-content ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .markdown-content li {
+            margin-bottom: 0.25rem;
+        }
+        .markdown-content strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+        
+        /* Transitions */
+        .collapsible-content {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-200">
+
+    <!-- TOP HEADER & STATS -->
+    <header class="border-b border-brand-900/20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex flex-row items-center justify-between gap-4">
+                <div>
+                    <!-- Left: FPV Workplan Subtitle above main parent task -->
+                    <div class="flex items-center gap-2 text-brand-500 text-sm font-semibold uppercase tracking-wider outfit-font">
+                        <i class="fa-solid fa-layer-group"></i> FPV Workplan
+                    </div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-brand-400 outfit-font tracking-tight mt-1">
+                        Product UX Improvements & UI Redesign
+                    </h1>
+                </div>
+                
+                <!-- Right: Sync and ClickUp link buttons -->
+                <div class="flex items-center shrink-0 gap-3">
+                    <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-brand-400 text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                        <i class="fa-solid fa-arrows-rotate text-[10px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
+                    </button>
+                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-8xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY -->
+            <aside class="lg:col-span-1">
+                <div class="glass-effect p-4 rounded-xl sticky top-36 overflow-y-auto max-h-[calc(100vh-11rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                    
+                    <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
+                    <div class="mb-5 pb-4 border-b border-brand-900/20">
+                        <div class="text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font mb-1.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
+                        </div>
+                        <h3 class="text-sm font-extrabold text-slate-100 outfit-font leading-snug tracking-wide">
+                            Product UX Improvements & UI Redesign
+                        </h3>
+                    </div>
+
+                    <!-- Quick Navigation replaced with Estimated Task List -->
+                    <h2 class="text-[10px] font-bold text-slate-455 uppercase tracking-wider outfit-font mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
+                    </h2>
+                    
+                    <div class="space-y-1" id="sidebar-tree">
+                        <!-- Javascript will render this tree -->
+                        <div class="animate-pulse space-y-2">
+                            <div class="h-6 bg-slate-900 rounded w-3/4"></div>
+                            <div class="h-6 bg-slate-900 rounded w-5/6"></div>
+                            <div class="h-6 bg-slate-900 rounded w-2/3"></div>
+                            <div class="h-6 bg-slate-900 rounded w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
+            <main class="lg:col-span-3">
+                <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-900">
+                    <!-- Left: Desaturated, Borderless Plain Text Stats -->
+                    <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
+                        <div>
+                            <span class="text-slate-200 font-bold text-sm" id="total-count-stat">0</span> Total Tasks
+                        </div>
+                        <div class="text-slate-700">|</div>
+                        <div class="flex items-center gap-1">
+                            <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
+                            <span class="text-slate-200 font-bold text-sm" id="total-time-stat">0h</span> Estimated Time
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Elegant Expand All / Collapse All controls -->
+                    <div class="flex items-center gap-2">
+                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-350 hover:text-slate-100 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-open text-[10px] text-brand-500/80"></i> Expand All
+                        </button>
+                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-slate-800 border border-slate-850 hover:border-slate-755 text-slate-350 hover:text-slate-205 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-closed text-[10px] text-slate-500"></i> Collapse All
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-6" id="tasks-container">
+                    <!-- Javascript will render the hierarchical cards here -->
+                    <div class="text-center py-20">
+                        <div class="inline-block animate-spin text-brand-500 text-3xl mb-4">
+                            <i class="fa-solid fa-spinner"></i>
+                        </div>
+                        <p class="text-slate-400">Loading task data and building tree structure...</p>
+                    </div>
+                </div>
+            </main>
+            
+        </div>
+    </div>
+
+    <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
+    <footer class="border-t border-slate-950 py-8 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>FPV UX & UI Redesign Project Plan &bull; Burak Ozdelice &bull; 2026</p>
+        </div>
+    </footer>
+
+    <!-- SYNCING STATE MODAL -->
+    <div id="sync-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-effect max-w-md w-full p-8 rounded-2xl border border-brand-500/20 shadow-2xl text-center flex flex-col items-center">
+            <div class="relative w-16 h-16 mb-6">
+                <!-- Golden Loader Spinner -->
+                <div class="absolute inset-0 rounded-full border-4 border-brand-900/20"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-t-brand-500 animate-spin"></div>
+            </div>
+            <h3 class="text-lg font-bold text-slate-100 outfit-font tracking-wide mb-2">Syncing Workspace Data</h3>
+            <p class="text-sm text-slate-400 mb-6">Fetching latest tasks from ClickUp and rebuilding the hierarchy. Please do not close this window.</p>
+            
+            <!-- Real-time Status Checklist -->
+            <div class="w-full text-left space-y-3 bg-slate-950/40 p-4 rounded-xl border border-brand-900/10 text-xs">
+                <div id="status-step-1" class="flex items-center gap-2.5 text-slate-500 transition-colors duration-200">
+                    <i class="fa-solid fa-spinner animate-spin text-[10px] hidden" id="step-1-spinner"></i>
+                    <i class="fa-solid fa-circle-notch text-[10px]" id="step-1-pending"></i>
+                    <i class="fa-solid fa-circle-check text-brand-500 text-[10px] hidden" id="step-1-check"></i>
+                    <span>Connecting and downloading ClickUp tasks...</span>
+                </div>
+                <div id="status-step-2" class="flex items-center gap-2.5 text-slate-500 transition-colors duration-200">
+                    <i class="fa-solid fa-spinner animate-spin text-[10px] hidden" id="step-2-spinner"></i>
+                    <i class="fa-solid fa-circle-notch text-[10px]" id="step-2-pending"></i>
+                    <i class="fa-solid fa-circle-check text-brand-500 text-[10px] hidden" id="step-2-check"></i>
+                    <span>Analyzing dependency tree & ordering...</span>
+                </div>
+                <div id="status-step-3" class="flex items-center gap-2.5 text-slate-500 transition-colors duration-200">
+                    <i class="fa-solid fa-spinner animate-spin text-[10px] hidden" id="step-3-spinner"></i>
+                    <i class="fa-solid fa-circle-notch text-[10px]" id="step-3-pending"></i>
+                    <i class="fa-solid fa-circle-check text-brand-500 text-[10px] hidden" id="step-3-check"></i>
+                    <span>Compiling dynamic components...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OFFLINE GUIDANCE MODAL -->
+    <div id="offline-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-effect max-w-lg w-full p-8 rounded-2xl border border-red-500/20 shadow-2xl">
+            <div class="flex items-center gap-3.5 mb-5 pb-4 border-b border-brand-900/10">
+                <div class="w-10 h-10 rounded-full bg-brand-900/10 border border-brand-500/25 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-circle-exclamation text-brand-500 text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-slate-100 outfit-font tracking-wide">Workspace Sync Offline</h3>
+                    <p class="text-xs text-slate-500">Live background sync server could not be reached.</p>
+                </div>
+            </div>
+            
+            <p class="text-sm text-slate-300 leading-relaxed mb-5">
+                To sync your dashboard with ClickUp instantly, make sure the local background server is running.
+            </p>
+            
+            <div class="space-y-4">
+                <div class="text-xs font-semibold text-slate-400 outfit-font uppercase tracking-wider">How to start the server:</div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-brand-900/15 font-mono text-xs text-brand-400 select-all relative group">
+                    <div class="text-[9px] text-slate-600 absolute right-3 top-2.5 uppercase font-sans tracking-widest group-hover:text-slate-550 transition-colors">Terminal Command</div>
+                    python3 ux_task_dashboard/server.py
+                </div>
+                
+                <div class="flex items-start gap-2.5 text-xs text-slate-400 leading-relaxed">
+                    <i class="fa-solid fa-circle-info text-brand-500/80 mt-0.5 text-[10px]"></i>
+                    <span>Once running, your board will be served at <a href="http://localhost:5001" target="_blank" class="text-brand-400 hover:underline">http://localhost:5001</a> and can be updated instantly from any browser tab.</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-end gap-3 mt-8 pt-4 border-t border-brand-900/10">
+                <button onclick="closeOfflineModal()" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-lg transition-all border border-slate-850 hover:border-slate-755 cursor-pointer">
+                    Continue Offline
+                </button>
+                <button onclick="retrySync()" class="px-4 py-2 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 hover:text-brand-300 text-xs font-semibold rounded-lg transition-all border border-brand-500/30 cursor-pointer flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrows-rotate text-[10px]" id="retry-icon"></i> Retry Sync
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA BUNDLING & CLIENT APP CODE -->
+    <script>
+        // Bundled ClickUp Task Tree from Python
+        const taskData = {"id": "86expucex", "name": "Product UX Improvements & UI Redesign", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9fd", "name": "GROUP 1 \u2014 Research & Direction", "description": "Initial research phase: sector trends, references, and defining the overall design direction before any screen work begins.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9ft", "name": "General Design Concept Definition", "description": "", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86expf9fm", "name": "Mood Board & Visual Direction", "description": "Curate visual references: UI styles, color palettes, typography pairings, photography and illustration approaches relevant to the FPV brand.", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86expf9fg", "name": "Sector & Competitor Research", "description": "Survey modern real estate / prop-tech mobile apps. Identify best-in-class UX patterns, visual trends, and opportunities for differentiation.", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": []}]}, {"id": "86expf9fy", "name": "GROUP 2 \u2014 Initial Design Proposals", "description": "First round of design concepts presented to the client. Two alternative directions explored; one selected and refined after client feedback.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9g6", "name": "Concept Improvements", "description": "Apply revision notes to the selected concept. Refine typography, spacing, colour, and component style until the design language is locked and approved. Apply the new design approach to one or more additional pages to evaluate its results and refine design decisions as needed before beginning the full app design process.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9g0", "name": "Initial Design Proposal", "description": "Full design concept applied to key screens (Home and potentially one additional screen). Presents a distinct visual language, color palette, and component style.\n\nThis screen will also include navigation and main page layout design solutions.", "status": "to do", "time_estimate": 86400000, "custom_fields": [], "subtasks": []}, {"id": "86expf9g3", "name": "[REVISION 1] Client Feedback & Iterations", "description": "Collect client feedback, align on the chosen direction, and document all change requests. Output: Approved concept brief + revision notes.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}]}, {"id": "86expf9g8", "name": "GROUP 3 \u2014 UX Analysis & Screen Solutions", "description": "Deep-dive into every app screen to identify UX problems and define layout and component solutions before full visual design begins.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9gg", "name": "Iterative UX Audit, Improvements & Solutions (Screen-Level)", "description": "Ongoing UX analysis, usability improvements, and interaction refinements performed throughout the design process on a screen-by-screen basis. This task includes identifying UX opportunities during UI production, exploring better interface behaviors, refining user flows, and applying practical UX solutions iteratively as the product design evolves.", "status": "to do", "time_estimate": 108000000, "custom_fields": [], "subtasks": []}]}, {"id": "86expf9ny", "name": "GROUP 4 \u2014 Design System & Core Branding Updates ", "description": "Full brand and design system work: logo, branding renewal, component library, icon set and AI-assisted imagery.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9pc", "name": "    Visual Asset Creation & Curation", "description": "", "status": "to do", "time_estimate": 18000000, "custom_fields": [], "subtasks": []}, {"id": "86expf9p0", "name": "App Icon Design", "description": "Adaptation and refinement of the existing FPV emblem into a mobile app icon format. This task includes creating a simple, clean, and visually strong app icon aligned with the current FPV brand identity. If necessary, the process may include limited visual explorations and iterative refinements to evaluate different app icon directions. However, the current goal is to achieve a simple but polished and effective app icon solution rather than conducting a large-scale icon exploration process.", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9p3", "name": "Design System Setup \u2014 Tokens, Components & Styles", "description": "Build the full design system: colour tokens, type scale, spacing scale, elevation, grid, and all reusable UI components (buttons, cards, inputs, modals, badges, nav bars etc.).", "status": "to do", "time_estimate": 57600000, "custom_fields": [], "subtasks": []}, {"id": "86expf9p9", "name": "Icon Set", "description": "Preparing consistent icon set covering all functional icons used across the app: navigation, actions, status indicators, and service category icons.", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86expw7rx", "name": "Preparing Color Pallets", "description": "", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": []}, {"id": "86expw16u", "name": "Typography solutions", "description": "Typography exploration and refinement for the overall app experience, including researchand selection of suitable typefaces for headlines, base texts, numeric usage,and interface readability. This task also includes defining typography hierarchy, sizing, weights, spacing, and related style guide values to establish a clean, scalable, and visually cohesive typography system throughout the product.", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86expf9p1", "name": "Wordmark & Emblem Rework ", "description": "Refinement and modernization of the existing wordmark and emblem to achieve a cleaner, more contemporary, and stronger visual identity. The current approach focuses on improving the overall visual quality through typography refinement, balanced proportions, and better brand presence rather than conducting a deep full-scale branding process.\n\nAn existing emblem concept has previously been developed and may provide a stronger and more recognizable direction for app-related usage. Integrating and refining the emblem for mobile app environments, alongside improvements to the current wordmark, could help establish a more cohesive and scalable brand presence across the product ecosystem.", "status": "to do", "time_estimate": 57600000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbtt", "name": "GROUP 5 \u2014 Full App Design", "description": "Complete screen-by-screen breakdown of the existing FPV mobile app. Covers all pages, sub-pages, modals, fields, and navigation flows as analysed from app screenshots.", "status": "to do", "time_estimate": 0, "custom_fields": [], "subtasks": [{"id": "86expvbtv", "name": "1. Authentication & Onboarding", "description": "Splash, welcome, Login, registration, and password recovery screens for the FPV client portal.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expveeq", "name": "1.0 Contextual Onboarding Design", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvera", "name": "Contextual welcome screen", "description": "", "status": "to do", "time_estimate": 18000000, "custom_fields": [], "subtasks": []}, {"id": "86expvepu", "name": "Splash Screen", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbtz", "name": "1.1 Client Portal Login Screen", "description": "Email & password login form. Fields: Email Address, Password, Forgot Password link. Actions: Login button, Sign in with Google, Sign in with Apple, Create Account link.", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": []}, {"id": "86expvbu1", "name": "1.2 Client Portal Registration Modal", "description": "New account creation form. Fields: First Name, Last Name, Mobile Phone, Broker Email, Password, Confirm Password, Real Estate Brokerage Agency Name, State Licensure ID. NMI Payment Terms checkbox consent.", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbu5", "name": "1.3 Forgot Password / Credentials Reset Wizard", "description": "Step 1: Email input + Send Recovery Link. Step 2: 6-digit verification code input. Step 3: New Password + Confirm Password + Reset Password button.", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbtw", "name": "2. Home Page (Dashboard)", "description": "Main app dashboard with order summaries, upcoming appointments, and notification alerts.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbty", "name": "2.1 Main Dashboard Layout Solution/s", "description": "App header (Profile icon, FPV logo, Notification bell badge). Welcome Card (T. My Orders Summary Grid: Drafts, Pending Scan, Processing, Completed counters. Active Orders panel with order cards (#DEMO-001). Upcoming Appointments card. FPV Promotional Banner.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expvbu8", "name": "2.2 My Orders Module", "description": "Detailed order status screens with logistics accordion drawers for active, scheduled, and completed projects.", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": []}, {"id": "86expvbu0", "name": "2.2 Notifications Screen / Alerts Feed", "description": "Header: Back arrow + Notifications title. Alert feed cards showing: Scheduling alerts, Invoice billing alerts, Blueprint completion alerts. Read vs Unread visual indicators.", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbu3", "name": "2.3 Main Navigation Design", "description": "", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbu7", "name": "3. Account Page", "description": "Full user account management: profile editing, orders history, autofill defaults, wallet, favorites, and feedback hub.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbua", "name": "3.1 Account Bar", "description": "Profile identity card (Taylor Morgan, Morgan Realty). Grid options: Edit Profile, My Orders, AutoFill Preferences, Payment Methods/Wallet, Favorites, Feedback Hub. Logout button (red).", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": [{"id": "86expvbuf", "name": "3.1.1 Profile Edit Modal", "description": "Editable form fields: First Name, Last Name, Phone Number, Email Address, Company Name. Company Account toggle switch (agency-wide sharing). Actions: Save Changes, Cancel.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbuc", "name": "3.2 Account Actions", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbuh", "name": "3.2.1 Orders", "description": "Filter tabs: Active (scheduled/processing) and Past (completed/archived). Order cards showing: Order ID, Date, Address, Service Badges (Plans/CAD/Matterport), Status Badges (Awaiting/Completed/Cancelled).", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": [{"id": "86expvbum", "name": "3.2.1.A Open Orders", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbuk", "name": "3.2.1.B Completed Orders", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbur", "name": "Search & Search Result", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}]}, {"id": "86expvbun", "name": "3.3 AutoFill Preferences", "description": "Default POC section: Same as Account Info toggle, Name/Phone/Email fields. Blueprint Deliverables defaults: PDF format, AutoCAD version selector. Lot & Formatting: Dimension Lines, Area Sizing, Compass orientation radio (True North vs Door), Color scheme (B&W vs Color).", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": [{"id": "86expvbut", "name": "3.3.1 Point of Contact", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbuu", "name": "3.3.2 Deliverables", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbv0", "name": "3.3.3 Plan Formatting", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbv2", "name": "3.3.4 Plan Contact Info", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbv4", "name": "3.4 Wallet", "description": "PCI/NMI security banner. Saved cards list (Visa **** 4242). Add Payment Method button. Sub-modal: Add Secure Payment Method with Cardholder Name, PAN Number, Expiry MM/YY, CVV, Set as Default toggle.", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": [{"id": "86expvbva", "name": "Add New Payment Modal", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbv9", "name": "Payment Methods List", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbvb", "name": "3.5 Favorites (Content is unknown)", "description": "Pinned properties registry with repeat addresses, saved technician lockbox notes, and saved search criteria. Execute Repeat Order instant shortcut.", "status": "missing", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbvu", "name": "3.6 Settings", "description": "", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": []}, {"id": "86expvbvv", "name": "[3.7 Beta Feedback Hub]", "description": "Ticket log feed with status badges (Open, In Review, Resolved). Developer reply threads. Submit Feedback button. Sub-modal: Subject, Description text area, Category dropdown (Bug/Suggestion/UI/Other), Attach Screenshot action.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbup", "name": "5. Orders", "description": "Order creation flow: selection hub dispatcher, 11-step residential wizard, and search inventory checkout flow.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbuw", "name": "5.1 Create New Order", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbuz", "name": "5.0 Order Selection Main Screen", "description": "4 order type cards: Marketable Plan (Active, launches wizard), As-Built Plan (Coming Soon), 3D Renderings (Coming Soon), Site Plans (Coming Soon). Locked feature overlay modal with Coming Soon message.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expvbuy", "name": "5.1 Marketable Plan Residential & Wizard (11-Step Flow)", "description": "Full 11-step order form. \n\nStep 1: Contact Info \u2014 Name, phone, email, and brokerage.\n\nStep 2: Property Address \u2014 Google Places API autocomplete with street, city, state, and ZIP fields.\n\nStep 3: Level & Structure \u2014 Story count, basement (Y/N \u2014 finished/unfinished), attic (Y/N), and detached structures.\n\nStep 4: Matterport Details \u2014 Include toggle, interior + exterior capture, dollhouse view, measurement tool, and 3-month hosting.\n\nStep 5: Compass Orientation \u2014 True North vs. Front Door.\n\nSteps 6\u20139: Reserved custom spec slots.\n\nStep 10: Credit Checkout \u2014 Cardholder name, PAN, MM/YY, CVV, and NMI terms acceptance.\n\nStep 11: Success Confirmation \u2014 Order number, email receipt notification, and link to Active Order.", "status": "to do", "time_estimate": 57600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbv6", "name": "5.2 (Missing) Marketable Plans for Commercial / Mizxed Use ", "description": "", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbv5", "name": "5.3 (Missing) Remodeling Plans for Residental", "description": "", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvq", "name": "5.4 (Missing) Remodeling Plans for Commercial / Mixed Use", "description": "", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvr", "name": "5.5 (Missing) Purchae and Rebrand Existing FPV Plan", "description": "", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvw", "name": "5.6 (Missing) Create Plans from Existing Plans", "description": "", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvy", "name": "5.7 Search Inventory & Checkout Flow (3 sub pages)", "description": "Page 01: Search Box Console: Address/Property ID field with State, City, Zip, Sq Ft, and CAD-available filters.\n\nPage 02: Results Page: Property cards displaying a thumbnail, square footage, CAD badge, price, and a Select & Checkout button.\n\nPage 03: Tab Checkout Wizard:\nTab 1 \u2013 Account Info: Same As Account toggle, POC fields, NMI consent\nTab 2 \u2013 Order Info: Address validation, Relationship to Property dropdown, Quote Me For dropdown\nTab 3 \u2013 Final Steps: Co-listing Agent toggle & fields, Referral Source, Comments\nTab 4 \u2013 Terms: Cancellation policy, no AMEX note, 3% processing fee, consent checkboxes, Submit Order button, and validation errors", "status": "to do", "time_estimate": 43200000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbv3", "name": "5.2 Order Details", "description": "", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": [{"id": "86expvbv8", "name": "5.2.1 Messages", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbv7", "name": "5.2.2 Summary", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvp", "name": "5.2.3 Requested Services & Scheduling", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvt", "name": "5.2.4 Contact", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvx", "name": "5.2.5 Survey Units", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbvz", "name": "5.2.6 Site Access", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbw5", "name": "5.2.7 Deliverables & 3D Matterport", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbw6", "name": "5.2.8 Order Status Seperation", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbuv", "name": "5.8 (Missing) Self Scan", "description": "", "status": "complete", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbw2", "name": "6. About, Catalogs, Pricing & Services", "description": "About platform screen, service catalog with 4 category tabs, multi-state pricing grids, regional office contact directory, and support chat placeholder.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbw8", "name": "6.0 About Main Screen", "description": "FPV overview branding card. Main CTA buttons: Open Website (external link), Services Catalog (routes to catalog), Contact Regional Office (opens state directory). App support section: Account profile, Native ordering, Scan tools. Chat card with Coming Soon indicator.", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbw7", "name": "6.2 Services", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbw9", "name": "6.2.0 -Services Main Page", "description": "", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": [{"id": "86expvjtk", "name": "Service Template Page Design", "description": "", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": []}, {"id": "86expvjxp", "name": "Sub Service Template Layout Design", "description": "", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbwa", "name": "6.2.1 - Marketable Tab", "description": "Most Requested section: Residential Floor Plans, Site Plans, Commercial Floor Plans cards. Each card has: title, overview text, Good For checklist, View on Website button. Residential Floor Plans: MLS listings, print flyers, marketing packets use-cases.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbwf", "name": "6.2.1.A Residential Floor Plan", "description": "", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": []}, {"id": "86expvbwe", "name": "6.2.1.B Site Plans", "description": "", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": []}, {"id": "86expvbwq", "name": "6.2.1.C Commersial Floor Plans", "description": "", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbwh", "name": "6.2.2 - As-Built Tab", "description": "Services: As-Built Floor Plans (engineering blueprints with wall thickness and plumbing), Exterior Elevations (building facades), Interior Elevations (kitchen cabinets, fireplace, shelving), Building Sections (cross-section framing views), Roof Plans (slopes, drainage, chimney).", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbwn", "name": "6.2.2.A As-Build Floor Plans", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbwp", "name": "6.2.2.B Interior Elevations", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbwv", "name": "6.2.2.C Roof Plans", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbww", "name": "6.2.2.D Exteriour Elevations", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbx1", "name": "6.2.2.E Building Sections", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbwy", "name": "6.2.3 - 3D & Media Tab", "description": "Services: 3D Walk-Through Tours (virtual Matterport models), 3D Renderings (exterior + interior high-res), 3D Animations (fly-over videos + interior walkthrough clips), Matterport Video (exported dollhouse clips).", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expvbx0", "name": "6.2.3. 3D Walk-Through Tours", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbx2", "name": "6.2.3.B 3D Animations", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbx7", "name": "6.2.3.C 3D Rendering", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}, {"id": "86expvbx8", "name": "6.2.3.D Matterport Video", "description": "", "status": "to do", "time_estimate": 3600000, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbx9", "name": "6.2.4 - Add-Ons Tab", "description": "Add-on options: Exterior Add-On (backyard elevations/site plans), Square Footage Calculations (formal certificates), Furniture Add-On (interior furniture symbols overlay), CAD File Release (layered DWG file delivery), 2D/3D Plans From Scan (generated from raw Matterport data). Need Help section with Pricing and Website redirect buttons.", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": [{"id": "86expvbxc", "name": "6.2.4.A Exterior Add-On", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbxd", "name": "6.2.4.B Furniture Add-On", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbxg", "name": "6.2.4.C 2D/3D Plans From Scan", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbxh", "name": "6.2.4.D Square Footage Calculations", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbxj", "name": "6.2.4.E CAD File Release", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}]}, {"id": "86expvbwc", "name": "6.3 Pricing", "description": "", "status": "to do", "time_estimate": 14400000, "custom_fields": [], "subtasks": [{"id": "86expvbwj", "name": "6.3.1 Zone Selection Sceen", "description": "", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbwk", "name": "6.3.1.A Plans", "description": "State-selectable pricing (Arizona base). B&W and Color price brackets by sq ft: 0-1000sqft 50/00, 1001-2000sqft 00/50, 2001-3000sqft 50/00, 3001-4000sqft 00/50. 4000+ sqft: custom quote required.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbwt", "name": "6.3.1.B From Existing", "description": "Conversion pricing for old/paper blueprints to layered AutoCAD+PDF. Base flat fee starting at 00. Incremental size brackets and revision review rates.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbwu", "name": "6.3.1.C Rendering", "description": "Visual rendering prices: 3D Exterior Rendering, 3D Interior Rendering (room/material), Fly-Over Animation Video (aerial), Interior Walk-Thru Animation Video. Custom quote via email CAD/PDF submission note.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}, {"id": "86expvbwz", "name": "6.3.1.D MatterPort", "description": "Base services by sq ft: 0-1000sqft 50, 1001-2000sqft 00, 2001-3000sqft 50, 3001-4000sqft 00, 5000+sqft 50/hr. Add-On services: Outdoor Scans 00/hr, Detached Scan 0, Link Renewal 5/3mo, 2D Plan From Scan 50, 2D Color Plan 00, 3D Color Plan 50, Matterport Video below 1000sqft 25, above 1000sqft +0/1000sqft.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": []}]}, {"id": "86expvbx5", "name": "6.4 FVP Contact List (15+ States)", "description": "State-by-state office directory. California (SF, LA, SD), Arizona (Phoenix), Texas (Austin, Houston), Florida (Miami), Washington DC, Nevada (Reno/Tahoe), Illinois (Chicago), New York (NYC), New Jersey, Colorado (Denver), Connecticut, Oregon, Pennsylvania, Georgia (Atlanta), South Carolina (Charleston), Maryland, Virginia, Massachusetts (Boston), Washington (Seattle). Plus Other category.", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": []}, {"id": "86expvbxa", "name": "6.5 (Not Ready) Live Chat Module Placeholder Screen", "description": "Chat placeholder page with Coming Soon status badge. Displays: future in-app live support connection queue description. Chat card with chevron arrow in About main screen.", "status": "missing", "time_estimate": null, "custom_fields": [], "subtasks": []}]}]}, {"id": "86exq5x92", "name": "GROUP 6 \u2014 Prototype & Mid-Review", "description": "Interactive prototype build and mid-project client presentation. Second revision round based on client feedback on the full design.", "status": "to do", "time_estimate": 61200000, "custom_fields": [], "subtasks": [{"id": "86exq5x9b", "name": "Interactive Prototype Build", "description": "Link all screens into a clickable prototype covering primary user flows: login, home, order creation wizard, order details, account settings, and about/services.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86exq5x9r", "name": "Screen Revisions Based on Mid-Review Feedback", "description": "Apply all changes from the mid-review. Update screens, components and prototype links accordingly.", "status": "to do", "time_estimate": 21600000, "custom_fields": [], "subtasks": []}, {"id": "86exq5x9h", "name": "[REVISION 2] Mid-Project Client Presentation & Feedback", "description": "Present the full prototype to the client. Walk through all main flows. Collect prioritised feedback and document all requested changes.", "status": "to do", "time_estimate": 10800000, "custom_fields": [], "subtasks": []}]}, {"id": "86expf9q9", "name": "GROUP 7 \u2014 Final Review, Handoff, Other services", "description": "Final polish pass, client sign-off presentation, last-round revisions, and complete developer handoff package.", "status": "to do", "time_estimate": null, "custom_fields": [], "subtasks": [{"id": "86expf9qk", "name": "Figma Project Delivery", "description": "Ongoing organization and maintenance of the Figma project structure throughout the design process. This includes consistent page organization, layer and component naming, file cleanup, asset export preparation, and overall design system structure management to ensure the project remains scalable, readable, and development-friendly during all stages of production and final delivery.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9qd", "name": "Final Design Polish & Consistency Check", "description": "Full pass over every screen: spacing consistency, type hierarchy, component alignment, colour correctness, and edge case state coverage.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9q5", "name": "Overall Feedback & Refinement Estimation", "description": "Estimated time allocation for ongoing client reviews, feedback discussions, approval checkpoints, revision requests, and iterative refinements throughout the design process. Since the scope and frequency of revisions may vary during production, this task represents the estimated time reserved for ongoing communication and UX/UI iteration workflows.", "status": "to do", "time_estimate": 108000000, "custom_fields": [], "subtasks": []}, {"id": "86expw1pg", "name": "Responsive Tablet Adaptation (UX, UI, components)", "description": "", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9q2", "name": "Selective Interaction Prototypes", "description": "Targeted interactive prototypes created only where necessary to demonstrate specific UX behaviors, component interactions, transitions, navigation logic, or complex user flows. This does not represent a full app prototype, but rather focused interaction simulations used to improve clarity, usability, and implementation direction during the design process.", "status": "to do", "time_estimate": 28800000, "custom_fields": [], "subtasks": []}, {"id": "86expf9qe", "name": "[REVISION 3] Final Client Presentation", "description": "Present polished design to client for final approval. Collect last feedback to proceed to handoff.", "status": "to do", "time_estimate": 7200000, "custom_fields": [], "subtasks": []}]}]};
+
+        // Main State
+        let expandedNodes = new Set();
+        let searchQuery = "";
+
+        // Helper to format estimated time
+        function formatEstimate(ms) {
+            if (!ms) return null;
+            const totalMinutes = Math.floor(ms / (1000 * 60));
+            const hours = Math.floor(totalMinutes / 60);
+            const mins = totalMinutes % 60;
+            if (hours > 0) {
+                return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+            }
+            return `${mins}m`;
+        }
+
+        // Simple Markdown description formatter
+        function formatDescription(desc) {
+            if (!desc) return '<span class="text-slate-500 italic">No description provided.</span>';
+            
+            // Clean HTML escaping
+            let html = desc
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+                
+            // Convert Bold
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            // Convert Bullet points (lists)
+            const lines = html.split('\n');
+            let inList = false;
+            let resultLines = [];
+            
+            for (let line of lines) {
+                let trimmed = line.trim();
+                if (trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('• ')) {
+                    if (!inList) {
+                        resultLines.push('<ul class="list-disc pl-5 my-2 text-slate-350">');
+                        inList = true;
+                    }
+                    resultLines.push(`<li>${trimmed.substring(2)}</li>`);
+                } else {
+                    if (inList) {
+                        resultLines.push('</ul>');
+                        inList = false;
+                    }
+                    if (trimmed.length > 0) {
+                        resultLines.push(`<p class="mb-2">${line}</p>`);
+                    } else {
+                        resultLines.push('<div class="h-2"></div>');
+                    }
+                }
+            }
+            if (inList) {
+                resultLines.push('</ul>');
+            }
+            
+            return `<div class="markdown-content text-sm text-slate-355">${resultLines.join('')}</div>`;
+        }
+
+        // Recursive statistics calculator
+        function calculateStats(node) {
+            let count = 1;
+            let ms = parseInt(node.time_estimate || 0);
+            let completed = 0;
+            
+            const st = (node.status || '').toLowerCase();
+            if (st === 'complete' || st === 'done' || st === 'closed') completed = 1;
+
+            if (node.subtasks && node.subtasks.length > 0) {
+                for (let sub of node.subtasks) {
+                    const subStats = calculateStats(sub);
+                    count += subStats.count;
+                    ms += subStats.ms;
+                    completed += subStats.completed;
+                }
+            }
+            return { count, ms, completed };
+        }
+
+        // Recursively build sidebar tree directory (Shows all nested levels with dynamic saturation steps)
+        function renderSidebarNode(node, level = 0) {
+            if (!node) return '';
+            
+            const hasSub = node.subtasks && node.subtasks.length > 0;
+            const stats = calculateStats(node);
+            const estStr = stats.ms > 0 ? ` (${Math.ceil(stats.ms / 3600000)}h)` : '';
+            
+            let paddingLeft = level * 14;
+            
+            // Calculate dynamic desaturated yellow-orange color per level (+20% saturation step)
+            const sat = Math.min(40 + (level * 20), 100);
+            const titleColor = `hsl(38, ${sat}%, 60%)`;
+            
+            // Choose elegant icon based on level of nesting
+            let icon = '';
+            if (level === 0) {
+                icon = `<i class="fa-solid fa-folder" style="color: ${titleColor}"></i>`;
+            } else if (level === 1) {
+                icon = `<i class="fa-regular fa-folder" style="color: ${titleColor}"></i>`;
+            } else if (level === 2) {
+                icon = `<i class="fa-regular fa-file-lines text-slate-455"></i>`;
+            } else {
+                icon = `<i class="fa-solid fa-angle-right text-[7px]" style="color: ${titleColor}"></i>`;
+            }
+
+            let html = `
+                <div class="group flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-900/60 cursor-pointer text-xs transition-all" 
+                     style="padding-left: ${paddingLeft}px" 
+                     onclick="scrollToTask('${node.id}')">
+                    <div class="flex items-center gap-2 truncate">
+                        ${icon}
+                        <span class="truncate font-medium transition-colors" style="color: ${titleColor}" title="${node.name}">
+                            ${node.name}
+                        </span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2">
+                        ${estStr}
+                    </span>
+                </div>
+            `;
+
+            if (hasSub) {
+                for (let sub of node.subtasks) {
+                    html += renderSidebarNode(sub, level + 1);
+                }
+            }
+            
+            return html;
+        }
+
+        // Deep Search filter
+        function matchesSearch(node, query) {
+            if (!query) return true;
+            const q = query.toLowerCase();
+            const nameMatch = (node.name || '').toLowerCase().includes(q);
+            const descMatch = (node.description || '').toLowerCase().includes(q);
+            
+            if (nameMatch || descMatch) return true;
+            
+            if (node.subtasks && node.subtasks.length > 0) {
+                return node.subtasks.some(sub => matchesSearch(sub, query));
+            }
+            return false;
+        }
+
+        // Render main tasks recursively as nested frame groups with dynamic color and saturation steps
+        function renderMainNode(node, level = 0) {
+            if (!node) return '';
+            
+            // If searching and this branch has no matches, skip rendering
+            if (searchQuery && !matchesSearch(node, searchQuery)) {
+                return '';
+            }
+
+            const hasSub = node.subtasks && node.subtasks.length > 0;
+            const isExpanded = expandedNodes.has(node.id);
+            const stats = calculateStats(node);
+            
+            // Format estimate for this specific node or aggregate
+            const selfEst = formatEstimate(node.time_estimate);
+            const totalEst = formatEstimate(stats.ms);
+            
+            // Calculate dynamic saturation color step (+20% saturation step per level)
+            const sat = Math.min(40 + (level * 20), 100);
+            const titleColor = `hsl(38, ${sat}%, 60%)`;
+            const accentBorderColor = `hsla(38, ${sat}%, 60%, 0.4)`;
+            
+            // CSS classes for nested styling
+            let containerClass = "rounded-xl border shadow-md transition-all duration-300 ";
+            let headerBgClass = "p-4 flex items-center justify-between cursor-pointer ";
+            let borderStyle = "";
+            let styleAttr = "";
+            
+            if (level === 0) {
+                // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
+                containerClass += "bg-slate-900/15 border-brand-900/20 hover:border-brand-500/20 mb-5";
+                headerBgClass += "bg-gradient-to-r from-brand-950/30 to-slate-950 hover:from-brand-950/50 hover:to-slate-900/80 border-b border-brand-900/10";
+                borderStyle = "border-l-4 border-l-brand-500/80";
+            } else {
+                // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean slate rounded boxes)
+                containerClass += "bg-slate-950/15 border-slate-900/85 hover:border-slate-855 my-2";
+                headerBgClass += "bg-transparent hover:bg-slate-900/20 py-2.5 px-4";
+                borderStyle = "";
+                styleAttr = "";
+            }
+
+            // Search query text highlighter
+            function highlightText(text) {
+                if (!searchQuery || !text) return text || '';
+                const regex = new RegExp(`(${searchQuery.replace(/[-\/\^$*+?.()|[\]{}]/g, '\$&')})`, 'gi');
+                return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded">$1</mark>');
+            }
+
+            // Indented subtask frame wrapping container with custom guide lines matching hierarchy saturation
+            let subtasksHtml = '';
+            if (hasSub) {
+                const guideSat = Math.min(40 + ((level + 1) * 20), 100);
+                const guideColor = `hsla(38, ${guideSat}%, 55%, 0.12)`;
+                subtasksHtml = `
+                    <div class="pl-4 ml-3.5 border-l space-y-2.5 collapsible-content ${isExpanded ? 'block' : 'hidden'}" 
+                         style="border-color: ${guideColor}" id="children-${node.id}">
+                        ${node.subtasks.map(sub => renderMainNode(sub, level + 1)).join('')}
+                    </div>
+                `;
+            }
+
+            const timeBadge = totalEst 
+                ? `<span class="text-xs text-slate-455 flex items-center gap-1 bg-slate-900/60 px-2 py-1 rounded border border-slate-855/80 whitespace-nowrap">
+                       <i class="fa-solid fa-clock text-brand-500/80"></i> ${level === 0 ? totalEst : selfEst || totalEst}
+                   </span>`
+                : '';
+
+            // Subtask count badge
+            const subCountBadge = hasSub
+                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-full border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium">
+                       <i class="fa-solid fa-network-wired text-brand-500/80"></i> ${stats.count - 1} Subtask${(stats.count - 1) !== 1 ? 's' : ''}
+                   </span>`
+                : '';
+
+            // Expand/Collapse Indicator button on the very far right of the card header
+            const toggleBtn = hasSub
+                ? `<span class="p-1 text-slate-500 hover:text-slate-300 transition-colors shrink-0 ml-1">
+                       <i class="fa-solid fa-chevron-down transition-transform duration-300 text-xs ${isExpanded ? 'rotate-0' : '-rotate-90'}"></i>
+                   </span>`
+                : '';
+
+            const html = `
+                <div class="task-node scroll-mt-24" id="task-card-${node.id}">
+                    <div class="${containerClass} ${borderStyle}" style="${styleAttr}">
+                        
+                        <!-- HEADER BAR -->
+                        <div class="${headerBgClass}" onclick="toggleNode('${node.id}', event)">
+                            <div class="flex items-center gap-2.5 min-w-0 mr-4">
+                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" style="color: ${titleColor}" title="${node.name}">
+                                    ${highlightText(node.name)}
+                                </h3>
+                            </div>
+                            
+                            <!-- Badges & Toggle Button - WITHOUT STATUS BADGES (TODO TAGS REMOVED) -->
+                            <div class="flex items-center gap-2 shrink-0">
+                                ${subCountBadge}
+                                ${timeBadge}
+                                ${toggleBtn}
+                            </div>
+                        </div>
+                        
+                        <!-- COLLAPSIBLE BODY -->
+                        <div class="${(!hasSub || isExpanded) ? 'block' : 'hidden'}" id="body-${node.id}">
+                            <!-- Description (Only show if present - WITHOUT section header) -->
+                            ${node.description ? `
+                                <div class="px-5 py-3.5 border-t border-slate-900/60 bg-slate-950/20">
+                                    ${formatDescription(node.description)}
+                                </div>
+                            ` : ''}
+                            
+                            <!-- Child Subtasks Container -->
+                            ${subtasksHtml}
+                        </div>
+                        
+                    </div>
+                </div>
+            `;
+            return html;
+        }
+
+        // Toggle collapsible node
+        function toggleNode(nodeId, event) {
+            const body = document.getElementById(`body-${nodeId}`);
+            const children = document.getElementById(`children-${nodeId}`);
+            const header = event.currentTarget;
+            const chevron = header.querySelector('.fa-chevron-down');
+            
+            if (expandedNodes.has(nodeId)) {
+                expandedNodes.delete(nodeId);
+                if (body) body.classList.add('hidden');
+                if (children) children.classList.add('hidden');
+                if (chevron) {
+                    chevron.classList.add('-rotate-90');
+                }
+            } else {
+                expandedNodes.add(nodeId);
+                if (body) body.classList.remove('hidden');
+                if (children) children.classList.remove('hidden');
+                if (chevron) {
+                    chevron.classList.remove('-rotate-90');
+                }
+            }
+        }
+
+        // Expand All
+        function expandAll() {
+            const recurse = (node) => {
+                expandedNodes.add(node.id);
+                if (node.subtasks) {
+                    node.subtasks.forEach(recurse);
+                }
+            };
+            taskData.subtasks.forEach(recurse);
+            renderUI();
+        }
+
+        // Collapse All
+        function collapseAll() {
+            expandedNodes.clear();
+            renderUI();
+        }
+
+        // Search engine that auto-expands matching branches
+        function handleSearch(val) {
+            searchQuery = val.trim();
+            const clearBtn = document.getElementById('clear-search-btn');
+            
+            if (searchQuery) {
+                clearBtn.classList.remove('hidden');
+                // Auto expand matching branches
+                expandedNodes.clear();
+                function recurse(node) {
+                    if (matchesSearch(node, searchQuery)) {
+                        expandedNodes.add(node.id);
+                        if (node.subtasks) {
+                            node.subtasks.forEach(recurse);
+                        }
+                    }
+                }
+                taskData.subtasks.forEach(recurse);
+            } else {
+                clearBtn.classList.add('hidden');
+                // Reset to default (expand groups only)
+                initDefaultExpansion();
+            }
+            renderUI();
+        }
+
+        // Clear search input
+        function clearSearch() {
+            document.getElementById('search-input').value = "";
+            handleSearch("");
+        }
+
+        // Smooth scroll to a target task element
+        function scrollToTask(id) {
+            // Make sure the target and all its parent nodes are expanded so it is visible
+            function expandParentOf(node, targetId, path = []) {
+                if (node.id === targetId) {
+                    path.forEach(pid => expandedNodes.add(pid));
+                    expandedNodes.add(targetId);
+                    return true;
+                }
+                if (node.subtasks) {
+                    for (let sub of node.subtasks) {
+                        if (expandParentOf(sub, targetId, [...path, node.id])) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            
+            expandParentOf(taskData, id);
+            renderUI();
+            
+            setTimeout(() => {
+                const el = document.getElementById(`task-card-${id}`);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Add accent glow
+                    const card = el.querySelector('.rounded-xl');
+                    if (card) {
+                        card.classList.add('task-card-active');
+                        setTimeout(() => {
+                            card.classList.remove('task-card-active');
+                        }, 2000);
+                    }
+                }
+            }, 150);
+        }
+
+        // Initialize default expansion (level 0 expanded, others collapsed)
+        function initDefaultExpansion() {
+            expandedNodes.clear();
+            taskData.subtasks.forEach(group => {
+                expandedNodes.add(group.id);
+            });
+        }
+
+        // Refresh dynamic UI elements
+        function renderUI() {
+            const sidebar = document.getElementById('sidebar-tree');
+            const mainContainer = document.getElementById('tasks-container');
+            
+            // 1. Render Sidebar
+            let sidebarHtml = '';
+            for (let group of taskData.subtasks) {
+                sidebarHtml += renderSidebarNode(group, 0);
+            }
+            sidebar.innerHTML = sidebarHtml;
+            
+            // 2. Render Main Cards
+            let mainHtml = '';
+            for (let group of taskData.subtasks) {
+                mainHtml += renderMainNode(group, 0);
+            }
+            
+            if (!mainHtml) {
+                mainContainer.innerHTML = `
+                    <div class="text-center py-20 border border-dashed border-slate-800/80 rounded-xl bg-slate-900/10">
+                        <i class="fa-solid fa-folder-open text-4xl text-slate-700 mb-3"></i>
+                        <h3 class="text-base font-semibold text-slate-400 outfit-font font-medium">No Results Found</h3>
+                        <p class="text-xs text-slate-500 mt-1">No tasks matched the search term "${searchQuery}".</p>
+                    </div>
+                `;
+            } else {
+                mainContainer.innerHTML = mainHtml;
+            }
+        }
+
+        // Compute global stats
+        function initStats() {
+            const stats = calculateStats(taskData);
+            
+            // Total tasks is stats.count - 1 (excluding root task itself)
+            document.getElementById('total-count-stat').textContent = stats.count - 1;
+            
+            const hours = Math.round(stats.ms / 3600000);
+            document.getElementById('total-time-stat').textContent = `${hours}h`;
+        }
+
+        // Sync with ClickUp Functionality
+        let isSyncing = false;
+
+        function showModal(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('pointer-events-none');
+                el.classList.remove('opacity-0');
+            }
+        }
+
+        function hideModal(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('pointer-events-none');
+                el.classList.add('opacity-0');
+            }
+        }
+
+        function setStepState(stepNum, state) {
+            // state can be 'pending', 'active', 'done'
+            const stepEl = document.getElementById(`status-step-${stepNum}`);
+            const pendingEl = document.getElementById(`step-${stepNum}-pending`);
+            const spinnerEl = document.getElementById(`step-${stepNum}-spinner`);
+            const checkEl = document.getElementById(`step-${stepNum}-check`);
+            
+            if (!stepEl) return;
+            
+            if (state === 'pending') {
+                stepEl.className = "flex items-center gap-2.5 text-slate-500 transition-colors duration-200";
+                if (pendingEl) pendingEl.classList.remove('hidden');
+                if (spinnerEl) spinnerEl.classList.add('hidden');
+                if (checkEl) checkEl.classList.add('hidden');
+            } else if (state === 'active') {
+                stepEl.className = "flex items-center gap-2.5 text-brand-400 font-semibold transition-colors duration-200";
+                if (pendingEl) pendingEl.classList.add('hidden');
+                if (spinnerEl) spinnerEl.classList.remove('hidden');
+                if (checkEl) checkEl.classList.add('hidden');
+            } else if (state === 'done') {
+                stepEl.className = "flex items-center gap-2.5 text-brand-500 transition-colors duration-200";
+                if (pendingEl) pendingEl.classList.add('hidden');
+                if (spinnerEl) spinnerEl.classList.add('hidden');
+                if (checkEl) checkEl.classList.remove('hidden');
+            }
+        }
+
+        async function syncWithClickUp() {
+            if (isSyncing) return;
+            isSyncing = true;
+            
+            // UI Button syncing state
+            const btn = document.getElementById('sync-btn');
+            const icon = document.getElementById('sync-icon');
+            const text = document.getElementById('sync-text');
+            
+            if (btn) btn.disabled = true;
+            if (icon) icon.classList.add('fa-spin');
+            if (text) text.textContent = "Syncing...";
+            
+            // Show loading modal and reset steps
+            showModal('sync-modal');
+            setStepState(1, 'active');
+            setStepState(2, 'pending');
+            setStepState(3, 'pending');
+            
+            try {
+                // Step 1: Connecting and downloading
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout
+                
+                // Fetch from localhost background server
+                const response = await fetch('http://localhost:5001/api/refresh', {
+                    method: 'GET',
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+                
+                if (!response.ok) {
+                    throw new Error(`Server returned HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    // Update steps state dynamically with micro-delays for visual feedback
+                    setStepState(1, 'done');
+                    setStepState(2, 'active');
+                    
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    setStepState(2, 'done');
+                    setStepState(3, 'active');
+                    
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    setStepState(3, 'done');
+                    
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    // Success reload
+                    window.location.reload();
+                } else {
+                    throw new Error(data.message || 'Unknown error occurred during sync');
+                }
+            } catch (err) {
+                console.error("Sync error:", err);
+                // Reset loading state
+                hideModal('sync-modal');
+                
+                if (btn) btn.disabled = false;
+                if (icon) icon.classList.remove('fa-spin');
+                if (text) text.textContent = "Sync ClickUp";
+                
+                // Show offline/error instruction modal
+                showModal('offline-modal');
+            } finally {
+                isSyncing = false;
+            }
+        }
+
+        function closeOfflineModal() {
+            hideModal('offline-modal');
+        }
+
+        function retrySync() {
+            closeOfflineModal();
+            syncWithClickUp();
+        }
+
+        // Initialize the Web App
+        window.addEventListener('DOMContentLoaded', () => {
+            initDefaultExpansion();
+            renderUI();
+            initStats();
+        });
+    </script>
+</body>
+</html>
