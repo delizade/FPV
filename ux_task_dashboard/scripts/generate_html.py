@@ -211,27 +211,79 @@ def main():
 </head>
 <body class="min-h-screen text-slate-200">
 
-    <!-- TOP HEADER & STATS -->
-    <header class="border-b border-brand-900/10 bg-slate-950/75 backdrop-blur-lg sticky top-0 z-40 h-24 flex items-center shadow-lg shadow-black/10">
-        <div class="max-w-8xl mx-auto px-4 py-4 sm:px-6 lg:px-8 w-full">
-            <div class="flex flex-row items-center justify-between gap-4">
-                <div>
-                    <!-- Left: FPV Workplan Subtitle above main parent task -->
-                    <div class="flex items-center gap-2 text-brand-500/90 text-xs font-bold uppercase tracking-widest outfit-font">
-                        <i class="fa-solid fa-layer-group"></i> FPV Workplan
-                    </div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold outfit-font tracking-tight mt-1 bg-gradient-to-r from-slate-100 to-slate-350 bg-clip-text text-transparent">
-                        Product UX Improvements &amp; UI Redesign
-                    </h1>
-                </div>
-                <!-- Right: ClickUp link -->
-                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="btn-tactile shrink-0 px-3.5 py-2 bg-slate-950/50 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md shadow-sm transition-all flex items-center gap-1.5">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+    <!-- STICKY SCROLL HEADER (Frame 19 - Scroll State) -->
+    <div id="sticky-scroll-header" class="fixed top-0 left-0 w-full z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0">
+        <div class="max-w-[936px] mx-auto w-full h-full relative">
+            <!-- Background image -->
+            <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
+            
+            <!-- Content -->
+            <div class="absolute left-[20px] sm:left-[73px] top-1/2 transform -translate-y-1/2 flex items-center">
+                <h2 class="text-[#C9C2B8] text-[15px] sm:text-[16px] font-normal leading-[110%] tracking-wide">
+                    Mobile App UX <span class="text-[#C59A5D] font-semibold">Improvements &amp;</span> UI Redesign
+                </h2>
+            </div>
+
+            <!-- Right: ClickUp link -->
+            <div class="absolute right-[20px] sm:right-[37px] top-1/2 transform -translate-y-1/2 flex items-center">
+                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                     <span class="hidden sm:inline">Open in ClickUp</span>
                 </a>
             </div>
         </div>
-    </header>
+    </div>
+
+    <!-- HERO BANNER (Frame 18 - Normal State) -->
+    <div class="max-w-[936px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden rounded-b-2xl border-x border-b border-stone-800/40 shadow-2xl mb-8 select-none">
+        <!-- Background image -->
+        <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
+        
+        <!-- Desktop layout (visible on md and up) -->
+        <div class="hidden md:block absolute left-[73px] top-[84px] w-[641px] text-left">
+            <div class="text-[#C59A5D] text-[13px] font-light tracking-[0.1em] uppercase mb-4">
+                — FPV MOBILE APP WORKPLAN
+            </div>
+            <h1 class="text-[#C9C2B8] text-[52px] font-normal leading-[110%] tracking-tight mb-4">
+                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span> UI Redesign
+            </h1>
+            <div class="text-white text-[16px] leading-[150%] font-light mb-4">—</div>
+            <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-light max-w-[511px]">
+                This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including task breakdowns, estimated production scope, visual direction planning, workflow notes, and project considerations.
+            </p>
+        </div>
+
+        <!-- Mobile/Tablet layout (visible below md) -->
+        <div class="block md:hidden px-6 py-12 relative z-10 flex flex-col items-start gap-4">
+            <div class="text-[#C59A5D] text-[11px] font-light tracking-[0.1em] uppercase">
+                — FPV MOBILE APP WORKPLAN
+            </div>
+            <h1 class="text-[#C9C2B8] text-3xl sm:text-4xl font-normal leading-[115%] tracking-tight">
+                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span> UI Redesign
+            </h1>
+            <div class="text-white text-[14px] leading-[150%] font-light">—</div>
+            <p class="text-[#C9C2B8] text-sm sm:text-base leading-[160%] font-light">
+                This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including task breakdowns, estimated production scope, visual direction planning, workflow notes, and project considerations.
+            </p>
+        </div>
+        
+        <!-- Bottom elements (Desktop) -->
+        <div class="hidden md:block">
+            <!-- Scroll Prompt -->
+            <div class="absolute left-1/2 bottom-3.5 transform -translate-x-1/2 text-white/70 text-[12px] font-light text-center flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" onclick="document.getElementById('tasks-container').scrollIntoView({{behavior: 'smooth', block: 'start'}})">
+                <span>Scroll to Review Full Project Scope</span>
+                <i class="fa-solid fa-chevron-down animate-bounce text-[9px]"></i>
+            </div>
+            <!-- Author -->
+            <div class="absolute left-[827px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
+                Burak Ozdelice
+            </div>
+            <!-- Year -->
+            <div class="absolute left-[899px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
+                2026
+            </div>
+        </div>
+    </div>
  
     <div class="max-w-8xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -281,7 +333,7 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/60 mb-5 -mt-6">
+                <div class="sticky top-[62px] z-20 bg-[#0a0806]/85 backdrop-blur-md pt-4 pb-2 w-full border-b border-stone-900/60 mb-5 -mt-6">
                     <!-- DESKTOP LAYOUT -->
                     <div class="hidden sm:flex items-center justify-between px-2">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
@@ -1090,6 +1142,18 @@ def main():
             initDefaultExpansion();
             renderUI();
             initStats();
+            
+            // Sticky Scroll Header morph listener
+            const stickyHeader = document.getElementById('sticky-scroll-header');
+            window.addEventListener('scroll', () => {{
+                if (window.scrollY > 300) {{
+                    stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                }} else {{
+                    stickyHeader.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    stickyHeader.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                }}
+            }});
         }});
     </script>
 </body>
