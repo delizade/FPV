@@ -215,11 +215,11 @@ def main():
                             <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
                         </h2>
                         <div class="flex items-center gap-2">
-                            <button onclick="expandAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                            <button onclick="expandSidebar()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
                                 <i class="fa-solid fa-folder-open text-[8px] opacity-70"></i> Expand
                             </button>
                             <span class="text-slate-800 text-[9px] font-normal">|</span>
-                            <button onclick="collapseAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                            <button onclick="collapseSidebar()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
                                 <i class="fa-solid fa-folder-closed text-[8px] opacity-70"></i> Collapse
                             </button>
                         </div>
@@ -379,6 +379,7 @@ def main():
 
         // Main State
         let expandedNodes = new Set();
+        let sidebarExpandedNodes = new Set();
         let searchQuery = "";
 
         // Helper to format estimated time
@@ -474,12 +475,15 @@ def main():
             const light = level === 0 ? 60 : 45;
             const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
             
-            // Choose elegant icon based on level of nesting (No icons for level 2+ deep nested subtasks)
+            // Choose elegant folder icon based on level of nesting and open state
             let icon = '';
+            const isOpen = sidebarExpandedNodes.has(node.id);
+            const folderClass = isOpen ? "fa-folder-open" : "fa-folder";
+            
             if (level === 0) {{
-                icon = `<i class="fa-solid fa-folder" style="color: ${{titleColor}}"></i>`;
+                icon = `<i class="fa-solid ${{folderClass}} hover:scale-110 transition-transform cursor-pointer" style="color: ${{titleColor}}" onclick="toggleSidebarNode('${{node.id}}', event)"></i>`;
             }} else if (level === 1) {{
-                icon = `<i class="fa-regular fa-folder" style="color: ${{titleColor}}"></i>`;
+                icon = `<i class="fa-regular ${{folderClass}} hover:scale-110 transition-transform cursor-pointer" style="color: ${{titleColor}}" onclick="toggleSidebarNode('${{node.id}}', event)"></i>`;
             }}
 
             let displayName = node.name;
@@ -514,7 +518,7 @@ def main():
                 </div>
             `;
 
-            if (hasSub) {{
+            if (hasSub && isOpen) {{
                 for (let sub of node.subtasks) {{
                     html += renderSidebarNode(sub, level + 1);
                 }}
@@ -719,6 +723,35 @@ def main():
             renderUI();
         }}
 
+        // Sidebar Expand All
+        function expandSidebar() {{
+            const recurse = (node) => {{
+                sidebarExpandedNodes.add(node.id);
+                if (node.subtasks) {{
+                    node.subtasks.forEach(recurse);
+                }}
+            }};
+            taskData.subtasks.forEach(recurse);
+            renderUI();
+        }}
+
+        // Sidebar Collapse All
+        function collapseSidebar() {{
+            sidebarExpandedNodes.clear();
+            renderUI();
+        }}
+
+        // Toggle Sidebar Node
+        function toggleSidebarNode(id, event) {{
+            if (event) event.stopPropagation();
+            if (sidebarExpandedNodes.has(id)) {{
+                sidebarExpandedNodes.delete(id);
+            }} else {{
+                sidebarExpandedNodes.add(id);
+            }}
+            renderUI();
+        }}
+
         // Search engine that auto-expands matching branches
         function handleSearch(val) {{
             searchQuery = val.trim();
@@ -758,6 +791,11 @@ def main():
                 if (node.id === targetId) {{
                     path.forEach(pid => expandedNodes.add(pid));
                     expandedNodes.add(targetId);
+                    
+                    // Also expand in sidebar if it exists there
+                    path.forEach(pid => sidebarExpandedNodes.add(pid));
+                    sidebarExpandedNodes.add(targetId);
+                    
                     return true;
                 }}
                 if (node.subtasks) {{
@@ -796,6 +834,16 @@ def main():
             taskData.subtasks.forEach(group => {{
                 expandedNodes.add(group.id);
             }});
+            
+            // Sidebar starts fully expanded by default
+            sidebarExpandedNodes.clear();
+            const recurse = (node) => {{
+                sidebarExpandedNodes.add(node.id);
+                if (node.subtasks) {{
+                    node.subtasks.forEach(recurse);
+                }}
+            }};
+            taskData.subtasks.forEach(recurse);
         }}
 
         // Refresh dynamic UI elements
