@@ -434,7 +434,7 @@
             let displayName = node.name;
             let prefixHtml = "";
             
-            const match = node.name.match(/^([\d\.[A-Z]]+ \- )(.*)$/);
+            const match = node.name.match(/^([\d.A-Z]+ \- )(.*)$/);
             if (match) {
                 const prefix = match[1];
                 const title = match[2];
@@ -538,7 +538,7 @@
             let displayName = highlightText(node.name);
             let prefixHtml = "";
             
-            const match = node.name.match(/^([\d\.[A-Z]]+ \- )(.*)$/);
+            const match = node.name.match(/^([\d.A-Z]+ \- )(.*)$/);
             if (match) {
                 const prefix = match[1];
                 const title = match[2];
