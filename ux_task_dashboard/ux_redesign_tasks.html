@@ -146,30 +146,30 @@
                     <div class="flex items-center gap-2 text-brand-500 text-sm font-semibold uppercase tracking-wider outfit-font">
                         <i class="fa-solid fa-layer-group"></i> FPV Workplan
                     </div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-brand-400 outfit-font tracking-tight mt-1">
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-250 outfit-font tracking-tight mt-1">
                         Product UX Improvements & UI Redesign
                     </h1>
                 </div>
                 
                 <!-- Right: Sync and ClickUp link buttons -->
                 <div class="flex items-center shrink-0 gap-3">
-                    <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-brand-400 text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                    <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-brand-400 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
                         <i class="fa-solid fa-arrows-rotate text-[10px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
                     </button>
-                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
                     </a>
                 </div>
             </div>
         </div>
     </header>
-
+ 
     <div class="max-w-8xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY -->
             <aside class="lg:col-span-1">
-                <div class="glass-effect p-4 rounded-xl sticky top-36 overflow-y-auto max-h-[calc(100vh-11rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                <div class="glass-effect p-4 rounded sticky top-36 overflow-y-auto max-h-[calc(100vh-11rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                     <div class="mb-5 pb-4 border-b border-brand-900/20">
@@ -216,10 +216,10 @@
                     
                     <!-- Right: Elegant Expand All / Collapse All controls -->
                     <div class="flex items-center gap-2">
-                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-350 hover:text-slate-100 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-350 hover:text-slate-100 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-open text-[10px] text-brand-500/80"></i> Expand All
                         </button>
-                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-slate-800 border border-slate-850 hover:border-slate-755 text-slate-350 hover:text-slate-205 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-slate-800 border border-slate-850 hover:border-slate-755 text-slate-350 hover:text-slate-205 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-closed text-[10px] text-slate-500"></i> Collapse All
                         </button>
                     </div>
@@ -498,7 +498,7 @@
             const accentBorderColor = `hsla(38, ${sat}%, 60%, 0.4)`;
             
             // CSS classes for nested styling
-            let containerClass = "rounded-xl border shadow-md transition-all duration-300 ";
+            let containerClass = "rounded border shadow-md transition-all duration-300 ";
             let headerBgClass = "p-4 flex items-center justify-between cursor-pointer ";
             let borderStyle = "";
             let styleAttr = "";
@@ -507,7 +507,7 @@
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
                 containerClass += "bg-slate-900/15 border-brand-900/20 hover:border-brand-500/20 mb-5";
                 headerBgClass += "bg-gradient-to-r from-brand-950/30 to-slate-950 hover:from-brand-950/50 hover:to-slate-900/80 border-b border-brand-900/10";
-                borderStyle = "border-l-4 border-l-brand-500/80";
+                borderStyle = "border-l-4 border-l-brand-900/30 hover:border-l-brand-500/90 transition-all duration-300";
             } else {
                 // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean slate rounded boxes)
                 containerClass += "bg-slate-950/15 border-slate-900/85 hover:border-slate-855 my-2";
@@ -520,7 +520,7 @@
             function highlightText(text) {
                 if (!searchQuery || !text) return text || '';
                 const regex = new RegExp(`(${searchQuery.replace(/[-\/\^$*+?.()|[\]{}]/g, '\$&')})`, 'gi');
-                return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded">$1</mark>');
+                return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded-sm">$1</mark>');
             }
 
             // Indented subtask frame wrapping container with custom guide lines matching hierarchy saturation
@@ -537,14 +537,14 @@
             }
 
             const timeBadge = totalEst 
-                ? `<span class="text-xs text-slate-455 flex items-center gap-1 bg-slate-900/60 px-2 py-1 rounded border border-slate-855/80 whitespace-nowrap">
-                       <i class="fa-solid fa-clock text-brand-500/80"></i> ${level === 0 ? totalEst : selfEst || totalEst}
+                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap">
+                       <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i> ${level === 0 ? totalEst : selfEst || totalEst}
                    </span>`
                 : '';
 
             // Subtask count badge
             const subCountBadge = hasSub
-                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-full border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium">
+                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-sm border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium">
                        <i class="fa-solid fa-network-wired text-brand-500/80"></i> ${stats.count - 1} Subtask${(stats.count - 1) !== 1 ? 's' : ''}
                    </span>`
                 : '';
@@ -697,7 +697,7 @@
                     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
                     // Add accent glow
-                    const card = el.querySelector('.rounded-xl');
+                    const card = el.querySelector('.rounded');
                     if (card) {
                         card.classList.add('task-card-active');
                         setTimeout(() => {
