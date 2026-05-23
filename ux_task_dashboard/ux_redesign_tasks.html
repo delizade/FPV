@@ -256,8 +256,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
-            <aside class="hidden lg:block lg:col-span-1">
-                <div class="glass-effect p-4 rounded sticky top-[120px] overflow-y-auto max-h-[calc(100vh-9rem)] border border-brand-900/10 shadow-xl shadow-black/20 -mt-6">
+            <aside class="hidden lg:block lg:col-span-1 -mt-6">
+                <div class="glass-effect p-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                     <div class="mb-5 pb-4 border-b border-brand-900/20">
@@ -300,7 +300,7 @@
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="sticky top-[62px] z-20 bg-[#0a0806]/85 backdrop-blur-md pt-[28px] pb-[10px] w-full border-b border-stone-900/60 mb-5 -mt-6">
+                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[28px] pb-[10px] w-full border-b border-stone-900/60 mb-5 -mt-6 transition-all duration-300">
                     <!-- DESKTOP LAYOUT -->
                     <div class="hidden sm:flex items-center justify-between px-2">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
@@ -1113,15 +1113,24 @@
             // Sticky Scroll Header morph listener
             const stickyHeader = document.getElementById('sticky-scroll-header');
             const heroBanner = document.getElementById('hero-banner');
+            const statsBar = document.getElementById('right-stats-bar');
             window.addEventListener('scroll', () => {
                 const rect = heroBanner ? heroBanner.getBoundingClientRect() : null;
                 const isPastBanner = rect && rect.height > 100 ? (rect.bottom <= 0) : (window.scrollY > 560);
                 if (isPastBanner) {
                     stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
                     stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    if (statsBar) {
+                        statsBar.classList.remove('bg-transparent');
+                        statsBar.classList.add('bg-[#0a0806]/85', 'backdrop-blur-md');
+                    }
                 } else {
                     stickyHeader.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     stickyHeader.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    if (statsBar) {
+                        statsBar.classList.remove('bg-[#0a0806]/85', 'backdrop-blur-md');
+                        statsBar.classList.add('bg-transparent');
+                    }
                 }
             });
         });
