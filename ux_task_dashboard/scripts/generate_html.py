@@ -283,11 +283,11 @@ def main():
         </div>
     </div>
  
-    <div class="max-w-[1440px] mx-auto py-6 w-full px-0 sm:px-0 lg:px-0">
+    <div class="max-w-[1440px] mx-auto pb-6 pt-0 w-full px-0 sm:px-0 lg:px-0">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
-            <aside class="hidden lg:block lg:col-span-1 -mt-6">
+            <aside class="hidden lg:block lg:col-span-1">
                 <div class="glass-effect p-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
@@ -320,7 +320,7 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[36px] pb-0 -ml-6 pl-6 mb-5 -mt-6 transition-all duration-300">
+                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[32px] pb-0 -ml-6 pl-6 mb-5 transition-all duration-300">
                     <!-- DESKTOP LAYOUT -->
                     <div id="stats-inner-desktop" class="hidden sm:flex items-center justify-between px-0 pb-1.5 border-b border-stone-900/60">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
