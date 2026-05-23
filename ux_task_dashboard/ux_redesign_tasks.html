@@ -535,19 +535,23 @@
             
             // CSS classes for nested styling
             let containerClass = "rounded border shadow-md transition-all duration-300 ";
-            let headerBgClass = "p-4 flex items-center justify-between cursor-pointer ";
+            let headerBgClass = "px-4 flex items-center justify-between cursor-pointer ";
             let borderStyle = "";
             let styleAttr = "";
             
             if (level === 0) {
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
                 containerClass += "bg-stone-950/20 border-brand-900/20 hover:border-brand-500/20 mb-5";
-                headerBgClass += "bg-gradient-to-r from-brand-950/25 to-stone-950 hover:from-brand-950/45 hover:to-stone-900/60 border-b border-brand-900/10";
+                
+                // If there's a description, reduce bottom padding to bring title and description closer.
+                // Removed border-b separator under main task block.
+                const pbClass = node.description ? "pb-1.5 pt-4" : "py-4";
+                headerBgClass += `bg-gradient-to-r from-brand-950/25 to-stone-950 hover:from-brand-950/45 hover:to-stone-900/60 ${pbClass}`;
                 borderStyle = "border-l-4 border-l-brand-900/30 hover:border-l-brand-500/90 transition-all duration-300";
             } else {
                 // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean stone/neutral rounded boxes)
                 containerClass += "bg-stone-950/15 border-stone-900 hover:border-brand-900/20 my-2";
-                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-2.5 px-4";
+                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-2.5";
                 borderStyle = "";
                 styleAttr = "";
             }
