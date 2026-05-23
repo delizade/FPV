@@ -191,7 +191,7 @@
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-900 sticky top-20 z-20 bg-[#0a0806]/95 backdrop-blur-md py-3 px-1">
+                <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-900 sticky top-20 z-20 py-3 px-1">
                     <!-- Left: Desaturated, Borderless Plain Text Stats -->
                     <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                         <div>
@@ -431,6 +431,21 @@
                 icon = `<i class="fa-regular fa-folder" style="color: ${titleColor}"></i>`;
             }
 
+            let displayName = node.name;
+            let prefixHtml = "";
+            
+            const match = node.name.match(/^([\d\.[A-Z]]+ \- )(.*)$/);
+            if (match) {
+                const prefix = match[1];
+                const title = match[2];
+                // Prefix uses the passive titleColor (desaturated subtask color)
+                prefixHtml = `<span class="mr-1" style="color: ${titleColor}">${prefix}</span>`;
+                // Title uses more readable slate color
+                displayName = `<span class="text-slate-300 hover:text-white transition-colors">${title}</span>`;
+            } else {
+                displayName = `<span style="color: ${titleColor}">${node.name}</span>`;
+            }
+
             const estOpacity = level > 0 ? "opacity-50" : "";
             let html = `
                 <div class="group flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-900/60 cursor-pointer text-xs transition-all" 
@@ -438,8 +453,8 @@
                      onclick="scrollToTask('${node.id}')">
                     <div class="flex items-center gap-2 truncate">
                         ${icon}
-                        <span class="truncate font-medium transition-colors" style="color: ${titleColor}" title="${node.name}">
-                            ${node.name}
+                        <span class="truncate font-medium transition-colors" title="${node.name}">
+                            ${prefixHtml}${displayName}
                         </span>
                     </div>
                     <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 ${estOpacity}">
