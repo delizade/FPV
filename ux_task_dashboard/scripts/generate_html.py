@@ -197,7 +197,7 @@ def main():
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY -->
             <aside class="lg:col-span-1">
-                <div class="glass-effect p-4 rounded sticky top-[85px] overflow-y-auto max-h-[calc(100vh-7rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                <div class="glass-effect p-4 rounded sticky top-[109px] overflow-y-auto max-h-[calc(100vh-8rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                     <div class="mb-5 pb-4 border-b border-brand-900/20">
@@ -240,7 +240,7 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="flex items-center justify-between mb-5 border-b border-slate-900/60 sticky top-[85px] z-20 bg-[#0a0806]/90 backdrop-blur-md py-3 px-2 w-full rounded-sm">
+                <div class="flex items-center justify-between mb-5 border-b border-slate-900/60 sticky top-[109px] z-20 backdrop-blur-md py-3 px-2 w-full">
                     <!-- Left: Desaturated, Borderless Plain Text Stats & Open ClickUp button -->
                     <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                         <div>
