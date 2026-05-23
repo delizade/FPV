@@ -181,20 +181,20 @@
 <body class="min-h-screen text-slate-200">
 
     <!-- STICKY SCROLL HEADER (Frame 19 - Scroll State) -->
-    <div id="sticky-scroll-header" class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0">
-        <div class="w-full h-full relative">
+    <div id="sticky-scroll-header" class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0 overflow-hidden">
+        <div class="w-full h-full relative overflow-hidden">
             <!-- Background image -->
-            <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
+            <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 100%;"></div>
             
             <!-- Content -->
-            <div class="absolute left-[20px] sm:left-[73px] top-1/2 transform -translate-y-1/2 flex items-center">
+            <div class="absolute left-[16px] top-1/2 transform -translate-y-1/2 flex items-center font-sans">
                 <h2 class="text-[#C9C2B8] text-[15px] sm:text-[16px] font-normal leading-[110%] tracking-wide">
                     Mobile App UX <span class="text-[#C59A5D] font-semibold">Improvements &amp;</span> UI Redesign
                 </h2>
             </div>
 
             <!-- Right: ClickUp link -->
-            <div class="absolute right-[20px] sm:right-[37px] top-1/2 transform -translate-y-1/2 flex items-center">
+            <div class="absolute right-[37px] top-1/2 transform -translate-y-1/2 flex items-center font-sans">
                 <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1">
                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                     <span class="hidden sm:inline">Open in ClickUp</span>
@@ -204,7 +204,7 @@
     </div>
 
     <!-- HERO BANNER (Frame 18 - Normal State) -->
-    <div class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 shadow-2xl mb-8 select-none rounded-none">
+    <div class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-8 select-none rounded-none font-sans">
         <!-- Background image -->
         <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
         
@@ -243,18 +243,16 @@
                 <span>Scroll to Review Full Project Scope</span>
                 <i class="fa-solid fa-chevron-down animate-bounce text-[9px]"></i>
             </div>
-            <!-- Author -->
-            <div class="absolute right-[109px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
-                Burak Ozdelice
-            </div>
-            <!-- Year -->
-            <div class="absolute right-[37px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
-                2026
+            <!-- Author & Year (Combined on a single line separated by a small bullet circle) -->
+            <div class="absolute right-[37px] bottom-[10px] text-white/25 text-[10px] font-light font-sans flex items-center gap-1.5 select-none">
+                <span>Burak Ozdelice</span>
+                <span class="text-[6px] opacity-60">•</span>
+                <span>2026</span>
             </div>
         </div>
     </div>
  
-    <div class="max-w-[1440px] mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto py-6 w-full px-0 sm:px-0 lg:px-0">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
