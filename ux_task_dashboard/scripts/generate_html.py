@@ -592,6 +592,7 @@ def main():
 
             let displayName = highlightText(node.name);
             let prefixHtml = "";
+            let prefixWidth = 0;
             
             const match = node.name.match(/^([\\d.A-Z]+ \\- )(.*)$/);
             if (match) {{
@@ -600,8 +601,12 @@ def main():
                 const highlightedPrefix = highlightText(prefix);
                 const highlightedTitle = highlightText(title);
                 
+                // Set prefix width (Outfit text-sm is ~7.5px per character)
+                // Using a fixed inline-block width aligns both the title and the description perfectly
+                prefixWidth = Math.round(prefix.length * 7.5);
+                
                 // Prefix uses same titleColor but 50% opacity
-                prefixHtml = `<span style="color: ${{titleColor}}; opacity: 0.5;">${{highlightedPrefix}}</span>`;
+                prefixHtml = `<span class="inline-block shrink-0" style="color: ${{titleColor}}; opacity: 0.5; width: ${{prefixWidth}}px; font-variant-numeric: tabular-nums;">${{highlightedPrefix}}</span>`;
                 // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${{titleColor}}">${{highlightedTitle}}</span>`;
             }} else {{
@@ -649,7 +654,7 @@ def main():
                         <!-- HEADER BAR -->
                         <div class="${{headerBgClass}}" onclick="toggleNode('${{node.id}}', event)">
                             <div class="flex items-center gap-2.5 min-w-0 mr-4">
-                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" title="${{node.name}}">
+                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide flex items-baseline" title="${{node.name}}">
                                     ${{prefixHtml}}${{displayName}}
                                 </h3>
                             </div>
@@ -666,7 +671,7 @@ def main():
                         <div class="${{(!hasSub || isExpanded) ? 'block' : 'hidden'}}" id="body-${{node.id}}">
                             <!-- Description (Only show if present - WITHOUT section header) -->
                             ${{node.description ? `
-                                <div class="px-5 py-3.5 border-t border-slate-900/60 bg-slate-950/20">
+                                <div class="pr-5 pt-0.5 pb-3 text-slate-400 text-xs leading-relaxed" style="padding-left: ${{16 + prefixWidth}}px">
                                     ${{formatDescription(node.description)}}
                                 </div>
                             ` : ''}}
