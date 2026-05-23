@@ -572,13 +572,13 @@ def main():
             
             if (level === 0) {{
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
-                containerClass += "bg-slate-900/15 border-brand-900/20 hover:border-brand-500/20 mb-5";
-                headerBgClass += "bg-gradient-to-r from-brand-950/30 to-slate-950 hover:from-brand-950/50 hover:to-slate-900/80 border-b border-brand-900/10";
+                containerClass += "bg-stone-950/20 border-brand-900/20 hover:border-brand-500/20 mb-5";
+                headerBgClass += "bg-gradient-to-r from-brand-950/25 to-stone-950 hover:from-brand-950/45 hover:to-stone-900/60 border-b border-brand-900/10";
                 borderStyle = "border-l-4 border-l-brand-900/30 hover:border-l-brand-500/90 transition-all duration-300";
             }} else {{
-                // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean slate rounded boxes)
-                containerClass += "bg-slate-950/15 border-slate-900/85 hover:border-slate-855 my-2";
-                headerBgClass += "bg-transparent hover:bg-slate-900/20 py-2.5 px-4";
+                // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean stone/neutral rounded boxes)
+                containerClass += "bg-stone-950/15 border-stone-900 hover:border-brand-900/20 my-2";
+                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-2.5 px-4";
                 borderStyle = "";
                 styleAttr = "";
             }}
@@ -613,14 +613,12 @@ def main():
                 displayName = `<span style="color: ${{titleColor}}">${{highlightText(node.name)}}</span>`;
             }}
 
-            // Indented subtask frame wrapping container with custom guide lines matching hierarchy saturation
+            // Indented subtask frame wrapping container (no guide lines, clean spacing)
             let subtasksHtml = '';
             if (hasSub) {{
-                const guideSat = Math.min(40 + ((level + 1) * 20), 100);
-                const guideColor = `hsla(38, ${{guideSat}}%, 55%, 0.12)`;
                 subtasksHtml = `
-                    <div class="pl-4 ml-3.5 border-l space-y-2.5 collapsible-content ${{isExpanded ? 'block' : 'hidden'}}" 
-                         style="border-color: ${{guideColor}}" id="children-${{node.id}}">
+                    <div class="pl-4 ml-3.5 space-y-2.5 collapsible-content ${{isExpanded ? 'block' : 'hidden'}}" 
+                         id="children-${{node.id}}">
                         ${{node.subtasks.map(sub => renderMainNode(sub, level + 1)).join('')}}
                     </div>
                 `;
