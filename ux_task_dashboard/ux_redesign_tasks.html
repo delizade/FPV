@@ -199,7 +199,7 @@
             <main class="lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
                 <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-900 sticky top-20 z-20 py-3 px-1">
-                    <!-- Left: Desaturated, Borderless Plain Text Stats -->
+                    <!-- Left: Desaturated, Borderless Plain Text Stats & Open ClickUp button -->
                     <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                         <div>
                             <span class="text-slate-200 font-bold text-sm" id="total-count-stat">0</span> Total Tasks
@@ -209,9 +209,13 @@
                             <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
                             <span class="text-slate-200 font-bold text-sm" id="total-time-stat">0h</span> Estimated Time
                         </div>
+                        <div class="text-slate-700">|</div>
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
+                        </a>
                     </div>
                     
-                    <!-- Right: Elegant Expand All / Collapse All & Open ClickUp controls -->
+                    <!-- Right: Elegant Expand All / Collapse All controls -->
                     <div class="flex items-center gap-2">
                         <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
@@ -219,10 +223,6 @@
                         <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
                         </button>
-                        <div class="w-px h-4 bg-slate-900 mx-1"></div>
-                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
-                        </a>
                     </div>
                 </div>
 
