@@ -222,7 +222,7 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-900">
+                <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-900 sticky top-20 z-20 bg-[#0a0806]/95 backdrop-blur-md py-3 px-1">
                     <!-- Left: Desaturated, Borderless Plain Text Stats -->
                     <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                         <div>
