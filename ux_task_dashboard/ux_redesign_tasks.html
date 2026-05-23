@@ -178,10 +178,21 @@
                         </h3>
                     </div>
 
-                    <!-- Quick Navigation replaced with Estimated Task List -->
-                    <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
-                    </h2>
+                    <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
+                    <div class="flex items-center justify-between mb-3 px-2">
+                        <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font flex items-center gap-2">
+                            <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
+                        </h2>
+                        <div class="flex items-center gap-2">
+                            <button onclick="expandAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                                <i class="fa-solid fa-folder-open text-[8px] opacity-70"></i> Expand
+                            </button>
+                            <span class="text-slate-800 text-[9px] font-normal">|</span>
+                            <button onclick="collapseAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                                <i class="fa-solid fa-folder-closed text-[8px] opacity-70"></i> Collapse
+                            </button>
+                        </div>
+                    </div>
                     
                     <div class="space-y-1" id="sidebar-tree">
                         <!-- Javascript will render this tree -->

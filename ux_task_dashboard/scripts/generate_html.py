@@ -39,7 +39,7 @@ def main():
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,8 +53,8 @@ def main():
             theme: {{
                 extend: {{
                     fontFamily: {{
-                        sans: ['Inter', 'sans-serif'],
-                        outfit: ['Outfit', 'sans-serif'],
+                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
+                        outfit: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
                     }},
                     colors: {{
                         brand: {{
@@ -82,8 +82,15 @@ def main():
     </script>
     
     <style>
+        html {{
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }}
+        
         body {{
-            font-family: 'Inter', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
             background-color: #0a0806;
             color: #e2e8f0;
             background-image: 
@@ -94,7 +101,7 @@ def main():
         }}
         
         .outfit-font {{
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
         }}
         
         /* Custom scrollbar */
@@ -197,15 +204,26 @@ def main():
                         <div class="text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font mb-1.5 flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                         </div>
-                        <h3 class="text-sm font-extrabold text-slate-100 outfit-font leading-snug tracking-wide">
+                        <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
                             Product UX Improvements & UI Redesign
                         </h3>
                     </div>
 
-                    <!-- Quick Navigation replaced with Estimated Task List -->
-                    <h2 class="text-[10px] font-bold text-slate-455 uppercase tracking-wider outfit-font mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
-                    </h2>
+                    <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
+                    <div class="flex items-center justify-between mb-3 px-2">
+                        <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font flex items-center gap-2">
+                            <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
+                        </h2>
+                        <div class="flex items-center gap-2">
+                            <button onclick="expandAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                                <i class="fa-solid fa-folder-open text-[8px] opacity-70"></i> Expand
+                            </button>
+                            <span class="text-slate-800 text-[9px] font-normal">|</span>
+                            <button onclick="collapseAll()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors uppercase font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
+                                <i class="fa-solid fa-folder-closed text-[8px] opacity-70"></i> Collapse
+                            </button>
+                        </div>
+                    </div>
                     
                     <div class="space-y-1" id="sidebar-tree">
                         <!-- Javascript will render this tree -->
@@ -222,8 +240,8 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="flex items-center justify-between mb-6 pb-3 border-b border-slate-900 sticky top-20 z-20 bg-[#0a0806]/95 backdrop-blur-md py-3 px-1">
-                    <!-- Left: Desaturated, Borderless Plain Text Stats -->
+                <div class="flex items-center justify-between mb-6 border-b border-slate-900 sticky top-[85px] z-20 backdrop-blur-md py-4 px-1">
+                    <!-- Left: Desaturated, Borderless Plain Text Stats & Open ClickUp button -->
                     <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                         <div>
                             <span class="text-slate-200 font-bold text-sm" id="total-count-stat">0</span> Total Tasks
@@ -233,9 +251,13 @@ def main():
                             <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
                             <span class="text-slate-200 font-bold text-sm" id="total-time-stat">0h</span> Estimated Time
                         </div>
+                        <div class="text-slate-700">|</div>
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
+                        </a>
                     </div>
                     
-                    <!-- Right: Elegant Expand All / Collapse All & Open ClickUp controls -->
+                    <!-- Right: Elegant Expand All / Collapse All controls -->
                     <div class="flex items-center gap-2">
                         <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
@@ -243,10 +265,6 @@ def main():
                         <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
                         </button>
-                        <div class="w-px h-4 bg-slate-900 mx-1"></div>
-                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
-                        </a>
                     </div>
                 </div>
 
@@ -449,8 +467,8 @@ def main():
             
             let paddingLeft = level * 14;
             
-            // Main tasks use 40% saturation & 60% lightness, subtasks use 20% saturation & 45% lightness (brightness reduced)
-            const sat = level === 0 ? 40 : 20;
+            // Main tasks use 40% saturation & 60% lightness, subtasks use 10% saturation & 45% lightness (brightness reduced)
+            const sat = level === 0 ? 40 : 10;
             const light = level === 0 ? 60 : 45;
             const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
             
@@ -462,6 +480,21 @@ def main():
                 icon = `<i class="fa-regular fa-folder" style="color: ${{titleColor}}"></i>`;
             }}
 
+            let displayName = node.name;
+            let prefixHtml = "";
+            
+            const match = node.name.match(/^([\\d.A-Z]+ \\- )(.*)$/);
+            if (match) {{
+                const prefix = match[1];
+                const title = match[2];
+                // Prefix uses same titleColor but 50% opacity
+                prefixHtml = `<span style="color: ${{titleColor}}; opacity: 0.5;">${{prefix}}</span>`;
+                // Title uses full titleColor (100% opacity)
+                displayName = `<span style="color: ${{titleColor}}">${{title}}</span>`;
+            }} else {{
+                displayName = `<span style="color: ${{titleColor}}">${{node.name}}</span>`;
+            }}
+
             const estOpacity = level > 0 ? "opacity-50" : "";
             let html = `
                 <div class="group flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-900/60 cursor-pointer text-xs transition-all" 
@@ -469,8 +502,8 @@ def main():
                      onclick="scrollToTask('${{node.id}}')">
                     <div class="flex items-center gap-2 truncate">
                         ${{icon}}
-                        <span class="truncate font-medium transition-colors" style="color: ${{titleColor}}" title="${{node.name}}">
-                            ${{node.name}}
+                        <span class="truncate font-medium transition-colors" title="${{node.name}}">
+                            ${{prefixHtml}}${{displayName}}
                         </span>
                     </div>
                     <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 ${{estOpacity}}">
@@ -551,6 +584,24 @@ def main():
                 return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded-sm">$1</mark>');
             }}
 
+            let displayName = highlightText(node.name);
+            let prefixHtml = "";
+            
+            const match = node.name.match(/^([\\d.A-Z]+ \\- )(.*)$/);
+            if (match) {{
+                const prefix = match[1];
+                const title = match[2];
+                const highlightedPrefix = highlightText(prefix);
+                const highlightedTitle = highlightText(title);
+                
+                // Prefix uses same titleColor but 50% opacity
+                prefixHtml = `<span style="color: ${{titleColor}}; opacity: 0.5;">${{highlightedPrefix}}</span>`;
+                // Title uses full titleColor (100% opacity)
+                displayName = `<span style="color: ${{titleColor}}">${{highlightedTitle}}</span>`;
+            }} else {{
+                displayName = `<span style="color: ${{titleColor}}">${{highlightText(node.name)}}</span>`;
+            }}
+
             // Indented subtask frame wrapping container with custom guide lines matching hierarchy saturation
             let subtasksHtml = '';
             if (hasSub) {{
@@ -592,8 +643,8 @@ def main():
                         <!-- HEADER BAR -->
                         <div class="${{headerBgClass}}" onclick="toggleNode('${{node.id}}', event)">
                             <div class="flex items-center gap-2.5 min-w-0 mr-4">
-                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" style="color: ${{titleColor}}" title="${{node.name}}">
-                                    ${{highlightText(node.name)}}
+                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" title="${{node.name}}">
+                                    ${{prefixHtml}}${{displayName}}
                                 </h3>
                             </div>
                             
