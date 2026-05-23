@@ -438,10 +438,10 @@
             if (match) {
                 const prefix = match[1];
                 const title = match[2];
-                // Prefix uses the passive titleColor (desaturated subtask color)
-                prefixHtml = `<span class="mr-1" style="color: ${titleColor}">${prefix}</span>`;
-                // Title uses more readable slate color
-                displayName = `<span class="text-slate-300 hover:text-white transition-colors">${title}</span>`;
+                // Prefix uses same titleColor but 50% opacity
+                prefixHtml = `<span style="color: ${titleColor}; opacity: 0.5;">${prefix}</span>`;
+                // Title uses full titleColor (100% opacity)
+                displayName = `<span style="color: ${titleColor}">${title}</span>`;
             } else {
                 displayName = `<span style="color: ${titleColor}">${node.name}</span>`;
             }
@@ -542,11 +542,12 @@
             if (match) {
                 const prefix = match[1];
                 const title = match[2];
-                const passiveColor = `hsl(38, 20%, 45%)`;
                 const highlightedPrefix = highlightText(prefix);
                 const highlightedTitle = highlightText(title);
                 
-                prefixHtml = `<span class="mr-1 font-normal text-slate-500" style="color: ${passiveColor}">${highlightedPrefix}</span>`;
+                // Prefix uses same titleColor but 50% opacity
+                prefixHtml = `<span style="color: ${titleColor}; opacity: 0.5;">${highlightedPrefix}</span>`;
+                // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${titleColor}">${highlightedTitle}</span>`;
             } else {
                 displayName = `<span style="color: ${titleColor}">${highlightText(node.name)}</span>`;
