@@ -618,7 +618,7 @@ def main():
                      onclick="scrollToTask('${{node.id}}')">
                     <div class="flex items-center gap-2 truncate">
                         ${{icon}}
-                        <span class="truncate font-medium transition-colors" title="${{node.name}}">
+                        <span class="truncate font-normal transition-colors" title="${{node.name}}">
                             ${{prefixHtml}}${{displayName}}
                         </span>
                     </div>
@@ -766,7 +766,7 @@ def main():
                         <!-- HEADER BAR -->
                         <div class="${{headerBgClass}}" onclick="toggleNode('${{node.id}}', event)">
                             <div class="flex items-center gap-2.5 min-w-0 mr-4">
-                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide flex items-baseline" title="${{node.name}}">
+                                <h3 class="text-sm font-normal truncate outfit-font tracking-wide flex items-baseline" title="${{node.name}}">
                                     ${{prefixHtml}}${{displayName}}
                                 </h3>
                             </div>
