@@ -173,13 +173,13 @@
                         <div class="text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font mb-1.5 flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                         </div>
-                        <h3 class="text-sm font-extrabold text-slate-100 outfit-font leading-snug tracking-wide">
+                        <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
                             Product UX Improvements & UI Redesign
                         </h3>
                     </div>
 
                     <!-- Quick Navigation replaced with Estimated Task List -->
-                    <h2 class="text-[10px] font-bold text-slate-455 uppercase tracking-wider outfit-font mb-3 flex items-center gap-2">
+                    <h2 class="text-[10px] font-bold text-[#BABECE] uppercase tracking-wider outfit-font mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-list-ul text-brand-500/80"></i> Estimated Task List
                     </h2>
                     
@@ -425,8 +425,8 @@
             
             let paddingLeft = level * 14;
             
-            // Main tasks use 40% saturation & 60% lightness, subtasks use 20% saturation & 45% lightness (brightness reduced)
-            const sat = level === 0 ? 40 : 20;
+            // Main tasks use 40% saturation & 60% lightness, subtasks use 10% saturation & 45% lightness (brightness reduced)
+            const sat = level === 0 ? 40 : 10;
             const light = level === 0 ? 60 : 45;
             const titleColor = `hsl(38, ${sat}%, ${light}%)`;
             
