@@ -257,18 +257,18 @@
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
             <aside class="hidden lg:block lg:col-span-1">
-                <div class="glass-effect p-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
-                    <div class="mb-5 pb-4 border-b border-brand-900/20">
-                        <div class="text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font mb-1.5 flex items-center gap-1.5">
+                    <div class="mb-[20px]">
+                        <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                         </div>
-                        <div class="flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
-                            <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
+                        <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
+                            <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-none tracking-wide">
                                 Estimated Task List
                             </h3>
-                            <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1">
+                            <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
                                 <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
                             </span>
                         </div>
@@ -289,9 +289,9 @@
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[32px] pb-0 -ml-6 pl-6 mb-5 transition-all duration-300">
+                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[36px] pb-0 -ml-6 pl-6 mb-[20px] transition-all duration-300">
                     <!-- DESKTOP LAYOUT -->
-                    <div id="stats-inner-desktop" class="hidden sm:flex items-center justify-between px-0 pb-1.5 border-b border-stone-900/60">
+                    <div id="stats-inner-desktop" class="hidden sm:flex h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
                         <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
                             <div>
@@ -305,17 +305,17 @@
                         </div>
                         <!-- Right: Elegant Expand All / Collapse All controls -->
                         <div class="flex items-center gap-2">
-                            <button onclick="expandAll()" class="btn-tactile px-3.5 py-2 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
+                            <button onclick="expandAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
                             </button>
-                            <button onclick="collapseAll()" class="btn-tactile px-3.5 py-2 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
+                            <button onclick="collapseAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/85"></i> Collapse All
                             </button>
                         </div>
                     </div>
 
                     <!-- MOBILE LAYOUT -->
-                    <div id="stats-inner-mobile" class="flex sm:hidden items-center justify-between px-0 pb-1.5 border-b border-stone-900/60">
+                    <div id="stats-inner-mobile" class="flex sm:hidden h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
                         <!-- Left: Stacked stats (two lines) -->
                         <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
                             <div>
