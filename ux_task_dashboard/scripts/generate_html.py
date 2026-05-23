@@ -454,16 +454,12 @@ def main():
             const light = level === 0 ? 60 : 45;
             const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
             
-            // Choose elegant icon based on level of nesting
+            // Choose elegant icon based on level of nesting (No icons for level 2+ deep nested subtasks)
             let icon = '';
             if (level === 0) {{
                 icon = `<i class="fa-solid fa-folder" style="color: ${{titleColor}}"></i>`;
             }} else if (level === 1) {{
                 icon = `<i class="fa-regular fa-folder" style="color: ${{titleColor}}"></i>`;
-            }} else if (level === 2) {{
-                icon = `<i class="fa-regular fa-file-lines text-slate-455"></i>`;
-            }} else {{
-                icon = `<i class="fa-solid fa-angle-right text-[7px]" style="color: ${{titleColor}}"></i>`;
             }}
 
             const estOpacity = level > 0 ? "opacity-50" : "";
