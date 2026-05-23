@@ -651,17 +651,17 @@
             
             if (level === 0) {
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
-                containerClass += "rounded-xl bg-stone-950/30 border border-stone-900/80 hover:border-brand-500/25 mb-6 shadow-lg shadow-black/30";
+                containerClass += "rounded bg-stone-950/30 border border-stone-900/80 hover:border-brand-500/25 mb-6 shadow-lg shadow-black/30";
                 
                 // If there's a description, reduce bottom padding to bring title and description closer.
                 // Removed border-b separator under main task block.
                 const pbClass = node.description ? "pb-0 pt-4" : "py-4";
-                headerBgClass += `bg-transparent hover:bg-stone-900/15 ${pbClass} rounded-t-xl`;
+                headerBgClass += `bg-transparent hover:bg-stone-900/15 ${pbClass} rounded-t`;
                 borderStyle = "border-l-4 border-l-brand-900/40 hover:border-l-brand-500/80 transition-all duration-300";
             } else {
                 // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean stone/neutral rounded boxes)
-                containerClass += "rounded-lg bg-stone-950/15 border border-stone-900/50 hover:border-brand-900/25 my-3 shadow-sm";
-                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-3 rounded-t-lg";
+                containerClass += "rounded bg-stone-950/15 border border-stone-900/50 hover:border-brand-900/25 my-3 shadow-sm";
+                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-3 rounded-t";
                 borderStyle = "";
                 styleAttr = "";
             }
@@ -952,7 +952,7 @@
             
             if (!mainHtml) {
                 mainContainer.innerHTML = `
-                    <div class="text-center py-20 border border-dashed border-slate-800/80 rounded-xl bg-slate-900/10">
+                    <div class="text-center py-20 border border-dashed border-slate-800/80 rounded bg-slate-900/10">
                         <i class="fa-solid fa-folder-open text-4xl text-slate-700 mb-3"></i>
                         <h3 class="text-base font-semibold text-slate-400 outfit-font font-medium">No Results Found</h3>
                         <p class="text-xs text-slate-500 mt-1">No tasks matched the search term "${searchQuery}".</p>
