@@ -155,7 +155,7 @@ def main():
             margin-bottom: 0.25rem;
         }}
         .markdown-content strong {{
-            color: #f1f5f9;
+            color: #BABECE;
             font-weight: 600;
         }}
         
@@ -170,23 +170,16 @@ def main():
 
     <!-- TOP HEADER & STATS -->
     <header class="border-b border-brand-900/20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between gap-4">
                 <div>
                     <!-- Left: FPV Workplan Subtitle above main parent task -->
                     <div class="flex items-center gap-2 text-brand-500 text-sm font-semibold uppercase tracking-wider outfit-font">
                         <i class="fa-solid fa-layer-group"></i> FPV Workplan
                     </div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-250 outfit-font tracking-tight mt-1">
+                    <h1 class="text-xl sm:text-2xl font-extrabold outfit-font tracking-tight mt-1 text-[#BABECE]">
                         Product UX Improvements & UI Redesign
                     </h1>
-                </div>
-                
-                <!-- Right: ClickUp link button -->
-                <div class="flex items-center shrink-0">
-                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
-                    </a>
                 </div>
             </div>
         </div>
@@ -242,14 +235,18 @@ def main():
                         </div>
                     </div>
                     
-                    <!-- Right: Elegant Expand All / Collapse All controls -->
+                    <!-- Right: Elegant Expand All / Collapse All & Open ClickUp controls -->
                     <div class="flex items-center gap-2">
-                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
+                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
                         </button>
-                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
+                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
                         </button>
+                        <div class="w-px h-4 bg-slate-900 mx-1"></div>
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
+                        </a>
                     </div>
                 </div>
 
@@ -399,7 +396,7 @@ def main():
                 let trimmed = line.trim();
                 if (trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('• ')) {{
                     if (!inList) {{
-                        resultLines.push('<ul class="list-disc pl-5 my-2 text-slate-350">');
+                        resultLines.push('<ul class="list-disc pl-5 my-2">');
                         inList = true;
                     }}
                     resultLines.push(`<li>${{trimmed.substring(2)}}</li>`);
@@ -419,7 +416,7 @@ def main():
                 resultLines.push('</ul>');
             }}
             
-            return `<div class="markdown-content text-sm text-slate-355">${{resultLines.join('')}}</div>`;
+            return `<div class="markdown-content text-sm text-[#BABECE]">${{resultLines.join('')}}</div>`;
         }}
 
         // Recursive statistics calculator

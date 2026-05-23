@@ -9,7 +9,7 @@
     {
       "id": "86expf9fd",
       "name": "PHASE 1 — Research & Direction",
-      "description": "Initial research phase: sector trends, references, and defining the overall design direction before any screen work begins.",
+      "description": "Initial research, visual exploration, and direction-setting phase focused on establishing the overall UX/UI foundation and creative approach for the project before entering the main design production process.",
       "status": "to do",
       "time_estimate": null,
       "custom_fields": [],
@@ -17,7 +17,7 @@
         {
           "id": "86expf9fg",
           "name": "1.1 - Sector & Competitor Research",
-          "description": "Survey modern real estate / prop-tech mobile apps. Identify best-in-class UX patterns, visual trends, and opportunities for differentiation.",
+          "description": "Initial visual and UX research focused on competitor products, industry standards, interface trends, and relevant app experiences before starting the design process. This task is intended to support internal design direction, inspiration gathering, and overall product positioning rather than producing a formal research presentation or deep analytical report.",
           "status": "to do",
           "time_estimate": 10800000,
           "custom_fields": [],
@@ -26,7 +26,7 @@
         {
           "id": "86expf9fm",
           "name": "1.2 - Mood Board & Visual Direction",
-          "description": "Curate visual references: UI styles, color palettes, typography pairings, photography and illustration approaches relevant to the FPV brand.",
+          "description": "Visual exploration and creative direction development based on the research phase and overall product goals. This process may include mood boards, style references, interface experiments, and early visual direction studies to help establish a suitable design language for the product. Depending on the workflow and project needs, selected visual directions or references may be shared during the process when necessary.",
           "status": "to do",
           "time_estimate": 21600000,
           "custom_fields": [],
@@ -34,8 +34,8 @@
         },
         {
           "id": "86expf9ft",
-          "name": "1.3 - General Design Concept Definition",
-          "description": "",
+          "name": "1.3 - Initial Design Concept Definition",
+          "description": "Selection and refinement of an initial visual direction based on research, explorations, and early design experiments conducted during the first stages of the project. This task focuses on narrowing down the overall design direction and establishing a clearer foundation for the upcoming UI design process before moving into the initial design proposal phase.",
           "status": "to do",
           "time_estimate": 21600000,
           "custom_fields": [],
