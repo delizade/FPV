@@ -449,9 +449,10 @@ def main():
             
             let paddingLeft = level * 14;
             
-            // Main tasks use 40% saturation, subtasks use 50% lower saturation (20%)
+            // Main tasks use 40% saturation & 60% lightness, subtasks use 20% saturation & 45% lightness (brightness reduced)
             const sat = level === 0 ? 40 : 20;
-            const titleColor = `hsl(38, ${{sat}}%, 60%)`;
+            const light = level === 0 ? 60 : 45;
+            const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
             
             // Choose elegant icon based on level of nesting
             let icon = '';
