@@ -212,8 +212,8 @@ def main():
 <body class="min-h-screen text-slate-200">
 
     <!-- STICKY SCROLL HEADER (Frame 19 - Scroll State) -->
-    <div id="sticky-scroll-header" class="fixed top-0 left-0 w-full z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0">
-        <div class="max-w-[936px] mx-auto w-full h-full relative">
+    <div id="sticky-scroll-header" class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0">
+        <div class="w-full h-full relative">
             <!-- Background image -->
             <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
             
@@ -235,7 +235,7 @@ def main():
     </div>
 
     <!-- HERO BANNER (Frame 18 - Normal State) -->
-    <div class="max-w-[936px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden rounded-b-2xl border-x border-b border-stone-800/40 shadow-2xl mb-8 select-none">
+    <div class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 shadow-2xl mb-8 select-none rounded-none">
         <!-- Background image -->
         <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
         
@@ -275,17 +275,17 @@ def main():
                 <i class="fa-solid fa-chevron-down animate-bounce text-[9px]"></i>
             </div>
             <!-- Author -->
-            <div class="absolute left-[827px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
+            <div class="absolute right-[109px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
                 Burak Ozdelice
             </div>
             <!-- Year -->
-            <div class="absolute left-[899px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
+            <div class="absolute right-[37px] bottom-[10px] text-white/25 text-[10px] font-light font-sans">
                 2026
             </div>
         </div>
     </div>
  
-    <div class="max-w-8xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div class="max-w-[1440px] mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
             <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
@@ -398,7 +398,7 @@ def main():
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
     <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-4">
+        <div class="max-w-[1440px] mx-auto px-4 flex flex-col items-center gap-4">
             <p>FPV UX & UI Redesign Project Plan &bull; Burak Ozdelice &bull; 2026</p>
             
             <!-- Administrative live sync button tucked away in the footer -->
