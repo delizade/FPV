@@ -576,7 +576,7 @@ def main():
                 
                 // If there's a description, reduce bottom padding to bring title and description closer.
                 // Removed border-b separator under main task block.
-                const pbClass = node.description ? "pb-1.5 pt-4" : "py-4";
+                const pbClass = node.description ? "pb-0 pt-4" : "py-4";
                 headerBgClass += `bg-transparent hover:bg-stone-900/10 ${{pbClass}}`;
                 borderStyle = "border-l-4 border-l-brand-900/30 hover:border-l-brand-500/90 transition-all duration-300";
             }} else {{
@@ -673,7 +673,7 @@ def main():
                         <div class="${{(!hasSub || isExpanded) ? 'block' : 'hidden'}}" id="body-${{node.id}}">
                             <!-- Description (Only show if present - WITHOUT section header) -->
                             ${{node.description ? `
-                                <div class="pr-[30%] pt-0.5 pb-3 text-slate-400 text-xs leading-relaxed" style="padding-left: ${{16 + prefixWidth}}px">
+                                <div class="pr-[30%] pt-0 pb-3 text-slate-400 text-xs leading-relaxed" style="padding-left: ${{16 + prefixWidth}}px">
                                     ${{formatDescription(node.description)}}
                                 </div>
                             ` : ''}}
