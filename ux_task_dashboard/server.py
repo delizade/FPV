@@ -66,6 +66,12 @@ class DashboardRequestHandler(http.server.SimpleHTTPRequestHandler):
             print("🔄 LIVE UPDATE REQUEST RECEIVED FROM DASHBOARD")
             print("==============================================")
             
+            # Dynamically reload modules on every request to bypass python import cache
+            import importlib
+            importlib.reload(fetch_all_tasks)
+            importlib.reload(build_tree)
+            importlib.reload(generate_html)
+            
             # Step 1: Fetch all tasks from ClickUp
             print("📥 Step 1/3: Fetching all latest tasks from ClickUp...")
             fetch_all_tasks.main()
