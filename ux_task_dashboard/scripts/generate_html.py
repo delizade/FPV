@@ -39,7 +39,7 @@ def main():
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,8 +53,9 @@ def main():
             theme: {{
                 extend: {{
                     fontFamily: {{
-                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
-                        outfit: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
+                        sans: ['"Outfit"', 'sans-serif'],
+                        outfit: ['"Outfit"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     }},
                     colors: {{
                         brand: {{
@@ -90,18 +91,22 @@ def main():
         }}
         
         body {{
-            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
-            background-color: #0a0806;
-            color: #e2e8f0;
+            font-family: 'Outfit', sans-serif;
+            background-color: #060504; /* Tinted deep luxury dark */
+            color: #f1f5f9;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.08) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.03) 0px, transparent 50%),
-                radial-gradient(at 50% 0%, rgba(59, 130, 246, 0.02) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.02) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(223, 158, 56, 0.01) 0px, transparent 50%);
             background-attachment: fixed;
         }}
         
         .outfit-font {{
-            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
+            font-family: 'Outfit', sans-serif;
+        }}
+
+        .mono-font {{
+            font-family: 'JetBrains Mono', monospace;
         }}
         
         /* Custom scrollbar */
@@ -110,40 +115,51 @@ def main():
             height: 8px;
         }}
         ::-webkit-scrollbar-track {{
-            background: #0f0d0b;
+            background: #090807;
         }}
         ::-webkit-scrollbar-thumb {{
-            background: #2a2219;
+            background: #1e1812;
             border-radius: 4px;
         }}
         ::-webkit-scrollbar-thumb:hover {{
-            background: #c68426;
+            background: #df9e38;
         }}
         
         .glass-effect {{
-            background: rgba(21, 18, 15, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(223, 158, 56, 0.05);
+            background: rgba(14, 12, 10, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(223, 158, 56, 0.08);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.03),
+                0 10px 40px rgba(0, 0, 0, 0.5);
         }}
         
         .glass-hover:hover {{
-            background: rgba(21, 18, 15, 0.88);
-            border-color: rgba(223, 158, 56, 0.2);
-            box-shadow: 0 0 25px rgba(223, 158, 56, 0.08);
+            background: rgba(20, 18, 15, 0.85);
+            border-color: rgba(223, 158, 56, 0.25);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 15px 45px rgba(223, 158, 56, 0.06);
             transform: translateY(-1px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }}
+
+        /* Spring-physics-like micro-interactions */
+        .spring-transition {{
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }}
         
         .task-card-active {{
-            border-color: rgba(223, 158, 56, 0.5) !important;
-            box-shadow: 0 0 20px rgba(223, 158, 56, 0.15) !important;
+            border-color: rgba(223, 158, 56, 0.6) !important;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(223, 158, 56, 0.15) !important;
         }}
         
         /* Glow animations */
         @keyframes pulse-glow {{
-            0%, 100% {{ box-shadow: 0 0 15px rgba(223, 158, 56, 0.05); }}
-            50% {{ box-shadow: 0 0 25px rgba(223, 158, 56, 0.15); }}
+            0%, 100% {{ box-shadow: 0 0 15px rgba(223, 158, 56, 0.03); }}
+            50% {{ box-shadow: 0 0 25px rgba(223, 158, 56, 0.1); }}
         }}
         .glowing-border {{
             animation: pulse-glow 3s infinite;
@@ -162,7 +178,7 @@ def main():
             margin-bottom: 0.25rem;
         }}
         .markdown-content strong {{
-            color: #BABECE;
+            color: #f1f5f9;
             font-weight: 600;
         }}
         
@@ -170,6 +186,19 @@ def main():
         .collapsible-content {{
             transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
             overflow: hidden;
+        }}
+
+        /* Noise filter overlay */
+        .grain-overlay {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 99;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         }}
 
         /* Mobile overrides */
@@ -194,22 +223,23 @@ def main():
     </style>
 </head>
 <body class="min-h-screen text-slate-200">
+    <div class="grain-overlay"></div>
 
     <!-- TOP HEADER & STATS -->
-    <header class="border-b border-brand-900/20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 h-24 flex items-center">
+    <header class="border-b border-brand-900/10 bg-[#090807]/80 backdrop-blur-md sticky top-0 z-40 h-24 flex items-center shadow-lg shadow-black/25">
         <div class="max-w-8xl mx-auto px-4 py-4 sm:px-6 lg:px-8 w-full">
             <div class="flex flex-row items-center justify-between gap-4">
                 <div>
                     <!-- Left: FPV Workplan Subtitle above main parent task -->
-                    <div class="flex items-center gap-2 text-brand-500 text-sm font-semibold uppercase tracking-wider outfit-font">
-                        <i class="fa-solid fa-layer-group"></i> FPV Workplan
+                    <div class="flex items-center gap-2 text-brand-500 text-xs font-bold uppercase tracking-widest font-sans">
+                        <i class="fa-solid fa-layer-group text-[10px] opacity-80"></i> FPV Workplan
                     </div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold outfit-font tracking-tight mt-1 text-[#BABECE]">
+                    <h1 class="text-xl sm:text-2xl font-black outfit-font tracking-tight mt-1 text-[#f1f5f9] leading-none">
                         Product UX Improvements &amp; UI Redesign
                     </h1>
                 </div>
                 <!-- Right: ClickUp link -->
-                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="shrink-0 px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="shrink-0 px-4 py-2 bg-slate-900/40 hover:bg-brand-500/10 border border-slate-800/80 hover:border-brand-500/30 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg shadow-md hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-2">
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     <span class="hidden sm:inline">Open in ClickUp</span>
                 </a>
@@ -265,26 +295,26 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/60 mb-5 -mt-6">
+                <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/40 mb-5 -mt-6">
                     <!-- DESKTOP LAYOUT -->
                     <div class="hidden sm:flex items-center justify-between px-2">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
                         <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                             <div>
-                                <span class="text-slate-200 font-bold text-sm" id="total-count-stat">0</span> Total Tasks
+                                <span class="text-slate-200 font-bold text-sm font-mono tracking-tight" id="total-count-stat">0</span> Total Tasks
                             </div>
                             <div class="text-slate-700">|</div>
                             <div class="flex items-center gap-1">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold text-sm" id="total-time-stat">0h</span> Estimated Time
+                                <span class="text-slate-200 font-bold text-sm font-mono tracking-tight" id="total-time-stat">0h</span> Estimated Time
                             </div>
                         </div>
                         <!-- Right: Elegant Expand All / Collapse All controls -->
                         <div class="flex items-center gap-2">
-                            <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                            <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/40 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
                             </button>
-                            <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                            <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/40 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
                             </button>
                         </div>
@@ -295,11 +325,11 @@ def main():
                         <!-- Left: Stacked stats (two lines) -->
                         <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
                             <div>
-                                <span class="text-slate-200 font-bold" id="total-count-stat-mobile">0</span> Tasks
+                                <span class="text-slate-200 font-bold font-mono tracking-tight" id="total-count-stat-mobile">0</span> Tasks
                             </div>
                             <div class="flex items-center gap-1">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold" id="total-time-stat-mobile">0h</span> Est. Time
+                                <span class="text-slate-200 font-bold font-mono tracking-tight" id="total-time-stat-mobile">0h</span> Est. Time
                             </div>
                         </div>
                         <!-- Right: Icon-only chevron buttons -->
@@ -329,13 +359,13 @@ def main():
     </div>
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
-    <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
+    <footer class="border-t border-slate-950/40 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
         <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-4">
             <p>FPV UX & UI Redesign Project Plan &bull; Burak Ozdelice &bull; 2026</p>
             
             <!-- Administrative live sync button tucked away in the footer -->
-            <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/40 hover:bg-brand-900/10 border border-slate-900 hover:border-brand-500/20 text-slate-500 hover:text-brand-400 text-[10px] font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-arrows-rotate text-[9px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
+            <button onclick="syncWithClickUp()" id="sync-btn" class="px-4 py-2 bg-slate-900/40 hover:bg-brand-500/10 border border-slate-800/85 hover:border-brand-500/30 text-slate-500 hover:text-brand-400 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-2 cursor-pointer shadow-md">
+                <i class="fa-solid fa-arrows-rotate text-[10px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
             </button>
         </div>
     </footer>
@@ -556,7 +586,7 @@ def main():
                             ${{prefixHtml}}${{displayName}}
                         </span>
                     </div>
-                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 ${{estOpacity}}">
+                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 font-mono ${{estOpacity}}">
                         ${{estStr}}
                     </span>
                 </div>
@@ -609,24 +639,24 @@ def main():
             const accentBorderColor = `hsla(38, ${{sat}}%, 60%, 0.4)`;
             
             // CSS classes for nested styling
-            let containerClass = "rounded border shadow-md transition-all duration-300 ";
-            let headerBgClass = "px-4 flex items-center justify-between cursor-pointer ";
+            let containerClass = "rounded-xl border shadow-md spring-transition ";
+            let headerBgClass = "px-4 flex items-center justify-between cursor-pointer spring-transition ";
             let borderStyle = "";
             let styleAttr = "";
             
             if (level === 0) {{
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
-                containerClass += "bg-stone-950/20 border-brand-900/20 hover:border-brand-500/20 mb-5";
+                containerClass += "bg-slate-950/30 border-slate-800/40 hover:border-brand-500/35 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_30px_-5px_rgba(223,158,56,0.06)] mb-5";
                 
                 // If there's a description, reduce bottom padding to bring title and description closer.
                 // Removed border-b separator under main task block.
                 const pbClass = node.description ? "pb-0 pt-4" : "py-4";
-                headerBgClass += `bg-transparent hover:bg-stone-900/10 ${{pbClass}}`;
-                borderStyle = "border-l-4 border-l-brand-900/30 hover:border-l-brand-500/90 transition-all duration-300";
+                headerBgClass += `bg-transparent hover:bg-stone-900/10 rounded-t-xl ${{pbClass}}`;
+                borderStyle = "border-l-4 border-l-brand-900/40 hover:border-l-brand-500/90";
             }} else {{
                 // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean stone/neutral rounded boxes)
-                containerClass += "bg-stone-950/15 border-stone-900 hover:border-brand-900/20 my-2";
-                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-2.5";
+                containerClass = "rounded-lg border shadow-sm spring-transition bg-slate-950/15 border-slate-900 hover:border-slate-850 ";
+                headerBgClass += "bg-transparent hover:bg-stone-900/10 rounded-t-lg py-2.5";
                 borderStyle = "";
                 styleAttr = "";
             }}
@@ -654,7 +684,7 @@ def main():
                 prefixWidth = Math.round(prefix.length * 7.5);
                 
                 // Prefix uses same titleColor but 50% opacity
-                prefixHtml = `<span class="inline-block shrink-0" style="color: ${{titleColor}}; opacity: 0.5; width: ${{prefixWidth}}px; font-variant-numeric: tabular-nums;">${{highlightedPrefix}}</span>`;
+                prefixHtml = `<span class="inline-block shrink-0 font-mono text-[11px] tracking-tight" style="color: ${{titleColor}}; opacity: 0.5; width: ${{prefixWidth}}px; font-variant-numeric: tabular-nums;">${{highlightedPrefix}}</span>`;
                 // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${{titleColor}}">${{highlightedTitle}}</span>`;
             }} else {{
@@ -674,14 +704,14 @@ def main():
 
             const timeOpacityClass = level > 0 ? "opacity-50" : "";
             const timeBadge = totalEst 
-                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap ${{timeOpacityClass}}">
+                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap font-mono tracking-tight ${{timeOpacityClass}}">
                        <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i> ${{level === 0 ? totalEst : selfEst || totalEst}}
                    </span>`
                 : '';
 
             // Subtask count badge
             const subCountBadge = hasSub
-                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-sm border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium">
+                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-sm border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium font-mono">
                        <i class="fa-solid fa-network-wired text-brand-500/80"></i> ${{stats.count - 1}} Subtask${{(stats.count - 1) !== 1 ? 's' : ''}}
                    </span>`
                 : '';
