@@ -39,7 +39,7 @@ def main():
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Geist+Mono&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,9 +53,9 @@ def main():
             theme: {{
                 extend: {{
                     fontFamily: {{
-                        sans: ['"Outfit"', 'sans-serif'],
+                        sans: ['"Geist"', '"Outfit"', '"Helvetica Neue"', 'sans-serif'],
                         outfit: ['"Outfit"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        mono: ['"Geist Mono"', 'monospace'],
                     }},
                     colors: {{
                         brand: {{
@@ -91,75 +91,72 @@ def main():
         }}
         
         body {{
-            font-family: 'Outfit', sans-serif;
-            background-color: #060504; /* Tinted deep luxury dark */
+            font-family: 'Geist', 'Outfit', sans-serif;
+            background-color: #0a0806;
             color: #f1f5f9;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.02) 0px, transparent 50%),
-                radial-gradient(at 50% 0%, rgba(223, 158, 56, 0.01) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.07) 0px, transparent 40%),
+                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.02) 0px, transparent 40%),
+                radial-gradient(at 50% 0%, rgba(223, 158, 56, 0.01) 0px, transparent 40%);
             background-attachment: fixed;
         }}
         
         .outfit-font {{
             font-family: 'Outfit', sans-serif;
         }}
-
+        
         .mono-font {{
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
         }}
         
         /* Custom scrollbar */
         ::-webkit-scrollbar {{
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
         }}
         ::-webkit-scrollbar-track {{
-            background: #090807;
+            background: rgba(10, 8, 6, 0.2);
         }}
         ::-webkit-scrollbar-thumb {{
-            background: #1e1812;
-            border-radius: 4px;
+            background: rgba(223, 158, 56, 0.12);
+            border-radius: 99px;
         }}
         ::-webkit-scrollbar-thumb:hover {{
-            background: #df9e38;
+            background: rgba(223, 158, 56, 0.35);
         }}
         
         .glass-effect {{
-            background: rgba(14, 12, 10, 0.75);
+            background: rgba(18, 15, 12, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(223, 158, 56, 0.08);
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.03),
-                0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(223, 158, 56, 0.06);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 10px 40px -10px rgba(0, 0, 0, 0.5);
         }}
         
         .glass-hover:hover {{
-            background: rgba(20, 18, 15, 0.85);
-            border-color: rgba(223, 158, 56, 0.25);
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.05),
-                0 15px 45px rgba(223, 158, 56, 0.06);
-            transform: translateY(-1px);
-        }}
-
-        /* Spring-physics-like micro-interactions */
-        .spring-transition {{
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(24, 20, 16, 0.82);
+            border-color: rgba(223, 158, 56, 0.22);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 30px rgba(223, 158, 56, 0.08);
+            transform: translateY(-2px);
         }}
         
         .task-card-active {{
-            border-color: rgba(223, 158, 56, 0.6) !important;
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.05),
-                0 0 30px rgba(223, 158, 56, 0.15) !important;
+            border-color: rgba(223, 158, 56, 0.55) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 25px rgba(223, 158, 56, 0.18) !important;
+        }}
+        
+        /* Tactile push effects */
+        .btn-tactile {{
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }}
+        .btn-tactile:active {{
+            transform: scale(0.97) translateY(0.5px) !important;
         }}
         
         /* Glow animations */
         @keyframes pulse-glow {{
-            0%, 100% {{ box-shadow: 0 0 15px rgba(223, 158, 56, 0.03); }}
-            50% {{ box-shadow: 0 0 25px rgba(223, 158, 56, 0.1); }}
+            0%, 100% {{ box-shadow: 0 0 15px rgba(223, 158, 56, 0.04); }}
+            50% {{ box-shadow: 0 0 25px rgba(223, 158, 56, 0.12); }}
         }}
         .glowing-border {{
             animation: pulse-glow 3s infinite;
@@ -184,21 +181,12 @@ def main():
         
         /* Transitions */
         .collapsible-content {{
-            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-in-out;
             overflow: hidden;
         }}
-
-        /* Noise filter overlay */
-        .grain-overlay {{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 99;
-            opacity: 0.015;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        
+        .task-card-transition {{
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }}
 
         /* Mobile overrides */
@@ -223,23 +211,22 @@ def main():
     </style>
 </head>
 <body class="min-h-screen text-slate-200">
-    <div class="grain-overlay"></div>
 
     <!-- TOP HEADER & STATS -->
-    <header class="border-b border-brand-900/10 bg-[#090807]/80 backdrop-blur-md sticky top-0 z-40 h-24 flex items-center shadow-lg shadow-black/25">
+    <header class="border-b border-brand-900/10 bg-slate-950/75 backdrop-blur-lg sticky top-0 z-40 h-24 flex items-center shadow-lg shadow-black/10">
         <div class="max-w-8xl mx-auto px-4 py-4 sm:px-6 lg:px-8 w-full">
             <div class="flex flex-row items-center justify-between gap-4">
                 <div>
                     <!-- Left: FPV Workplan Subtitle above main parent task -->
-                    <div class="flex items-center gap-2 text-brand-500 text-xs font-bold uppercase tracking-widest font-sans">
-                        <i class="fa-solid fa-layer-group text-[10px] opacity-80"></i> FPV Workplan
+                    <div class="flex items-center gap-2 text-brand-500/90 text-xs font-bold uppercase tracking-widest outfit-font">
+                        <i class="fa-solid fa-layer-group"></i> FPV Workplan
                     </div>
-                    <h1 class="text-xl sm:text-2xl font-black outfit-font tracking-tight mt-1 text-[#f1f5f9] leading-none">
+                    <h1 class="text-xl sm:text-2xl font-extrabold outfit-font tracking-tight mt-1 bg-gradient-to-r from-slate-100 to-slate-350 bg-clip-text text-transparent">
                         Product UX Improvements &amp; UI Redesign
                     </h1>
                 </div>
                 <!-- Right: ClickUp link -->
-                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="shrink-0 px-4 py-2 bg-slate-900/40 hover:bg-brand-500/10 border border-slate-800/80 hover:border-brand-500/30 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg shadow-md hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-2">
+                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="btn-tactile shrink-0 px-3.5 py-2 bg-slate-950/50 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md shadow-sm transition-all flex items-center gap-1.5">
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     <span class="hidden sm:inline">Open in ClickUp</span>
                 </a>
@@ -295,27 +282,27 @@ def main():
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
             <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/40 mb-5 -mt-6">
+                <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/60 mb-5 -mt-6">
                     <!-- DESKTOP LAYOUT -->
                     <div class="hidden sm:flex items-center justify-between px-2">
                         <!-- Left: Desaturated, Borderless Plain Text Stats -->
-                        <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
+                        <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
                             <div>
-                                <span class="text-slate-200 font-bold text-sm font-mono tracking-tight" id="total-count-stat">0</span> Total Tasks
+                                <span class="text-slate-200 font-bold text-sm font-mono" id="total-count-stat">0</span> Total Tasks
                             </div>
-                            <div class="text-slate-700">|</div>
-                            <div class="flex items-center gap-1">
+                            <div class="text-slate-750">|</div>
+                            <div class="flex items-center gap-1.5">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold text-sm font-mono tracking-tight" id="total-time-stat">0h</span> Estimated Time
+                                <span class="text-slate-200 font-bold text-sm font-mono" id="total-time-stat">0h</span> Estimated Time
                             </div>
                         </div>
                         <!-- Right: Elegant Expand All / Collapse All controls -->
                         <div class="flex items-center gap-2">
-                            <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/40 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-1.5 cursor-pointer">
+                            <button onclick="expandAll()" class="btn-tactile px-3.5 py-2 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
                             </button>
-                            <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/40 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-100 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-1.5 cursor-pointer">
-                                <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
+                            <button onclick="collapseAll()" class="btn-tactile px-3.5 py-2 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/85"></i> Collapse All
                             </button>
                         </div>
                     </div>
@@ -325,11 +312,11 @@ def main():
                         <!-- Left: Stacked stats (two lines) -->
                         <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
                             <div>
-                                <span class="text-slate-200 font-bold font-mono tracking-tight" id="total-count-stat-mobile">0</span> Tasks
+                                <span class="text-slate-200 font-bold font-mono" id="total-count-stat-mobile">0</span> Tasks
                             </div>
                             <div class="flex items-center gap-1">
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold font-mono tracking-tight" id="total-time-stat-mobile">0h</span> Est. Time
+                                <span class="text-slate-200 font-bold font-mono" id="total-time-stat-mobile">0h</span> Est. Time
                             </div>
                         </div>
                         <!-- Right: Icon-only chevron buttons -->
@@ -359,13 +346,13 @@ def main():
     </div>
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
-    <footer class="border-t border-slate-950/40 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
+    <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
         <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-4">
             <p>FPV UX & UI Redesign Project Plan &bull; Burak Ozdelice &bull; 2026</p>
             
             <!-- Administrative live sync button tucked away in the footer -->
-            <button onclick="syncWithClickUp()" id="sync-btn" class="px-4 py-2 bg-slate-900/40 hover:bg-brand-500/10 border border-slate-800/85 hover:border-brand-500/30 text-slate-500 hover:text-brand-400 text-xs font-semibold rounded-lg hover:-translate-y-[1px] active:translate-y-[0px] active:scale-[0.98] spring-transition flex items-center gap-2 cursor-pointer shadow-md">
-                <i class="fa-solid fa-arrows-rotate text-[10px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
+            <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/40 hover:bg-brand-900/10 border border-slate-900 hover:border-brand-500/20 text-slate-500 hover:text-brand-400 text-[10px] font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-arrows-rotate text-[9px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
             </button>
         </div>
     </footer>
@@ -586,7 +573,7 @@ def main():
                             ${{prefixHtml}}${{displayName}}
                         </span>
                     </div>
-                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 font-mono ${{estOpacity}}">
+                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 ${{estOpacity}}">
                         ${{estStr}}
                     </span>
                 </div>
@@ -639,24 +626,24 @@ def main():
             const accentBorderColor = `hsla(38, ${{sat}}%, 60%, 0.4)`;
             
             // CSS classes for nested styling
-            let containerClass = "rounded-xl border shadow-md spring-transition ";
-            let headerBgClass = "px-4 flex items-center justify-between cursor-pointer spring-transition ";
+            let containerClass = "task-card-container task-card-transition ";
+            let headerBgClass = "px-4 flex items-center justify-between cursor-pointer ";
             let borderStyle = "";
             let styleAttr = "";
             
             if (level === 0) {{
                 // Level 1: Groups (e.g. GROUP 5 — Full App Design) - Keeps thick left accent border
-                containerClass += "bg-slate-950/30 border-slate-800/40 hover:border-brand-500/35 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_30px_-5px_rgba(223,158,56,0.06)] mb-5";
+                containerClass += "rounded-xl bg-stone-950/30 border border-stone-900/80 hover:border-brand-500/25 mb-6 shadow-lg shadow-black/30";
                 
                 // If there's a description, reduce bottom padding to bring title and description closer.
                 // Removed border-b separator under main task block.
                 const pbClass = node.description ? "pb-0 pt-4" : "py-4";
-                headerBgClass += `bg-transparent hover:bg-stone-900/10 rounded-t-xl ${{pbClass}}`;
-                borderStyle = "border-l-4 border-l-brand-900/40 hover:border-l-brand-500/90";
+                headerBgClass += `bg-transparent hover:bg-stone-900/15 ${{pbClass}} rounded-t-xl`;
+                borderStyle = "border-l-4 border-l-brand-900/40 hover:border-l-brand-500/80 transition-all duration-300";
             }} else {{
                 // Levels 2+: Sub-categories, screens, subtasks - NO left-border accent coloring (clean stone/neutral rounded boxes)
-                containerClass = "rounded-lg border shadow-sm spring-transition bg-slate-950/15 border-slate-900 hover:border-slate-850 ";
-                headerBgClass += "bg-transparent hover:bg-stone-900/10 rounded-t-lg py-2.5";
+                containerClass += "rounded-lg bg-stone-950/15 border border-stone-900/50 hover:border-brand-900/25 my-3 shadow-sm";
+                headerBgClass += "bg-transparent hover:bg-stone-900/10 py-3 rounded-t-lg";
                 borderStyle = "";
                 styleAttr = "";
             }}
@@ -684,7 +671,7 @@ def main():
                 prefixWidth = Math.round(prefix.length * 7.5);
                 
                 // Prefix uses same titleColor but 50% opacity
-                prefixHtml = `<span class="inline-block shrink-0 font-mono text-[11px] tracking-tight" style="color: ${{titleColor}}; opacity: 0.5; width: ${{prefixWidth}}px; font-variant-numeric: tabular-nums;">${{highlightedPrefix}}</span>`;
+                prefixHtml = `<span class="inline-block shrink-0" style="color: ${{titleColor}}; opacity: 0.5; width: ${{prefixWidth}}px; font-variant-numeric: tabular-nums;">${{highlightedPrefix}}</span>`;
                 // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${{titleColor}}">${{highlightedTitle}}</span>`;
             }} else {{
@@ -704,14 +691,14 @@ def main():
 
             const timeOpacityClass = level > 0 ? "opacity-50" : "";
             const timeBadge = totalEst 
-                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap font-mono tracking-tight ${{timeOpacityClass}}">
+                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap ${{timeOpacityClass}}">
                        <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i> ${{level === 0 ? totalEst : selfEst || totalEst}}
                    </span>`
                 : '';
 
             // Subtask count badge
             const subCountBadge = hasSub
-                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-sm border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium font-mono">
+                ? `<span class="text-[10px] text-slate-455 bg-brand-900/10 px-2 py-0.5 rounded-sm border border-brand-800/10 whitespace-nowrap flex items-center gap-1 font-medium">
                        <i class="fa-solid fa-network-wired text-brand-500/80"></i> ${{stats.count - 1}} Subtask${{(stats.count - 1) !== 1 ? 's' : ''}}
                    </span>`
                 : '';
@@ -898,7 +885,7 @@ def main():
                     el.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
                     
                     // Add accent glow
-                    const card = el.querySelector('.rounded');
+                    const card = el.querySelector('.task-card-container');
                     if (card) {{
                         card.classList.add('task-card-active');
                         setTimeout(() => {{

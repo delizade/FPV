@@ -175,7 +175,7 @@
     {
       "id": "86expvbtt",
       "name": "PHASE 5 — Full App Design",
-      "description": "Complete screen-by-screen breakdown of the existing FPV mobile app. Covers all pages, sub-pages, modals, fields, and navigation flows as analysed from app screenshots.",
+      "description": "Full UI design process covering the existing FPV mobile app structure, including screens, sub-pages, modals, forms, and navigation flows. \n\nThe current app structure is used as a reference foundation during the redesign process; however, layouts, navigation systems, page structures, flows, and screen organization may evolve throughout the UX review and solution phases. Depending on product and usability needs, new screens may be introduced, existing screens may be reorganized or divided into multiple parts, and interface structures may be refined to achieve a more scalable and improved user experience.",
       "status": "to do",
       "time_estimate": 0,
       "custom_fields": [],
@@ -183,41 +183,14 @@
         {
           "id": "86expvbtv",
           "name": "5.1 - Authentication & Onboarding",
-          "description": "Splash, welcome, Login, registration, and password recovery screens for the FPV client portal.",
+          "description": "",
           "status": "to do",
           "time_estimate": null,
           "custom_fields": [],
           "subtasks": [
             {
-              "id": "86expvbtz",
-              "name": "5.1.1 - Client Portal Login Screen",
-              "description": "Email & password login form. Fields: Email Address, Password, Forgot Password link. Actions: Login button, Sign in with Google, Sign in with Apple, Create Account link.",
-              "status": "to do",
-              "time_estimate": 10800000,
-              "custom_fields": [],
-              "subtasks": []
-            },
-            {
-              "id": "86expvbu1",
-              "name": "5.1.2 - Client Portal Registration Modal",
-              "description": "New account creation form. Fields: First Name, Last Name, Mobile Phone, Broker Email, Password, Confirm Password, Real Estate Brokerage Agency Name, State Licensure ID. NMI Payment Terms checkbox consent.",
-              "status": "to do",
-              "time_estimate": 3600000,
-              "custom_fields": [],
-              "subtasks": []
-            },
-            {
-              "id": "86expvbu5",
-              "name": "5.1.3 - Forgot Password / Credentials Reset Wizard",
-              "description": "Step 1: Email input + Send Recovery Link. Step 2: 6-digit verification code input. Step 3: New Password + Confirm Password + Reset Password button.",
-              "status": "to do",
-              "time_estimate": 3600000,
-              "custom_fields": [],
-              "subtasks": []
-            },
-            {
               "id": "86expveeq",
-              "name": "5.1.4 - Contextual Onboarding Design",
+              "name": "5.1.1 - Contextual Onboarding Design",
               "description": "",
               "status": "to do",
               "time_estimate": null,
@@ -225,7 +198,7 @@
               "subtasks": [
                 {
                   "id": "86expvepu",
-                  "name": "5.1.4.A - Splash Screen",
+                  "name": "5.1.1.A - Splash Screen",
                   "description": "",
                   "status": "to do",
                   "time_estimate": 3600000,
@@ -234,7 +207,7 @@
                 },
                 {
                   "id": "86expvera",
-                  "name": "5.1.4.B - Contextual welcome screen",
+                  "name": "5.1.1.B - Contextual welcome screen",
                   "description": "",
                   "status": "to do",
                   "time_estimate": 18000000,
@@ -242,6 +215,33 @@
                   "subtasks": []
                 }
               ]
+            },
+            {
+              "id": "86expvbtz",
+              "name": "5.1.2 - Client Portal Login Screen",
+              "description": "",
+              "status": "to do",
+              "time_estimate": 10800000,
+              "custom_fields": [],
+              "subtasks": []
+            },
+            {
+              "id": "86expvbu1",
+              "name": "5.1.3 - Client Portal Registration Modal",
+              "description": "",
+              "status": "to do",
+              "time_estimate": 3600000,
+              "custom_fields": [],
+              "subtasks": []
+            },
+            {
+              "id": "86expvbu5",
+              "name": "5.1.4 - Forgot Password / Credentials Reset Wizard",
+              "description": "",
+              "status": "to do",
+              "time_estimate": 3600000,
+              "custom_fields": [],
+              "subtasks": []
             }
           ]
         },
