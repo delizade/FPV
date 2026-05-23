@@ -295,21 +295,13 @@ def main():
                         <div class="text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font mb-1.5 flex items-center gap-1.5">
                             <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                         </div>
-                        <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
-                            Estimated Task List
-                        </h3>
-                    </div>
-
-                    <!-- Quick Navigation replaced with Estimated Task List & Expand/Collapse controls -->
-                    <div class="flex items-center justify-end mt-[18px] mb-3 pl-0 pr-1">
-                        <div class="flex items-center gap-2">
-                            <button onclick="expandSidebar()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
-                                <i class="fa-solid fa-folder-open text-[8px] opacity-70"></i> Expand
-                            </button>
-                            <span class="text-slate-800 text-[9px] font-normal">|</span>
-                            <button onclick="collapseSidebar()" class="text-[9px] text-[#BABECE]/60 hover:text-[#BABECE] transition-colors font-bold tracking-wider cursor-pointer flex items-center gap-0.5">
-                                <i class="fa-solid fa-folder-closed text-[8px] opacity-70"></i> Collapse
-                            </button>
+                        <div class="flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
+                            <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-snug tracking-wide">
+                                Estimated Task List
+                            </h3>
+                            <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1">
+                                <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
+                            </span>
                         </div>
                     </div>
                     
@@ -837,21 +829,33 @@ def main():
             renderUI();
         }}
 
-        // Sidebar Expand All
-        function expandSidebar() {{
-            const recurse = (node) => {{
-                sidebarExpandedNodes.add(node.id);
-                if (node.subtasks) {{
-                    node.subtasks.forEach(recurse);
+        // Toggle Sidebar Tree (Expand All / Collapse All)
+        let isSidebarGloballyExpanded = true;
+        function toggleSidebarTree(event) {{
+            if (event) event.stopPropagation();
+            const chevron = document.getElementById('sidebar-toggle-chevron');
+            
+            if (isSidebarGloballyExpanded) {{
+                sidebarExpandedNodes.clear();
+                isSidebarGloballyExpanded = false;
+                if (chevron) {{
+                    chevron.classList.remove('rotate-0');
+                    chevron.classList.add('-rotate-90');
                 }}
-            }};
-            taskData.subtasks.forEach(recurse);
-            renderUI();
-        }}
-
-        // Sidebar Collapse All
-        function collapseSidebar() {{
-            sidebarExpandedNodes.clear();
+            }} else {{
+                const recurse = (node) => {{
+                    sidebarExpandedNodes.add(node.id);
+                    if (node.subtasks) {{
+                        node.subtasks.forEach(recurse);
+                    }}
+                }};
+                taskData.subtasks.forEach(recurse);
+                isSidebarGloballyExpanded = true;
+                if (chevron) {{
+                    chevron.classList.remove('-rotate-90');
+                    chevron.classList.add('rotate-0');
+                }}
+            }}
             renderUI();
         }}
 
