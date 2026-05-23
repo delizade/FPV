@@ -621,7 +621,7 @@ def main():
             let subtasksHtml = '';
             if (hasSub) {{
                 subtasksHtml = `
-                    <div class="pl-4 ml-3.5 space-y-2.5 collapsible-content ${{isExpanded ? 'block' : 'hidden'}}" 
+                    <div class="pl-4 ml-3.5 space-y-2.5 pt-3 collapsible-content ${{isExpanded ? 'block' : 'hidden'}}" 
                          id="children-${{node.id}}">
                         ${{node.subtasks.map(sub => renderMainNode(sub, level + 1)).join('')}}
                     </div>
@@ -673,7 +673,7 @@ def main():
                         <div class="${{(!hasSub || isExpanded) ? 'block' : 'hidden'}}" id="body-${{node.id}}">
                             <!-- Description (Only show if present - WITHOUT section header) -->
                             ${{node.description ? `
-                                <div class="pr-[30%] pt-0 pb-3 text-slate-400 text-xs leading-relaxed" style="padding-left: ${{16 + prefixWidth}}px">
+                                <div class="pr-[30%] pt-3 pb-3 text-slate-400 text-xs leading-relaxed" style="padding-left: ${{16 + prefixWidth}}px">
                                     ${{formatDescription(node.description)}}
                                 </div>
                             ` : ''}}
