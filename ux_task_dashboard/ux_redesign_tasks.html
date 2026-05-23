@@ -1114,8 +1114,9 @@
             const stickyHeader = document.getElementById('sticky-scroll-header');
             const heroBanner = document.getElementById('hero-banner');
             window.addEventListener('scroll', () => {
-                const threshold = heroBanner ? heroBanner.offsetHeight - 62 : 500;
-                if (window.scrollY > threshold) {
+                const rect = heroBanner ? heroBanner.getBoundingClientRect() : null;
+                const isPastBanner = rect && rect.height > 100 ? (rect.bottom <= 0) : (window.scrollY > 560);
+                if (isPastBanner) {
                     stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
                     stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
                 } else {
