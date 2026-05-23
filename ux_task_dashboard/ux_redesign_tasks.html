@@ -140,6 +140,26 @@
             transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
             overflow: hidden;
         }
+
+        /* Mobile overrides */
+        @media (max-width: 639px) {
+            /* Strip box styling from subtask cards on mobile */
+            .task-node .task-node > div {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            /* Remove right padding on description blocks */
+            [style*="padding-left"] {
+                padding-right: 0 !important;
+            }
+            /* Remove the pl-4 ml-3.5 indent on mobile to save space */
+            .collapsible-content {
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen text-slate-200">
@@ -154,9 +174,14 @@
                         <i class="fa-solid fa-layer-group"></i> FPV Workplan
                     </div>
                     <h1 class="text-xl sm:text-2xl font-extrabold outfit-font tracking-tight mt-1 text-[#BABECE]">
-                        Product UX Improvements & UI Redesign
+                        Product UX Improvements &amp; UI Redesign
                     </h1>
                 </div>
+                <!-- Right: ClickUp link -->
+                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="shrink-0 px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    <span class="hidden sm:inline">Open in ClickUp</span>
+                </a>
             </div>
         </div>
     </header>
@@ -164,8 +189,8 @@
     <div class="max-w-8xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
-            <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY -->
-            <aside class="lg:col-span-1">
+            <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
+            <aside class="hidden lg:block lg:col-span-1">
                 <div class="glass-effect p-4 rounded sticky top-[120px] overflow-y-auto max-h-[calc(100vh-9rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                     
                     <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
@@ -207,11 +232,12 @@
             </aside>
             
             <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
-            <main class="lg:col-span-3">
+            <main class="col-span-full lg:col-span-3">
                 <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
                 <div class="sticky top-24 z-20 backdrop-blur-md pt-[60px] pb-1 w-full border-b border-slate-900/60 mb-5 -mt-6">
-                    <div class="flex items-center justify-between px-2">
-                        <!-- Left: Desaturated, Borderless Plain Text Stats & Open ClickUp button -->
+                    <!-- DESKTOP LAYOUT -->
+                    <div class="hidden sm:flex items-center justify-between px-2">
+                        <!-- Left: Desaturated, Borderless Plain Text Stats -->
                         <div class="flex items-center gap-4 text-xs text-slate-400 font-outfit">
                             <div>
                                 <span class="text-slate-200 font-bold text-sm" id="total-count-stat">0</span> Total Tasks
@@ -221,12 +247,7 @@
                                 <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
                                 <span class="text-slate-200 font-bold text-sm" id="total-time-stat">0h</span> Estimated Time
                             </div>
-                            <div class="text-slate-700">|</div>
-                            <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
-                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
-                            </a>
                         </div>
-                        
                         <!-- Right: Elegant Expand All / Collapse All controls -->
                         <div class="flex items-center gap-2">
                             <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
@@ -234,6 +255,29 @@
                             </button>
                             <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer">
                                 <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- MOBILE LAYOUT -->
+                    <div class="flex sm:hidden items-center justify-between px-2">
+                        <!-- Left: Stacked stats (two lines) -->
+                        <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
+                            <div>
+                                <span class="text-slate-200 font-bold" id="total-count-stat-mobile">0</span> Tasks
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
+                                <span class="text-slate-200 font-bold" id="total-time-stat-mobile">0h</span> Est. Time
+                            </div>
+                        </div>
+                        <!-- Right: Icon-only chevron buttons -->
+                        <div class="flex items-center gap-3">
+                            <button onclick="expandAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Expand All">
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </button>
+                            <button onclick="collapseAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Collapse All">
+                                <i class="fa-solid fa-chevron-up text-xs"></i>
                             </button>
                         </div>
                     </div>
@@ -858,10 +902,13 @@
             const stats = calculateStats(taskData);
             
             // Total tasks is stats.count - 1 (excluding root task itself)
-            document.getElementById('total-count-stat').textContent = stats.count - 1;
+            const totalTasks = stats.count - 1;
+            document.getElementById('total-count-stat').textContent = totalTasks;
+            document.getElementById('total-count-stat-mobile').textContent = totalTasks;
             
             const hours = Math.round(stats.ms / 3600000);
             document.getElementById('total-time-stat').textContent = `${hours}h`;
+            document.getElementById('total-time-stat-mobile').textContent = `${hours}h`;
         }
 
         // Sync with ClickUp Functionality
