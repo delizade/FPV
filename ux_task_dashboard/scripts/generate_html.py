@@ -465,6 +465,7 @@ def main():
                 icon = `<i class="fa-solid fa-angle-right text-[7px]" style="color: ${{titleColor}}"></i>`;
             }}
 
+            const estOpacity = level > 0 ? "opacity-50" : "";
             let html = `
                 <div class="group flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-slate-900/60 cursor-pointer text-xs transition-all" 
                      style="padding-left: ${{paddingLeft}}px" 
@@ -475,7 +476,7 @@ def main():
                             ${{node.name}}
                         </span>
                     </div>
-                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2">
+                    <span class="text-[10px] text-slate-500 whitespace-nowrap pl-2 ${{estOpacity}}">
                         ${{estStr}}
                     </span>
                 </div>
@@ -566,8 +567,9 @@ def main():
                 `;
             }}
 
+            const timeOpacityClass = level > 0 ? "opacity-50" : "";
             const timeBadge = totalEst 
-                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap">
+                ? `<span class="text-xs text-slate-450 flex items-center gap-1 bg-transparent px-1 whitespace-nowrap ${{timeOpacityClass}}">
                        <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i> ${{level === 0 ? totalEst : selfEst || totalEst}}
                    </span>`
                 : '';
