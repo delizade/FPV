@@ -39,7 +39,7 @@ def main():
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Geist+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,9 +53,8 @@ def main():
             theme: {{
                 extend: {{
                     fontFamily: {{
-                        sans: ['"Geist"', '"Outfit"', '"Helvetica Neue"', 'sans-serif'],
-                        outfit: ['"Outfit"', 'sans-serif'],
-                        mono: ['"Geist Mono"', 'monospace'],
+                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
+                        outfit: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
                     }},
                     colors: {{
                         brand: {{
@@ -91,7 +90,7 @@ def main():
         }}
         
         body {{
-            font-family: 'Geist', 'Outfit', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
             background-color: #0a0806;
             color: #f1f5f9;
             background-image: 
@@ -102,11 +101,11 @@ def main():
         }}
         
         .outfit-font {{
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
         }}
         
         .mono-font {{
-            font-family: 'Geist Mono', monospace;
+            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
         }}
         
         /* Custom scrollbar */
