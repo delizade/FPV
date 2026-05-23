@@ -449,8 +449,8 @@ def main():
             
             let paddingLeft = level * 14;
             
-            // Calculate dynamic desaturated yellow-orange color per level (+20% saturation step)
-            const sat = Math.min(40 + (level * 20), 100);
+            // Main tasks use 40% saturation, subtasks use 50% lower saturation (20%)
+            const sat = level === 0 ? 40 : 20;
             const titleColor = `hsl(38, ${{sat}}%, 60%)`;
             
             // Choose elegant icon based on level of nesting
