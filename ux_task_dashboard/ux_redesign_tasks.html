@@ -151,12 +151,9 @@
                     </h1>
                 </div>
                 
-                <!-- Right: Sync and ClickUp link buttons -->
-                <div class="flex items-center shrink-0 gap-3">
-                    <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-brand-400 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
-                        <i class="fa-solid fa-arrows-rotate text-[10px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
-                    </button>
-                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
+                <!-- Right: ClickUp link button -->
+                <div class="flex items-center shrink-0">
+                    <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="px-3 py-1.5 bg-slate-950/40 hover:bg-brand-900/5 border border-slate-900 hover:border-brand-500/20 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open in ClickUp
                     </a>
                 </div>
@@ -216,11 +213,11 @@
                     
                     <!-- Right: Elegant Expand All / Collapse All controls -->
                     <div class="flex items-center gap-2">
-                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-brand-900/10 border border-slate-850 hover:border-brand-500/30 text-slate-350 hover:text-slate-100 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-folder-open text-[10px] text-brand-500/80"></i> Expand All
+                        <button onclick="expandAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
                         </button>
-                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-900/60 hover:bg-slate-800 border border-slate-850 hover:border-slate-755 text-slate-350 hover:text-slate-205 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-folder-closed text-[10px] text-slate-500"></i> Collapse All
+                        <button onclick="collapseAll()" class="px-3 py-1.5 bg-slate-950/40 hover:bg-slate-900/50 border border-slate-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/80"></i> Collapse All
                         </button>
                     </div>
                 </div>
@@ -240,9 +237,14 @@
     </div>
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
-    <footer class="border-t border-slate-950 py-8 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
-        <div class="max-w-7xl mx-auto px-4">
+    <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-4">
             <p>FPV UX & UI Redesign Project Plan &bull; Burak Ozdelice &bull; 2026</p>
+            
+            <!-- Administrative live sync button tucked away in the footer -->
+            <button onclick="syncWithClickUp()" id="sync-btn" class="px-3 py-1.5 bg-slate-900/40 hover:bg-brand-900/10 border border-slate-900 hover:border-brand-500/20 text-slate-500 hover:text-brand-400 text-[10px] font-semibold rounded-sm shadow-sm transition-all flex items-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-arrows-rotate text-[9px]" id="sync-icon"></i> <span id="sync-text">Sync ClickUp</span>
+            </button>
         </div>
     </footer>
 
