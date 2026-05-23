@@ -1152,15 +1152,13 @@ def main():
                     stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
                     stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     if (statsBar) {{
-                        statsBar.classList.remove('bg-transparent');
-                        statsBar.classList.add('bg-[#0a0806]/85', 'backdrop-blur-md');
+                        statsBar.classList.add('backdrop-blur-md');
                     }}
                 }} else {{
                     stickyHeader.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
                     stickyHeader.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
                     if (statsBar) {{
-                        statsBar.classList.remove('bg-[#0a0806]/85', 'backdrop-blur-md');
-                        statsBar.classList.add('bg-transparent');
+                        statsBar.classList.remove('backdrop-blur-md');
                     }}
                 }}
             }});
