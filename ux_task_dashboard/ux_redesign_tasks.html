@@ -535,6 +535,23 @@
                 return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded-sm">$1</mark>');
             }
 
+            let displayName = highlightText(node.name);
+            let prefixHtml = "";
+            
+            const match = node.name.match(/^([\d\.[A-Z]]+ \- )(.*)$/);
+            if (match) {
+                const prefix = match[1];
+                const title = match[2];
+                const passiveColor = `hsl(38, 20%, 45%)`;
+                const highlightedPrefix = highlightText(prefix);
+                const highlightedTitle = highlightText(title);
+                
+                prefixHtml = `<span class="mr-1 font-normal text-slate-500" style="color: ${passiveColor}">${highlightedPrefix}</span>`;
+                displayName = `<span style="color: ${titleColor}">${highlightedTitle}</span>`;
+            } else {
+                displayName = `<span style="color: ${titleColor}">${highlightText(node.name)}</span>`;
+            }
+
             // Indented subtask frame wrapping container with custom guide lines matching hierarchy saturation
             let subtasksHtml = '';
             if (hasSub) {
@@ -576,8 +593,8 @@
                         <!-- HEADER BAR -->
                         <div class="${headerBgClass}" onclick="toggleNode('${node.id}', event)">
                             <div class="flex items-center gap-2.5 min-w-0 mr-4">
-                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" style="color: ${titleColor}" title="${node.name}">
-                                    ${highlightText(node.name)}
+                                <h3 class="text-sm font-semibold truncate outfit-font tracking-wide" title="${node.name}">
+                                    ${prefixHtml}${displayName}
                                 </h3>
                             </div>
                             
