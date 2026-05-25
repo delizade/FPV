@@ -41,7 +41,7 @@ def main():
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,8 +55,8 @@ def main():
             theme: {{
                 extend: {{
                     fontFamily: {{
-                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
-                        outfit: ['"Helvetica Neue"', 'Helvetica', 'Arimo', 'Arial', 'sans-serif'],
+                        sans: ['Inter', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        outfit: ['Inter', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
                     }},
                     colors: {{
                         brand: {{
@@ -92,7 +92,7 @@ def main():
         }}
         
         body {{
-            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: #0a0806;
             color: #f1f5f9;
             background-image: 
@@ -103,11 +103,11 @@ def main():
         }}
         
         .outfit-font {{
-            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }}
         
         .mono-font {{
-            font-family: 'Helvetica Neue', Helvetica, Arimo, Arial, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }}
         
         /* Custom scrollbar */
