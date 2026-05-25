@@ -407,16 +407,15 @@ def main():
             
             <!-- Content -->
             <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15">
-                <div class="max-w-[960px] mx-auto space-y-16 text-left">
+                <div class="max-w-[960px] space-y-16 text-left">
                     
                     <!-- SECTION FLOW -->
                     <div class="space-y-12">
                         
                         <!-- 01 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">01</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Opening Note</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Opening Note</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     I carefully reviewed the current FPV app structure, workflows, navigation systems, and operational flows in order to prepare a more realistic redesign estimation and production roadmap.
                                 </p>
@@ -427,10 +426,9 @@ def main():
                         </div>
 
                         <!-- 02 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">02</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Initial Structural &amp; UX Notes</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Initial Structural &amp; UX Notes</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     During the estimation process, I naturally developed a number of early observations and possible UX directions regarding workflows, navigation behavior, service presentation, and overall operational structure.
                                 </p>
@@ -441,10 +439,9 @@ def main():
                         </div>
 
                         <!-- 03 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">03</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Collaborative Workflow &amp; Design Process</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Collaborative Workflow &amp; Design Process</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     The redesign process will be handled as a highly collaborative and iterative workflow rather than a traditional presentation-and-approval structure.
                                 </p>
@@ -458,10 +455,9 @@ def main():
                         </div>
 
                         <!-- 04 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">04</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Technical &amp; Production Collaboration Note</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Technical &amp; Production Collaboration Note</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     My primary focus throughout the redesign process will be creating the strongest possible product and user experience from both visual and operational perspectives.
                                 </p>
@@ -472,10 +468,9 @@ def main():
                         </div>
 
                         <!-- 05 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">05</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Scope, Unknowns &amp; Workflow Evolution Note</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Scope, Unknowns &amp; Workflow Evolution Note</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     Throughout the estimation process, several areas of the current app appeared partially undefined, incomplete, placeholder-based, or operationally unclear.
                                 </p>
@@ -489,10 +484,9 @@ def main():
                         </div>
 
                         <!-- 06 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-10 border-b border-stone-900/60">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">06</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Estimation &amp; Budget Note</h3>
+                        <div class="pb-10 border-b border-stone-900/60">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Estimation &amp; Budget Note</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     I am aware that the overall time estimation may initially appear relatively high. However, based on my past experiences and the operational complexity observed throughout this review process, I felt it was important to prepare a more realistic and sufficiently inclusive estimation structure.
                                 </p>
@@ -503,10 +497,9 @@ def main():
                         </div>
 
                         <!-- 07 -->
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-12 pb-12">
-                            <div class="w-12 text-[#C59A5D] text-lg font-mono font-bold tracking-widest opacity-60">07</div>
-                            <div class="flex-1 space-y-4">
-                                <h3 class="text-sm font-bold text-[#df9e38] tracking-widest uppercase outfit-font">Closing Note</h3>
+                        <div class="pb-12">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Closing Note</h3>
                                 <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
                                     I know I ideally should have shared my response earlier. However, I wanted to take enough time to properly review the app structure, workflows, and operational details as carefully as possible. I also spent additional time preparing a dedicated presentation structure to organize the resulting plans, notes, and estimations into a format that would remain clearer, more readable, and easier to review from your side — especially as the amount of information, structural notes, and workflow-related observations continued growing and becoming more detailed throughout the process.
                                 </p>
