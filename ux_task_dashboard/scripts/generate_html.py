@@ -283,107 +283,141 @@ def main():
                 <span>2026</span>
             </div>
         </div>
-    </div>
- 
-    <div class="max-w-[1440px] mx-auto pb-6 pt-0 w-full px-0 sm:px-0 lg:px-0">
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+       <!-- ACCORDION CONTAINERS -->
+    <div class="max-w-[1440px] mx-auto px-4 md:px-[73px] pb-12 space-y-4">
+        
+        <!-- PROJECT SCOPE ACCORDION -->
+        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
+            <!-- Header -->
+            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-8 flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+                <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Scope</span>
+                <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+            </button>
             
-            <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
-            <aside class="hidden lg:block lg:col-span-1">
-                <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+            <!-- Content -->
+            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 bg-black/15">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     
-                    <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
-                    <div class="mb-[20px]">
-                        <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
-                            <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
+                    <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
+                    <aside class="hidden lg:block lg:col-span-1">
+                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                            
+                            <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
+                            <div class="mb-[20px]">
+                                <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
+                                    <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
+                                </div>
+                                <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
+                                    <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-none tracking-wide">
+                                        Estimated Task List
+                                    </h3>
+                                    <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
+                                        <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-1" id="sidebar-tree">
+                                <!-- Javascript will render this tree -->
+                                <div class="animate-pulse space-y-2">
+                                    <div class="h-6 bg-slate-900 rounded w-3/4"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-5/6"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-2/3"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-full"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
-                            <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-none tracking-wide">
-                                Estimated Task List
-                            </h3>
-                            <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
-                                <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
-                            </span>
-                        </div>
-                    </div>
+                    </aside>
                     
-                    <div class="space-y-1" id="sidebar-tree">
-                        <!-- Javascript will render this tree -->
-                        <div class="animate-pulse space-y-2">
-                            <div class="h-6 bg-slate-900 rounded w-3/4"></div>
-                            <div class="h-6 bg-slate-900 rounded w-5/6"></div>
-                            <div class="h-6 bg-slate-900 rounded w-2/3"></div>
-                            <div class="h-6 bg-slate-900 rounded w-full"></div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            
-            <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
-            <main class="col-span-full lg:col-span-3">
-                <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
-                <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[36px] pb-0 -ml-6 pl-6 mb-[20px] transition-all duration-300">
-                    <!-- DESKTOP LAYOUT -->
-                    <div id="stats-inner-desktop" class="hidden sm:flex h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
-                        <!-- Left: Desaturated, Borderless Plain Text Stats -->
-                        <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
-                            <div class="flex items-center gap-1.5">
-                                <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold text-sm font-mono" id="total-time-stat">0h</span> Estimated Time
+                    <!-- MAIN PANEL: NESTED SCROLLABLE TASK VIEW -->
+                    <main class="col-span-full lg:col-span-3">
+                        <!-- Borderless, Clean Stats & Expand/Collapse Control Row at the very top of main cards -->
+                        <div id="right-stats-bar" class="sticky top-[62px] z-20 bg-transparent pt-[36px] pb-0 -ml-6 pl-6 mb-[20px] transition-all duration-300">
+                            <!-- DESKTOP LAYOUT -->
+                            <div id="stats-inner-desktop" class="hidden sm:flex h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
+                                <!-- Left: Desaturated, Borderless Plain Text Stats -->
+                                <div class="flex items-center gap-4 text-xs text-slate-450 font-outfit">
+                                    <div class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
+                                        <span class="text-slate-200 font-bold text-sm font-mono" id="total-time-stat">0h</span> Estimated Time
+                                    </div>
+                                    <div class="text-slate-750">|</div>
+                                    <div style="color: hsl(38, 10%, 45%)">
+                                        <span class="font-bold text-sm font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat">0</span> Total Tasks
+                                    </div>
+                                </div>
+                                <!-- Right: Elegant Expand All / Collapse All controls -->
+                                <div class="flex items-center gap-2">
+                                    <button onclick="expandAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
+                                        <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
+                                    </button>
+                                    <button onclick="collapseAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
+                                        <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/85"></i> Collapse All
+                                    </button>
+                                </div>
                             </div>
-                            <div class="text-slate-750">|</div>
-                            <div style="color: hsl(38, 10%, 45%)">
-                                <span class="font-bold text-sm font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat">0</span> Total Tasks
-                            </div>
-                        </div>
-                        <!-- Right: Elegant Expand All / Collapse All controls -->
-                        <div class="flex items-center gap-2">
-                            <button onclick="expandAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
-                                <i class="fa-solid fa-folder-open text-[10px] text-brand-500/70"></i> Expand All
-                            </button>
-                            <button onclick="collapseAll()" class="btn-tactile px-3.5 py-1.5 bg-slate-950/45 hover:bg-slate-900/60 border border-stone-900 hover:border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer">
-                                <i class="fa-solid fa-folder-closed text-[10px] text-slate-500/85"></i> Collapse All
-                            </button>
-                        </div>
-                    </div>
 
-                    <!-- MOBILE LAYOUT -->
-                    <div id="stats-inner-mobile" class="flex sm:hidden h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
-                        <!-- Left: Stacked stats (two lines) -->
-                        <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
-                            <div class="flex items-center gap-1">
-                                <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
-                                <span class="text-slate-200 font-bold font-mono" id="total-time-stat-mobile">0h</span> Est. Time
-                            </div>
-                            <div style="color: hsl(38, 10%, 45%)">
-                                <span class="font-bold font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat-mobile">0</span> Tasks
+                            <!-- MOBILE LAYOUT -->
+                            <div id="stats-inner-mobile" class="flex sm:hidden h-[48px] pb-[16px] items-center justify-between px-0 border-b border-stone-900/60">
+                                <!-- Left: Stacked stats (two lines) -->
+                                <div class="flex flex-col gap-0.5 text-xs text-slate-400 font-outfit">
+                                    <div class="flex items-center gap-1">
+                                        <i class="fa-solid fa-clock text-brand-500/70 text-[10px]"></i>
+                                        <span class="text-slate-200 font-bold font-mono" id="total-time-stat-mobile">0h</span> Est. Time
+                                    </div>
+                                    <div style="color: hsl(38, 10%, 45%)">
+                                        <span class="font-bold font-mono" style="color: hsl(38, 10%, 45%)" id="total-count-stat-mobile">0</span> Tasks
+                                    </div>
+                                </div>
+                                <!-- Right: Icon-only chevron buttons -->
+                                <div class="flex items-center gap-3">
+                                    <button onclick="expandAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Expand All">
+                                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                                    </button>
+                                    <button onclick="collapseAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Collapse All">
+                                        <i class="fa-solid fa-chevron-up text-xs"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <!-- Right: Icon-only chevron buttons -->
-                        <div class="flex items-center gap-3">
-                            <button onclick="expandAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Expand All">
-                                <i class="fa-solid fa-chevron-down text-xs"></i>
-                            </button>
-                            <button onclick="collapseAll()" class="p-1.5 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer" title="Collapse All">
-                                <i class="fa-solid fa-chevron-up text-xs"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="space-y-6" id="tasks-container">
-                    <!-- Javascript will render the hierarchical cards here -->
-                    <div class="text-center py-20">
-                        <div class="inline-block animate-spin text-brand-500 text-3xl mb-4">
-                            <i class="fa-solid fa-spinner"></i>
+                        <div class="space-y-6" id="tasks-container">
+                            <!-- Javascript will render the hierarchical cards here -->
+                            <div class="text-center py-20">
+                                <div class="inline-block animate-spin text-brand-500 text-3xl mb-4">
+                                    <i class="fa-solid fa-spinner"></i>
+                                </div>
+                                <p class="text-slate-400">Loading task data and building tree structure...</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400">Loading task data and building tree structure...</p>
-                    </div>
+                    </main>
                 </div>
-            </main>
-            
+            </div>
         </div>
-    </div>
+
+        <!-- PROJECT PROPOSAL ACCORDION -->
+        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
+            <!-- Header -->
+            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-8 flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+                <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Proposal</span>
+                <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+            </button>
+            
+            <!-- Content -->
+            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-8 bg-black/15 text-center text-slate-400">
+                <div class="py-12 flex flex-col items-center justify-center gap-4 select-none">
+                    <div class="w-16 h-16 rounded-full bg-stone-950/40 border border-brand-500/20 flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-file-signature text-3xl text-brand-500/70"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-slate-350 outfit-font tracking-wide">Project Proposal &amp; Concept</h4>
+                    <p class="text-xs text-slate-500 max-w-md leading-relaxed">
+                        The comprehensive project proposal, interactive concept previews, and detailed milestones are currently being designed. They will be published in this section once ready.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>    </div>
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
     <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
@@ -482,6 +516,31 @@ def main():
         let expandedNodes = new Set();
         let sidebarExpandedNodes = new Set();
         let searchQuery = "";
+
+        // Section Accordion Toggles
+        function toggleSection(sectionId, forceState) {{
+            const content = document.getElementById(`${{sectionId}}-content`);
+            const chevron = document.getElementById(`${{sectionId}}-chevron`);
+            
+            if (!content || !chevron) return;
+            
+            let show = false;
+            if (forceState !== undefined) {{
+                show = forceState;
+            }} else {{
+                show = content.classList.contains('hidden');
+            }}
+            
+            if (show) {{
+                content.classList.remove('hidden');
+                chevron.classList.remove('rotate-0');
+                chevron.classList.add('rotate-180');
+            }} else {{
+                content.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+                chevron.classList.add('rotate-0');
+            }}
+        }}
 
         // Helper to format estimated time
         function formatEstimate(ms) {{
@@ -929,6 +988,9 @@ def main():
 
         // Smooth scroll to a target task element
         function scrollToTask(id) {{
+            // Expand Project Scope section
+            toggleSection('project-scope', true);
+
             // Make sure the target and all its parent nodes are expanded so it is visible
             function expandParentOf(node, targetId, path = []) {{
                 if (node.id === targetId) {{
