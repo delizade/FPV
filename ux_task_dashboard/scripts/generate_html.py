@@ -590,8 +590,13 @@ def main():
                         </div>
                     </div>
                     
-                    <!-- Spacing after tables -->
-                    <div class="pb-16"></div>
+                    <!-- New Closing Paragraph -->
+                    <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
+                        I truly appreciate your time, patience, and understanding throughout this evaluation and proposal process. I sincerely hope the overall estimation and budgeting structure feels reasonable from your side, and I would genuinely be very happy to have the opportunity to work together again on this project.
+                    </p>
+                    
+                    <!-- Spacing after content -->
+                    <div class="pb-12"></div>
 
                 </div>
             </div>
