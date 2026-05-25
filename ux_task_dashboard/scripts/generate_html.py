@@ -286,18 +286,18 @@ def main():
     </div>
 
     <!-- ACCORDION CONTAINERS -->
-    <div class="max-w-[1440px] mx-auto px-4 md:px-[73px] pb-12 space-y-4">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-0 pb-12 space-y-4">
         
         <!-- PROJECT SCOPE ACCORDION -->
         <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-8 flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
                 <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Scope</span>
                 <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 bg-black/15">
+            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 md:px-[73px] bg-black/15">
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
@@ -400,13 +400,13 @@ def main():
         <!-- PROJECT PROPOSAL ACCORDION -->
         <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-8 flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
                 <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Proposal</span>
                 <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-8 bg-black/15 text-center text-slate-400">
+            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-8 md:px-[73px] bg-black/15 text-center text-slate-400">
                 <div class="py-12 flex flex-col items-center justify-center gap-4 select-none">
                     <div class="w-16 h-16 rounded-full bg-stone-950/40 border border-brand-500/20 flex items-center justify-center shadow-lg">
                         <i class="fa-solid fa-file-signature text-3xl text-brand-500/70"></i>
