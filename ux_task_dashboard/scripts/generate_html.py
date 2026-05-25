@@ -65,7 +65,7 @@ def main():
                             200: '#fde68a',
                             300: '#fcd34d',
                             400: '#fbbf24',
-                            500: '#df9e38', // Sophisticated desaturated primary amber/gold
+                            500: '#CD9852', // Sophisticated desaturated primary amber/gold
                             600: '#c68426', // Warm bronze-amber
                             700: '#a3671c',
                             800: '#854f15',
@@ -310,7 +310,7 @@ def main():
                                     <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                                 </div>
                                 <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
-                                    <h3 class="text-sm font-extrabold text-[#BABECE] outfit-font leading-none tracking-wide">
+                                    <h3 class="text-sm font-extrabold text-[#C6C1BC] outfit-font leading-none tracking-wide">
                                         Estimated Task List
                                     </h3>
                                     <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
@@ -415,11 +415,11 @@ def main():
                         <!-- 01 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Opening Note</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Opening Note</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     I carefully reviewed the current FPV app structure, workflows, navigation systems, and operational flows in order to prepare a more realistic redesign estimation and production roadmap.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Rather than creating a simplified screen-based estimation, I tried to evaluate the product more holistically from both UI and operational UX perspectives while identifying areas that may naturally evolve throughout the redesign process.
                                 </p>
                             </div>
@@ -428,11 +428,11 @@ def main():
                         <!-- 02 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Initial Structural &amp; UX Notes</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Initial Structural &amp; UX Notes</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     During the estimation process, I naturally developed a number of early observations and possible UX directions regarding workflows, navigation behavior, service presentation, and overall operational structure.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     At this stage, these should not be considered finalized UX decisions, but rather early structural ideas and workflow observations that emerged while analyzing the existing product ecosystem.
                                 </p>
                             </div>
@@ -441,14 +441,14 @@ def main():
                         <!-- 03 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Collaborative Workflow &amp; Design Process</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Collaborative Workflow &amp; Design Process</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     The redesign process will be handled as a highly collaborative and iterative workflow rather than a traditional presentation-and-approval structure.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     After the initial design direction is established, screens and workflows will continue evolving through ongoing Figma-based discussions, revisions, UX refinements, and collaborative review cycles throughout production.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     For many important areas, I will also prepare surveys, workflow questions, and clarification discussions in order to better understand operational expectations, usability priorities, and real-world workflows during the design process.
                                 </p>
                             </div>
@@ -457,11 +457,11 @@ def main():
                         <!-- 04 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Technical &amp; Production Collaboration Note</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Technical &amp; Production Collaboration Note</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     My primary focus throughout the redesign process will be creating the strongest possible product and user experience from both visual and operational perspectives.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     SwiftUI-related implementation considerations are currently treated as a secondary concern compared to building the most effective UX/UI solutions. At the same time, approved designs can continue being reviewed together with your development team throughout production, and if implementation-related limitations appear, we can collaboratively refine the related solutions together.
                                 </p>
                             </div>
@@ -470,14 +470,14 @@ def main():
                         <!-- 05 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Scope, Unknowns &amp; Workflow Evolution Note</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Scope, Unknowns &amp; Workflow Evolution Note</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Throughout the estimation process, several areas of the current app appeared partially undefined, incomplete, placeholder-based, or operationally unclear.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Because of this, certain workflows, structures, screens, and operational requirements may continue evolving as the redesign process progresses and deeper product discussions take place.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Whenever reasonably possible, I will do my best to accommodate and refine these areas within the existing budget. However, if certain requests evolve into substantially larger systems, major feature expansions, or new operational scopes beyond the currently evaluated structure, additional estimation adjustments may naturally become necessary later in the process.
                                 </p>
                             </div>
@@ -486,11 +486,11 @@ def main():
                         <!-- 06 -->
                         <div class="pb-10 border-b border-stone-900/60">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Estimation &amp; Budget Note</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Estimation &amp; Budget Note</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     I am aware that the overall time estimation may initially appear relatively high. However, based on my past experiences and the operational complexity observed throughout this review process, I felt it was important to prepare a more realistic and sufficiently inclusive estimation structure.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     I would also like to note that I am not directly using the raw total estimation hours as a simple linear pricing calculation. The estimation table primarily exists to create clearer production visibility, workflow transparency, and a more realistic understanding of the project scope.
                                 </p>
                             </div>
@@ -499,20 +499,20 @@ def main():
                         <!-- 07 -->
                         <div class="pb-12">
                             <div class="space-y-4">
-                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#df9e38] tracking-[-0.015em] outfit-font">Closing Note</h3>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <h3 class="text-2xl sm:text-[26px] font-normal text-[#CD9852] tracking-[-0.015em] outfit-font">Closing Note</h3>
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     I know I ideally should have shared my response earlier. However, I wanted to take enough time to properly review the app structure, workflows, and operational details as carefully as possible. I also spent additional time preparing a dedicated presentation structure to organize the resulting plans, notes, and estimations into a format that would remain clearer, more readable, and easier to review from your side — especially as the amount of information, structural notes, and workflow-related observations continued growing and becoming more detailed throughout the process.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Because a significant amount of thought, analysis, and interpretation went into this proposal and estimation process, there may naturally still be areas that evolve further, contain minor oversights, or require clarification as the project progresses. I appreciate your understanding in advance if you encounter any inconsistencies, missing details, or areas that may later require additional refinement throughout the collaborative process.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     All design, UX, and collaborative review processes throughout the project will be handled directly inside Figma. I will also do my best to maintain a fast and active production workflow throughout the project timeline, including working during weekends when necessary in order to help move the redesign process forward more efficiently.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal">
                                     Due to the highly collaborative nature of the redesign process, active communication and feedback cycles throughout production will also help the project progress more efficiently and reduce unnecessary revision loops.
                                 </p>
-                                <p class="text-sm md:text-base text-[#BABECE] leading-[175%] font-normal font-medium text-slate-200">
+                                <p class="text-sm md:text-base text-[#C6C1BC] leading-[175%] font-normal font-medium text-slate-200">
                                     I appreciate your time, patience, and understanding throughout this evaluation and proposal process.
                                 </p>
                             </div>
@@ -540,7 +540,7 @@ def main():
                             </div>
                             <div class="mt-8 pt-4 border-t border-stone-900/60 flex items-baseline justify-between">
                                 <span class="text-xs text-slate-450">Calculated Value</span>
-                                <span class="text-2xl font-bold text-[#df9e38] font-mono">$12,950</span>
+                                <span class="text-2xl font-bold text-[#CD9852] font-mono">$12,950</span>
                             </div>
                         </div>
 
@@ -773,7 +773,7 @@ def main():
                 resultLines.push('</ul>');
             }}
             
-            return `<div class="markdown-content text-sm text-[#BABECE]">${{resultLines.join('')}}</div>`;
+            return `<div class="markdown-content text-sm text-[#C6C1BC]">${{resultLines.join('')}}</div>`;
         }}
 
         // Recursive statistics calculator
