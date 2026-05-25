@@ -292,7 +292,7 @@ def main():
         <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
             <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
-                <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Scope</span>
+                <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Scope</span>
                 <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
@@ -401,7 +401,7 @@ def main():
         <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
             <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
-                <span class="text-xl sm:text-2xl font-normal tracking-wide text-[#C9C2B8] outfit-font">Project Proposal</span>
+                <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Proposal</span>
                 <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
