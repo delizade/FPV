@@ -15,6 +15,8 @@ def main():
     with open(tree_path, "r", encoding="utf-8") as f:
         tasks_tree = json.load(f)
 
+    project_description = "This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including estimated task breakdowns, time estimations, visual direction planning, workflow notes, and project considerations."
+
     # Count total tasks and estimates dynamically
     def get_stats(node):
         count = 1
@@ -245,11 +247,11 @@ def main():
                 — FPV MOBILE APP WORKPLAN
             </div>
             <h1 class="text-[#C9C2B8] text-[52px] font-normal leading-[110%] tracking-tight mb-4">
-                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span> UI Redesign
+                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[16px] leading-[150%] font-normal mb-4">—</div>
             <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[511px]">
-                This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including task breakdowns, estimated production scope, visual direction planning, workflow notes, and project considerations.
+                {project_description}
             </p>
         </div>
 
@@ -259,11 +261,11 @@ def main():
                 — FPV MOBILE APP WORKPLAN
             </div>
             <h1 class="text-[#C9C2B8] text-3xl sm:text-4xl font-normal leading-[115%] tracking-tight">
-                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span> UI Redesign
+                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[14px] leading-[150%] font-normal">—</div>
             <p class="text-[#C9C2B8] text-sm sm:text-base leading-[160%] font-normal">
-                This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including task breakdowns, estimated production scope, visual direction planning, workflow notes, and project considerations.
+                {project_description}
             </p>
         </div>
         
@@ -569,9 +571,19 @@ def main():
             
             let paddingLeft = level * 14;
             
-            // Main tasks use 40% saturation & 60% lightness, subtasks use 10% saturation & 45% lightness (brightness reduced)
-            const sat = level === 0 ? 40 : 10;
-            const light = level === 0 ? 60 : 45;
+            // Main task = 80% saturation, level 1 = 40% (40% lower), level 2+ = 10% (30% further desaturated)
+            let sat = 80;
+            let light = 60;
+            if (level === 0) {{
+                sat = 80;
+                light = 60;
+            }} else if (level === 1) {{
+                sat = 40;
+                light = 55;
+            }} else {{
+                sat = 10;
+                light = 50;
+            }}
             const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
             
             // Choose elegant folder icon based on level of nesting and open state
@@ -585,10 +597,11 @@ def main():
                 icon = `<i class="fa-regular ${{folderClass}} hover:scale-110 transition-transform cursor-pointer" style="color: ${{titleColor}}" onclick="toggleSidebarNode('${{node.id}}', event)"></i>`;
             }}
 
-            let displayName = node.name;
+            let nodeName = level === 0 ? node.name.toUpperCase() : node.name;
+            let displayName = nodeName;
             let prefixHtml = "";
             
-            const match = node.name.match(/^([\\d.A-Z]+ \\- )(.*)$/);
+            const match = nodeName.match(/^([\\d.A-Z]+ \\- )(.*)$/);
             if (match) {{
                 const prefix = match[1];
                 const title = match[2];
@@ -597,7 +610,7 @@ def main():
                 // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${{titleColor}}">${{title}}</span>`;
             }} else {{
-                displayName = `<span style="color: ${{titleColor}}">${{node.name}}</span>`;
+                displayName = `<span style="color: ${{titleColor}}">${{nodeName}}</span>`;
             }}
 
             const estOpacity = level > 0 ? "opacity-50" : "";
@@ -607,7 +620,7 @@ def main():
                      onclick="scrollToTask('${{node.id}}')">
                     <div class="flex items-center gap-2 truncate">
                         ${{icon}}
-                        <span class="truncate font-normal transition-colors" title="${{node.name}}">
+                        <span class="truncate font-normal transition-colors" title="${{nodeName}}">
                             ${{prefixHtml}}${{displayName}}
                         </span>
                     </div>
@@ -658,10 +671,21 @@ def main():
             const selfEst = formatEstimate(node.time_estimate);
             const totalEst = formatEstimate(stats.ms);
             
-            // Calculate dynamic saturation color step (+20% saturation step per level)
-            const sat = Math.min(40 + (level * 20), 100);
-            const titleColor = `hsl(38, ${{sat}}%, 60%)`;
-            const accentBorderColor = `hsla(38, ${{sat}}%, 60%, 0.4)`;
+            // Level-based color hierarchy: main task (80%), sub task (40%), sub > sub task (10%)
+            let sat = 80;
+            let light = 60;
+            if (level === 0) {{
+                sat = 80;
+                light = 60;
+            }} else if (level === 1) {{
+                sat = 40;
+                light = 55;
+            }} else {{
+                sat = 10;
+                light = 50;
+            }}
+            const titleColor = `hsl(38, ${{sat}}%, ${{light}}%)`;
+            const accentBorderColor = `hsla(38, ${{sat}}%, ${{light}}%, 0.4)`;
             
             // CSS classes for nested styling
             let containerClass = "task-card-container task-card-transition ";
@@ -693,11 +717,12 @@ def main():
                 return text.replace(regex, '<mark class="bg-brand-500/25 text-brand-200 border-b border-brand-500/80 px-0.5 rounded-sm">$1</mark>');
             }}
 
-            let displayName = highlightText(node.name);
+            let nodeName = level === 0 ? node.name.toUpperCase() : node.name;
+            let displayName = highlightText(nodeName);
             let prefixHtml = "";
             let prefixWidth = 0;
             
-            const match = node.name.match(/^([\\d.A-Z]+ \\- )(.*)$/);
+            const match = nodeName.match(/^([\\d.A-Z]+ \\- )(.*)$/);
             if (match) {{
                 const prefix = match[1];
                 const title = match[2];
@@ -713,7 +738,7 @@ def main():
                 // Title uses full titleColor (100% opacity)
                 displayName = `<span style="color: ${{titleColor}}">${{highlightedTitle}}</span>`;
             }} else {{
-                displayName = `<span style="color: ${{titleColor}}">${{highlightText(node.name)}}</span>`;
+                displayName = `<span style="color: ${{titleColor}}">${{highlightText(nodeName)}}</span>`;
             }}
 
             // Indented subtask frame wrapping container (no guide lines, clean spacing)
@@ -755,7 +780,7 @@ def main():
                         <!-- HEADER BAR -->
                         <div class="${{headerBgClass}}" onclick="toggleNode('${{node.id}}', event)">
                             <div class="flex items-center gap-2.5 min-w-0 mr-4">
-                                <h3 class="text-sm font-normal truncate outfit-font tracking-wide flex items-baseline" title="${{node.name}}">
+                                <h3 class="text-sm font-normal truncate outfit-font tracking-wide flex items-baseline" title="${{nodeName}}">
                                     ${{prefixHtml}}${{displayName}}
                                 </h3>
                             </div>
