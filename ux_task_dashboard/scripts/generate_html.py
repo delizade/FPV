@@ -283,7 +283,9 @@ def main():
                 <span>2026</span>
             </div>
         </div>
-       <!-- ACCORDION CONTAINERS -->
+    </div>
+
+    <!-- ACCORDION CONTAINERS -->
     <div class="max-w-[1440px] mx-auto px-4 md:px-[73px] pb-12 space-y-4">
         
         <!-- PROJECT SCOPE ACCORDION -->
@@ -415,9 +417,7 @@ def main():
                     </p>
                 </div>
             </div>
-        </div>
-
-    </div>    </div>
+    </div>
 
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
     <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
