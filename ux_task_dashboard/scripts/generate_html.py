@@ -530,17 +530,17 @@ def main():
                                 <div class="space-y-3.5 text-xs">
                                     <div class="flex justify-between border-b border-stone-900/40 pb-2">
                                         <span class="text-slate-400">Production Time</span>
-                                        <span class="font-bold text-slate-250 font-mono">370h</span>
+                                        <span class="font-normal text-slate-250 font-mono">370h</span>
                                     </div>
                                     <div class="flex justify-between border-b border-stone-900/40 pb-2">
                                         <span class="text-slate-400">Hourly Rate</span>
-                                        <span class="font-bold text-slate-250 font-mono">$35/h</span>
+                                        <span class="font-normal text-slate-250 font-mono">$35/h</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-8 pt-4 border-t border-stone-900/60 flex items-baseline justify-between">
                                 <span class="text-xs text-slate-450">Calculated Value</span>
-                                <span class="text-2xl font-bold text-[#CD9852] font-mono">$12,950</span>
+                                <span class="text-2xl font-normal text-[#CD9852] font-mono">$12,950</span>
                             </div>
                         </div>
 
@@ -557,7 +557,7 @@ def main():
                             </div>
                             <div class="mt-8 pt-4 border-t border-stone-900/60 flex items-baseline justify-between">
                                 <span class="text-xs text-slate-450">Final Fixed Budget</span>
-                                <span class="text-2xl font-bold text-[#CD9852] font-mono">$10,000</span>
+                                <span class="text-2xl font-normal text-[#CD9852] font-mono">$10,000</span>
                             </div>
                         </div>
 
@@ -568,15 +568,15 @@ def main():
                                 <div class="space-y-3.5 text-xs">
                                     <div class="flex justify-between border-b border-stone-900/40 pb-2">
                                         <span class="text-slate-400">1. Initial (Start)</span>
-                                        <span class="font-bold text-slate-250 font-mono">$4,000</span>
+                                        <span class="font-normal text-slate-250 font-mono">$4,000</span>
                                     </div>
                                     <div class="flex justify-between border-b border-stone-900/40 pb-2">
                                         <span class="text-slate-400">2. Mid Production</span>
-                                        <span class="font-bold text-slate-250 font-mono">$3,500</span>
+                                        <span class="font-normal text-slate-250 font-mono">$3,500</span>
                                     </div>
                                     <div class="flex justify-between border-b border-stone-900/40 pb-2">
                                         <span class="text-slate-400">3. Final Delivery</span>
-                                        <span class="font-bold text-slate-250 font-mono">$2,500</span>
+                                        <span class="font-normal text-slate-250 font-mono">$2,500</span>
                                     </div>
                                 </div>
                             </div>
