@@ -1293,7 +1293,15 @@ def main():
             setTimeout(() => {{
                 const el = document.getElementById(`task-card-${{id}}`);
                 if (el) {{
-                    el.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+                    const stickyOffset = 130;
+                    const elementRect = el.getBoundingClientRect();
+                    const absoluteElementTop = elementRect.top + window.pageYOffset;
+                    const targetScrollY = absoluteElementTop - stickyOffset;
+                    
+                    window.scrollTo({{
+                        top: targetScrollY,
+                        behavior: 'smooth'
+                    }});
                     
                     // Add accent glow
                     const card = el.querySelector('.task-card-container');
