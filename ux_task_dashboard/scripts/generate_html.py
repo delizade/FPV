@@ -205,6 +205,40 @@ def main():
         .task-card-transition {{
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }}
+        
+        /* Sticky accordion headers styling */
+        .button-stuck-state {{
+            display: none !important;
+        }}
+        .button-normal-state {{
+            display: flex !important;
+        }}
+        
+        .is-stuck .button-stuck-state {{
+            display: flex !important;
+        }}
+        .is-stuck .button-normal-state {{
+            display: none !important;
+        }}
+        
+        .is-stuck {{
+            position: sticky !important;
+            top: 0 !important;
+            height: 62px !important;
+            z-index: 50 !important;
+            background: rgba(17, 16, 18, 0.95) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 194, 184, 0.15) !important;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }}
 
         /* Mobile overrides */
         @media (max-width: 639px) {{
@@ -229,28 +263,7 @@ def main():
 </head>
 <body class="min-h-screen text-slate-200">
 
-    <!-- STICKY SCROLL HEADER (Frame 19 - Scroll State) -->
-    <div id="sticky-scroll-header" class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1440px] z-50 h-[62px] bg-[#151418] border-b border-stone-800/40 shadow-lg pointer-events-none transition-all duration-300 transform -translate-y-full opacity-0 overflow-hidden">
-        <div class="w-full h-full relative overflow-hidden">
-            <!-- Background image -->
-            <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 100%;"></div>
-            
-            <!-- Content -->
-            <div class="absolute left-[16px] top-1/2 transform -translate-y-1/2 flex items-center font-sans">
-                <h2 class="text-[#C9C2B8] text-[15px] sm:text-[16px] font-normal leading-[110%] tracking-wide">
-                    Mobile App UX Improvements &amp; UI Redesign
-                </h2>
-            </div>
-
-            <!-- Right: ClickUp link -->
-            <div class="absolute right-[37px] top-1/2 transform -translate-y-1/2 flex items-center font-sans">
-                <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                    <span class="hidden sm:inline">Open in ClickUp</span>
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- STICKY SCROLL HEADER REMOVED -->
 
     <!-- HERO BANNER (Frame 18 - Normal State) -->
     <div id="hero-banner" class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[563px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-8 select-none rounded-b font-sans">
@@ -305,11 +318,28 @@ def main():
     <div class="max-w-[1440px] mx-auto px-4 md:px-0 pb-12 space-y-4">
         
         <!-- PROJECT SCOPE ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
+        <div id="project-scope-wrapper" class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
-                <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Scope</span>
-                <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+            <button id="project-scope-header" onclick="toggleSection('project-scope')" class="sticky top-0 z-40 bg-[#111012] w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
+                <!-- NORMAL STATE CONTENT -->
+                <div class="button-normal-state w-full flex items-center justify-between">
+                    <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Scope</span>
+                    <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                </div>
+                <!-- STUCK STATE CONTENT -->
+                <div class="button-stuck-state w-full flex items-center justify-between h-full">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-brand-500/80 leading-none">FPV Mobile App UX Improvements &amp; UI Redesign</span>
+                        <span class="text-base sm:text-lg text-[#C9C2B8] outfit-font font-normal mt-1 leading-none">Project Scope</span>
+                    </div>
+                    <div class="flex items-center gap-4 shrink-0">
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" onclick="event.stopPropagation()" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-[#CD9852]"></i>
+                            <span>Open in ClickUp</span>
+                        </a>
+                        <i id="project-scope-chevron-stuck" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                    </div>
+                </div>
             </button>
             
             <!-- Content -->
@@ -414,11 +444,28 @@ def main():
         </div>
 
         <!-- PROJECT PROPOSAL ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
+        <div id="project-proposal-wrapper" class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
-                <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Proposal</span>
-                <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+            <button id="project-proposal-header" onclick="toggleSection('project-proposal')" class="sticky top-0 z-40 bg-[#111012] w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
+                <!-- NORMAL STATE CONTENT -->
+                <div class="button-normal-state w-full flex items-center justify-between">
+                    <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Proposal</span>
+                    <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                </div>
+                <!-- STUCK STATE CONTENT -->
+                <div class="button-stuck-state w-full flex items-center justify-between h-full">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-brand-500/80 leading-none">FPV Mobile App UX Improvements &amp; UI Redesign</span>
+                        <span class="text-base sm:text-lg text-[#C9C2B8] outfit-font font-normal mt-1 leading-none">Project Proposal</span>
+                    </div>
+                    <div class="flex items-center gap-4 shrink-0">
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" onclick="event.stopPropagation()" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-[#CD9852]"></i>
+                            <span>Open in ClickUp</span>
+                        </a>
+                        <i id="project-proposal-chevron-stuck" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                    </div>
+                </div>
             </button>
             
             <!-- Content -->
@@ -716,12 +763,31 @@ def main():
         let sidebarExpandedNodes = new Set();
         let searchQuery = "";
 
+        // Global variables for sticky header elements (initialized in DOMContentLoaded)
+        let scopeWrapper, proposalWrapper, scopeHeader, proposalHeader;
+        
+        function updateStickyHeaders() {{
+            if (scopeWrapper && scopeHeader) {{
+                const rect = scopeWrapper.getBoundingClientRect();
+                const headerHeight = scopeHeader.offsetHeight || 62;
+                // Stuck if wrapper top has reached or passed 0, and bottom is still below headerHeight
+                const isStuck = rect.top <= 0 && rect.bottom > headerHeight;
+                scopeHeader.classList.toggle('is-stuck', isStuck);
+            }}
+            if (proposalWrapper && proposalHeader) {{
+                const rect = proposalWrapper.getBoundingClientRect();
+                const headerHeight = proposalHeader.offsetHeight || 62;
+                const isStuck = rect.top <= 0 && rect.bottom > headerHeight;
+                proposalHeader.classList.toggle('is-stuck', isStuck);
+            }}
+        }}
+
         // Section Accordion Toggles
         function toggleSection(sectionId, forceState) {{
             const content = document.getElementById(`${{sectionId}}-content`);
-            const chevron = document.getElementById(`${{sectionId}}-chevron`);
+            const chevrons = document.querySelectorAll(`[id^="${{sectionId}}-chevron"]`);
             
-            if (!content || !chevron) return;
+            if (!content) return;
             
             let show = false;
             if (forceState !== undefined) {{
@@ -732,12 +798,21 @@ def main():
             
             if (show) {{
                 content.classList.remove('hidden');
-                chevron.classList.remove('rotate-0');
-                chevron.classList.add('rotate-180');
+                chevrons.forEach(chevron => {{
+                    chevron.classList.remove('rotate-0');
+                    chevron.classList.add('rotate-180');
+                }});
             }} else {{
                 content.classList.add('hidden');
-                chevron.classList.remove('rotate-180');
-                chevron.classList.add('rotate-0');
+                chevrons.forEach(chevron => {{
+                    chevron.classList.remove('rotate-180');
+                    chevron.classList.add('rotate-0');
+                }});
+            }}
+            
+            // Re-evaluate sticky headers state immediately after layout change
+            if (typeof updateStickyHeaders === 'function') {{
+                updateStickyHeaders();
             }}
         }}
 
@@ -1424,41 +1499,38 @@ def main():
             renderUI();
             initStats();
             
-            // Sticky Scroll Header morph listener
-            const stickyHeader = document.getElementById('sticky-scroll-header');
+            // Initialize global sticky elements
+            scopeWrapper = document.getElementById('project-scope-wrapper');
+            proposalWrapper = document.getElementById('project-proposal-wrapper');
+            scopeHeader = document.getElementById('project-scope-header');
+            proposalHeader = document.getElementById('project-proposal-header');
+            
+            // Stats bar morph elements
             const heroBanner = document.getElementById('hero-banner');
             const statsBar = document.getElementById('right-stats-bar');
             const statsInnerDesktop = document.getElementById('stats-inner-desktop');
             const statsInnerMobile = document.getElementById('stats-inner-mobile');
+            
             window.addEventListener('scroll', () => {{
+                // Update sticky headers on scroll
+                updateStickyHeaders();
+                
+                // Stats bar shadow/blur morph
                 const rect = heroBanner ? heroBanner.getBoundingClientRect() : null;
                 const isPastBanner = rect && rect.height > 100 ? (rect.bottom <= 0) : (window.scrollY > 560);
                 if (isPastBanner) {{
-                    stickyHeader.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-                    stickyHeader.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                    if (statsBar) {{
-                        statsBar.classList.add('backdrop-blur-md', 'border-b', 'border-stone-900/60');
-                    }}
-                    if (statsInnerDesktop) {{
-                        statsInnerDesktop.classList.remove('border-b', 'border-stone-900/60');
-                    }}
-                    if (statsInnerMobile) {{
-                        statsInnerMobile.classList.remove('border-b', 'border-stone-900/60');
-                    }}
+                    if (statsBar) statsBar.classList.add('backdrop-blur-md', 'border-b', 'border-stone-900/60');
+                    if (statsInnerDesktop) statsInnerDesktop.classList.remove('border-b', 'border-stone-900/60');
+                    if (statsInnerMobile) statsInnerMobile.classList.remove('border-b', 'border-stone-900/60');
                 }} else {{
-                    stickyHeader.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                    stickyHeader.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-                    if (statsBar) {{
-                        statsBar.classList.remove('backdrop-blur-md', 'border-b', 'border-stone-900/60');
-                    }}
-                    if (statsInnerDesktop) {{
-                        statsInnerDesktop.classList.add('border-b', 'border-stone-900/60');
-                    }}
-                    if (statsInnerMobile) {{
-                        statsInnerMobile.classList.add('border-b', 'border-stone-900/60');
-                    }}
+                    if (statsBar) statsBar.classList.remove('backdrop-blur-md', 'border-b', 'border-stone-900/60');
+                    if (statsInnerDesktop) statsInnerDesktop.classList.add('border-b', 'border-stone-900/60');
+                    if (statsInnerMobile) statsInnerMobile.classList.add('border-b', 'border-stone-900/60');
                 }}
             }});
+            
+            // Initial call on load
+            updateStickyHeaders();
         }});
     </script>
 </body>
