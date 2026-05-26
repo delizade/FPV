@@ -93,6 +93,22 @@
             background: rgba(223, 158, 56, 0.35);
         }
         
+        /* Custom scrollbar for sidebar to ensure visibility on macOS */
+        .sidebar-scrollable::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-track {
+            background: rgba(10, 8, 6, 0.3);
+            border-radius: 99px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-thumb {
+            background: rgba(205, 152, 82, 0.45); /* Elegant gold #CD9852 */
+            border-radius: 99px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-thumb:hover {
+            background: rgba(205, 152, 82, 0.7);
+        }
+        
         .glass-effect {
             background: rgba(18, 15, 12, 0.75);
             backdrop-filter: blur(16px);
@@ -269,7 +285,7 @@
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
                     <aside class="hidden lg:block lg:col-span-1">
-                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto sidebar-scrollable max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
                             
                             <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                             <div class="mb-[20px]">
@@ -1064,7 +1080,7 @@
         }
 
         // Toggle Sidebar Tree (Expand All / Collapse All)
-        let isSidebarGloballyExpanded = true;
+        let isSidebarGloballyExpanded = false;
         function toggleSidebarTree(event) {
             if (event) event.stopPropagation();
             const chevron = document.getElementById('sidebar-toggle-chevron');
@@ -1190,15 +1206,11 @@
                 expandedNodes.add(group.id);
             });
             
-            // Sidebar starts fully expanded by default
+            // Sidebar starts with level 0 groups (Phases) expanded, and nested collapsed
             sidebarExpandedNodes.clear();
-            const recurse = (node) => {
-                sidebarExpandedNodes.add(node.id);
-                if (node.subtasks) {
-                    node.subtasks.forEach(recurse);
-                }
-            };
-            taskData.subtasks.forEach(recurse);
+            taskData.subtasks.forEach(group => {
+                sidebarExpandedNodes.add(group.id);
+            });
         }
 
         // Refresh dynamic UI elements
