@@ -266,9 +266,9 @@ def main():
     <!-- STICKY SCROLL HEADER REMOVED -->
 
     <!-- HERO BANNER (Frame 18 - Normal State) -->
-    <div id="hero-banner" class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[620px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-4 select-none rounded-b font-sans">
+    <div id="hero-banner" class="max-w-[1440px] mx-auto w-full h-auto min-h-[480px] md:h-[680px] bg-[#151418] relative overflow-hidden border-b border-stone-800/40 mb-4 select-none rounded-b font-sans">
         <!-- Background image -->
-        <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
+        <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px;"></div>
         
         <!-- Desktop layout (visible on md and up) -->
         <div class="hidden md:block absolute left-[73px] top-[84px] w-[820px] text-left">
