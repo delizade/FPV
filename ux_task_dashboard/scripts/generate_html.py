@@ -15,7 +15,7 @@ def main():
     with open(tree_path, "r", encoding="utf-8") as f:
         tasks_tree = json.load(f)
 
-    project_description = "This document contains the planned UX/UI redesign structure prepared for the FPV mobile application, including estimated task breakdowns, time estimations, visual direction planning, workflow notes, and project considerations."
+    project_description = "This document outlines the planned UX/UI redesign structure prepared for the FPV mobile application, including task estimations, workflow planning, overall project considerations and project proposal.<br><br>You will also receive access to the ClickUp project where you can review tasks and leave comments or feedback directly throughout the process."
 
     # Count total tasks and estimates dynamically
     def get_stats(node):
@@ -271,7 +271,7 @@ def main():
         <div class="absolute inset-0 bg-no-repeat bg-cover pointer-events-none opacity-40 mix-blend-lighten" style="background-image: url('../bg-1.jpg'); background-position: 0px -61px; width: 100%; height: 624px;"></div>
         
         <!-- Desktop layout (visible on md and up) -->
-        <div class="hidden md:block absolute left-[73px] top-[84px] w-[641px] text-left">
+        <div class="hidden md:block absolute left-[73px] top-[84px] w-[820px] text-left">
             <div class="text-[#C59A5D] text-[13px] font-medium tracking-[0.1em] uppercase mb-4">
                 — FPV MOBILE APP WORKPLAN
             </div>
@@ -279,7 +279,7 @@ def main():
                 Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[16px] leading-[150%] font-normal mb-4">—</div>
-            <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[511px]">
+            <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[720px]">
                 {project_description}
             </p>
         </div>
