@@ -271,31 +271,30 @@
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
                     <aside class="hidden lg:block lg:col-span-1">
-                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] border border-brand-900/10 shadow-xl shadow-black/20">
-                            
+                        <!-- Sticky Header Box -->
+                        <div class="glass-effect pt-[16px] px-4 rounded-t sticky top-[62px] z-30 border border-brand-900/10 border-b-0 shadow-lg shadow-black/20 bg-[#111012]/95 backdrop-blur-md">
                             <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
-                            <div class="mb-[20px]">
-                                <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
-                                    <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
-                                </div>
-                                <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
-                                    <h3 class="text-sm font-extrabold text-[#C6C1BC] outfit-font leading-none tracking-wide">
-                                        Estimated Task List
-                                    </h3>
-                                    <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
-                                        <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
-                                    </span>
-                                </div>
+                            <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
+                                <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
                             </div>
-                            
-                            <div class="space-y-1" id="sidebar-tree">
-                                <!-- Javascript will render this tree -->
-                                <div class="animate-pulse space-y-2">
-                                    <div class="h-6 bg-slate-900 rounded w-3/4"></div>
-                                    <div class="h-6 bg-slate-900 rounded w-5/6"></div>
-                                    <div class="h-6 bg-slate-900 rounded w-2/3"></div>
-                                    <div class="h-6 bg-slate-900 rounded w-full"></div>
-                                </div>
+                            <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
+                                <h3 class="text-sm font-extrabold text-[#C6C1BC] outfit-font leading-none tracking-wide">
+                                    Estimated Task List
+                                </h3>
+                                <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
+                                    <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Scrollable Content Box (scrolls with window scroll under the header) -->
+                        <div class="glass-effect pt-4 pb-6 px-4 rounded-b border border-brand-900/10 border-t-0 shadow-xl shadow-black/20 relative z-20" id="sidebar-tree">
+                            <!-- Javascript will render this tree -->
+                            <div class="animate-pulse space-y-2">
+                                <div class="h-6 bg-slate-900 rounded w-3/4"></div>
+                                <div class="h-6 bg-slate-900 rounded w-5/6"></div>
+                                <div class="h-6 bg-slate-900 rounded w-2/3"></div>
+                                <div class="h-6 bg-slate-900 rounded w-full"></div>
                             </div>
                         </div>
                     </aside>
