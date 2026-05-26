@@ -141,6 +141,10 @@ def main():
         .sidebar-scrollable::-webkit-scrollbar-thumb:hover {{
             background: rgba(205, 152, 82, 0.7);
         }}
+        .sidebar-scrollable {{
+            scrollbar-width: thin;
+            scrollbar-color: rgba(205, 152, 82, 0.45) rgba(10, 8, 6, 0.3);
+        }}
         
         .glass-effect {{
             background: rgba(18, 15, 12, 0.75);
@@ -305,15 +309,15 @@ def main():
     <div class="max-w-[1440px] mx-auto px-4 md:px-0 pb-12 space-y-4">
         
         <!-- PROJECT SCOPE ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
+        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
                 <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Scope</span>
                 <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 md:px-[73px] bg-black/15">
+            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 md:px-[73px] bg-black/15 rounded-b">
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
@@ -414,15 +418,15 @@ def main():
         </div>
 
         <!-- PROJECT PROPOSAL ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
+        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
+            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
                 <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Proposal</span>
                 <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15">
+            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15 rounded-b">
                 <div class="max-w-[960px] space-y-16 text-left">
                     
                     <!-- SECTION FLOW -->
