@@ -93,25 +93,7 @@
             background: rgba(223, 158, 56, 0.35);
         }
         
-        /* Custom scrollbar for sidebar to ensure visibility on macOS */
-        .sidebar-scrollable::-webkit-scrollbar {
-            width: 5px;
-        }
-        .sidebar-scrollable::-webkit-scrollbar-track {
-            background: rgba(10, 8, 6, 0.3);
-            border-radius: 99px;
-        }
-        .sidebar-scrollable::-webkit-scrollbar-thumb {
-            background: rgba(205, 152, 82, 0.45); /* Elegant gold #CD9852 */
-            border-radius: 99px;
-        }
-        .sidebar-scrollable::-webkit-scrollbar-thumb:hover {
-            background: rgba(205, 152, 82, 0.7);
-        }
-        .sidebar-scrollable {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(205, 152, 82, 0.45) rgba(10, 8, 6, 0.3);
-        }
+
         
         .glass-effect {
             background: rgba(18, 15, 12, 0.75);
@@ -289,7 +271,7 @@
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
                     <aside class="hidden lg:block lg:col-span-1">
-                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto sidebar-scrollable max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] border border-brand-900/10 shadow-xl shadow-black/20">
                             
                             <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
                             <div class="mb-[20px]">
