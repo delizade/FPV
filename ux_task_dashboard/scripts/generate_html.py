@@ -279,7 +279,7 @@ def main():
                 Mobile App UX<br><span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[16px] leading-[150%] font-normal mb-4">—</div>
-            <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[720px]">
+            <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[620px]">
                 {project_description}
             </p>
         </div>
