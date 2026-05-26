@@ -93,7 +93,21 @@
             background: rgba(223, 158, 56, 0.35);
         }
         
-
+        /* Custom scrollbar for sidebar to ensure visibility on macOS */
+        .sidebar-scrollable::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-track {
+            background: rgba(10, 8, 6, 0.3);
+            border-radius: 99px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-thumb {
+            background: rgba(205, 152, 82, 0.45); /* Elegant gold #CD9852 */
+            border-radius: 99px;
+        }
+        .sidebar-scrollable::-webkit-scrollbar-thumb:hover {
+            background: rgba(205, 152, 82, 0.7);
+        }
         
         .glass-effect {
             background: rgba(18, 15, 12, 0.75);
@@ -258,43 +272,44 @@
     <div class="max-w-[1440px] mx-auto px-4 md:px-0 pb-12 space-y-4">
         
         <!-- PROJECT SCOPE ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
+        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
+            <button onclick="toggleSection('project-scope')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
                 <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Scope</span>
                 <i id="project-scope-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 md:px-[73px] bg-black/15 rounded-b">
+            <div id="project-scope-content" class="hidden border-t border-[#1d1b20] p-6 md:px-[73px] bg-black/15">
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     
                     <!-- SIDEBAR: DYNAMIC TREE VIEW DIRECTORY (hidden on mobile) -->
                     <aside class="hidden lg:block lg:col-span-1">
-                        <!-- Sticky Header Box -->
-                        <div class="glass-effect pt-[16px] px-4 rounded-t sticky top-[62px] z-30 border border-brand-900/10 border-b-0 shadow-lg shadow-black/20 bg-[#111012]/95 backdrop-blur-md">
+                        <div class="glass-effect pt-[16px] pb-4 px-4 rounded sticky top-[62px] overflow-y-auto sidebar-scrollable max-h-[calc(100vh-5.5rem)] border border-brand-900/10 shadow-xl shadow-black/20">
+                            
                             <!-- Main Parent Task Title as Sidebar Header: ACTIVE PROJECT replaced with FPV WORKPLAN -->
-                            <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
-                                <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
+                            <div class="mb-[20px]">
+                                <div class="h-[12px] leading-[12px] mb-[8px] text-[9px] font-bold text-brand-500/60 uppercase tracking-widest outfit-font flex items-center gap-1.5">
+                                    <i class="fa-solid fa-folder-tree"></i> FPV WORKPLAN
+                                </div>
+                                <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
+                                    <h3 class="text-sm font-extrabold text-[#C6C1BC] outfit-font leading-none tracking-wide">
+                                        Estimated Task List
+                                    </h3>
+                                    <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
+                                        <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="h-[48px] pb-[16px] border-b border-brand-900/20 flex items-center justify-between cursor-pointer group select-none" onclick="toggleSidebarTree(event)">
-                                <h3 class="text-sm font-extrabold text-[#C6C1BC] outfit-font leading-none tracking-wide">
-                                    Estimated Task List
-                                </h3>
-                                <span class="p-1 text-slate-500 hover:text-slate-350 transition-colors shrink-0 ml-1 flex items-center justify-center">
-                                    <i id="sidebar-toggle-chevron" class="fa-solid fa-chevron-down transition-transform duration-300 text-[10px] rotate-0"></i>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <!-- Scrollable Content Box (scrolls with window scroll under the header) -->
-                        <div class="glass-effect pt-4 pb-6 px-4 rounded-b border border-brand-900/10 border-t-0 shadow-xl shadow-black/20 relative z-20" id="sidebar-tree">
-                            <!-- Javascript will render this tree -->
-                            <div class="animate-pulse space-y-2">
-                                <div class="h-6 bg-slate-900 rounded w-3/4"></div>
-                                <div class="h-6 bg-slate-900 rounded w-5/6"></div>
-                                <div class="h-6 bg-slate-900 rounded w-2/3"></div>
-                                <div class="h-6 bg-slate-900 rounded w-full"></div>
+                            
+                            <div class="space-y-1" id="sidebar-tree">
+                                <!-- Javascript will render this tree -->
+                                <div class="animate-pulse space-y-2">
+                                    <div class="h-6 bg-slate-900 rounded w-3/4"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-5/6"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-2/3"></div>
+                                    <div class="h-6 bg-slate-900 rounded w-full"></div>
+                                </div>
                             </div>
                         </div>
                     </aside>
@@ -366,15 +381,15 @@
         </div>
 
         <!-- PROJECT PROPOSAL ACCORDION -->
-        <div class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
+        <div class="border border-[#221f24] bg-[#111012] rounded overflow-hidden shadow-2xl transition-all duration-300">
             <!-- Header -->
-            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
+            <button onclick="toggleSection('project-proposal')" class="w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none">
                 <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Project Proposal</span>
                 <i id="project-proposal-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
             </button>
             
             <!-- Content -->
-            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15 rounded-b">
+            <div id="project-proposal-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15">
                 <div class="max-w-[960px] space-y-16 text-left">
                     
                     <!-- SECTION FLOW -->
