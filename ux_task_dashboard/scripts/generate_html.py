@@ -276,7 +276,7 @@ def main():
                 — FPV MOBILE APP WORKPLAN
             </div>
             <h1 class="text-[#C9C2B8] text-[52px] font-normal leading-[110%] tracking-tight mb-4">
-                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
+                Mobile App UX<br><span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[16px] leading-[150%] font-normal mb-4">—</div>
             <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[720px]">
@@ -290,7 +290,7 @@ def main():
                 — FPV MOBILE APP WORKPLAN
             </div>
             <h1 class="text-[#C9C2B8] text-3xl sm:text-4xl font-normal leading-[115%] tracking-tight">
-                Mobile App UX <span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
+                Mobile App UX<br><span class="text-[#C59A5D] font-medium">Improvements &amp;</span><br>UI Redesign
             </h1>
             <div class="text-white text-[14px] leading-[150%] font-normal">—</div>
             <p class="text-[#C9C2B8] text-sm sm:text-base leading-[160%] font-normal">
