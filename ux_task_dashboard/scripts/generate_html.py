@@ -705,12 +705,12 @@ def main():
                         <h3 class="text-lg font-normal text-[#CD9852] outfit-font tracking-wide">Visual Production Timeline</h3>
                         
                         <div class="bg-[#151418] border border-[#221f24] rounded-lg p-6 shadow-xl overflow-x-auto">
-                            <div class="min-w-[800px] select-none font-sans relative pr-4">
+                            <div class="min-w-[900px] select-none font-sans relative pr-2">
                                 
                                 <!-- Timeline Date Labels -->
                                 <div class="flex items-center text-[9px] uppercase font-bold text-slate-500 border-b border-stone-900/60 pb-3 mb-6">
-                                    <div class="w-[220px] shrink-0 pl-2">Phase Description</div>
-                                    <div class="grow relative h-8">
+                                    <div class="w-[320px] shrink-0 pl-2">Phase Description</div>
+                                    <div class="grow relative h-8 mr-6">
                                         <div class="absolute left-0 -translate-x-1/2 text-left">June 4<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Project Start</span></div>
                                         <div class="absolute left-[21.7%] -translate-x-1/2 text-center">June 14<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Brand &amp; Initial</span></div>
                                         <div class="absolute left-[54.3%] -translate-x-1/2 text-center">June 29<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">First Pack</span></div>
@@ -723,8 +723,8 @@ def main():
                                 <div class="space-y-4 relative py-2">
                                     <!-- Grid Lines Background -->
                                     <div class="absolute inset-0 pointer-events-none flex">
-                                        <div class="w-[220px] shrink-0"></div>
-                                        <div class="grow relative h-full">
+                                        <div class="w-[320px] shrink-0"></div>
+                                        <div class="grow relative h-full mr-6">
                                             <div class="absolute left-0 inset-y-0 border-l border-dashed border-stone-800/60"></div>
                                             <div class="absolute left-[21.7%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
                                             <div class="absolute left-[54.3%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
@@ -735,60 +735,56 @@ def main():
                                     
                                     <!-- Row 1: PHASE 1 -->
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 1: Research &amp; Branding
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 1: Research &amp; Branding <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 4 - June 14)</span>
                                         </div>
-                                        <div class="grow relative h-7">
-                                            <div class="absolute left-0 w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                                10 Days
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute left-0 w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <!-- Row 2: PHASE 2 -->
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 2: Design Presentation
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 2: Design Presentation <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 11 - June 19)</span>
                                         </div>
-                                        <div class="grow relative h-7">
-                                            <div class="absolute left-[21.7%] w-[32.6%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                                15 Days
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute left-[15.2%] w-[17.4%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <!-- Row 3: PHASE 3 -->
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 3: First Design Pack
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 3: First Design Pack <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 16 - June 29)</span>
                                         </div>
-                                        <div class="grow relative h-7">
-                                            <div class="absolute left-[54.3%] w-[28.3%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                                13 Days
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute left-[26.1%] w-[28.2%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <!-- Row 4: PHASE 4 -->
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 4: Second Design Pack
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 4: Second Design Pack <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 25 - July 12)</span>
                                         </div>
-                                        <div class="grow relative h-7">
-                                            <div class="absolute left-[82.6%] w-[17.4%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                                8 Days
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute left-[45.7%] w-[36.9%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <!-- Row 5: PHASE 5 -->
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 5: Final Handover
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 5: Final Handover <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(July 10 - July 20)</span>
                                         </div>
-                                        <div class="grow relative h-7">
-                                            <!-- Milestone diamond marker on July 20 (Day 46 -> 100%) -->
-                                            <div class="absolute left-[100%] -translate-x-1/2 w-4 h-4 bg-[#CD9852] border border-brand-300 rotate-45 rounded-sm hover:scale-125 transition-transform cursor-pointer" title="July 20: Final Handover &amp; Project Completion"></div>
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute left-[78.3%] w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
