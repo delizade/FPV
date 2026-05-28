@@ -142,7 +142,7 @@ def main():
         
         gantt_rows_html.append(f"""
                                     <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                        <div class="w-[440px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
                                             {name} <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">({start_date_str} - {due_date_str})</span>
                                         </div>
                                         <div class="grow relative h-[34px] mr-6">
@@ -860,15 +860,15 @@ def main():
             
             <!-- Content -->
             <div id="production-roadmap-content" class="hidden border-t border-[#1d1b20] p-6 md:pt-8 md:pb-16 md:px-[73px] bg-black/15 rounded-b">
-                <div class="max-w-[960px] space-y-10 text-left">
+                <div class="max-w-[1140px] space-y-10 text-left">
                     
                     <!-- GANTT TIMELINE -->
                     <div class="bg-[#151418] border border-[#221f24] rounded-lg p-6 shadow-xl overflow-x-auto">
-                            <div class="min-w-[900px] select-none font-sans relative pr-2">
+                            <div class="min-w-[1080px] select-none font-sans relative pr-2">
                                 
                                 <!-- Timeline Date Labels -->
                                 <div class="flex items-center text-[9px] uppercase font-bold text-slate-500 border-b border-stone-900/60 pb-3 mb-6">
-                                    <div class="w-[320px] shrink-0 pl-2">Phase Description</div>
+                                    <div class="w-[440px] shrink-0 pl-2">Phase Description</div>
                                     <div class="grow relative h-8 mr-6">
                                         {roadmap_labels_html}
                                     </div>
@@ -878,7 +878,7 @@ def main():
                                 <div class="space-y-1.5 relative py-1">
                                     <!-- Grid Lines Background -->
                                     <div class="absolute inset-0 pointer-events-none flex">
-                                        <div class="w-[320px] shrink-0"></div>
+                                        <div class="w-[440px] shrink-0"></div>
                                         <div class="grow relative h-full mr-6">
                                             {roadmap_grid_html}
                                         </div>
