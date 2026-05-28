@@ -4,6 +4,8 @@
   "description": "",
   "status": "to do",
   "time_estimate": null,
+  "start_date": null,
+  "due_date": null,
   "custom_fields": [],
   "subtasks": [
     {
@@ -12,6 +14,8 @@
       "description": "PHASE 4 — Design System & Core Brand Elements\nDevelopment and refinement of the core visual system that will shape the overall product experience throughout the redesign process. This phase includes the evolution of brand-related elements, typography decisions, color systems, iconography, visual assets, and scalable UI foundations such as components, tokens, and style structures.\n\nRather than being handled as a completely isolated production stage, many of these design system decisions and refinements will continue evolving organically throughout the UI design process as the product language, interface needs, and overall visual direction become clearer.\n\nAn important part of this phase is directly connected to the overall branding foundation of the product. If there is an existing and actively usable branding direction, visual identity system, or brand guidelines, these tasks will be shaped and supported accordingly. Otherwise, parts of this phase may naturally evolve into a lighter branding-oriented process while the product’s visual language and interface identity are being established. I will also need guidance and additional information from your side regarding the current branding direction, existing assets, and long-term brand expectations throughout this process.",
       "status": "to do",
       "time_estimate": null,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -20,6 +24,8 @@
           "description": "This topic is highly important and I will need your guidance and thoughts regarding the brand direction throughout this process.\n\nWe need to refine the existing wordmark to achieve a cleaner, more contemporary, and stronger visual identity. The current approach focuses on improving the overall visual quality through typography refinement, balanced proportions, and stronger brand presence rather than conducting a deep full-scale branding process.\n\nMost importantly, the brand currently appears to rely primarily on the existing wordmark, and I was unable to identify an actively used emblem across either the website or the app experience. If there is a specific reason behind this, I would be glad to understand the background and current brand considerations.\n\nFrom a product and mobile app perspective, I believe the platform would strongly benefit from having a more recognizable brand emblem. A refined or newly developed emblem direction could help establish a more cohesive visual identity across the mobile app, website, and future product ecosystem.\n\nDepending on the importance level of this topic for your brand, I would actually recommend treating this as a more dedicated and foundational design process early in the project timeline. The character, typography, and visual personality of the wordmark and emblem directly influence the overall UI language and design direction that should be built around the product.\n\nAt the same time, I understand that you may not currently want to approach this as a separate standalone rebranding project. Because of that, the current task is planned primarily as a refinement and modernization process based on the existing visual materials and overall brand direction.",
           "status": "to do",
           "time_estimate": 57600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -29,6 +35,8 @@
           "description": "Adaptation and refinement of the existing FPV wordmark into a mobile app icon format. This task includes creating a simple, clean, and visually strong app icon aligned with the current FPV brand identity. If necessary, the process may include limited visual explorations and iterative refinements to evaluate different app icon directions. However, the current goal is to achieve a simple but polished and effective app icon solution rather than conducting a large-scale icon exploration process.",
           "status": "to do",
           "time_estimate": 10800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -38,6 +46,8 @@
           "description": "Typography exploration and refinement for the overall app experience, including researchand selection of suitable typefaces for headlines, base texts, numeric usage,and interface readability. This task also includes defining typography hierarchy, sizing, weights, spacing, and related style guide values to establish a clean, scalable, and visually cohesive typography system throughout the product.",
           "status": "to do",
           "time_estimate": 21600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -47,6 +57,8 @@
           "description": "Development and refinement of the core product color system, including primary, secondary, accent, and supportive color definitions for the overall UI experience. This task includes building visually balanced and scalable color palettes designed to work harmoniously across different interface areas, components, states, and product contexts.\n\nThroughout the design process, colors may continue evolving and being tested directly within real UI layouts, components, and screens in order to evaluate readability, usability, visual hierarchy, accessibility, and overall product atmosphere before reaching their final refined state.",
           "status": "to do",
           "time_estimate": 14400000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -56,6 +68,8 @@
           "description": "Development and refinement of a visually consistent icon system aligned with the overall product style and UI language. This task includes selecting, adapting, and creating iconography solutions that maintain clarity, usability, scalability, and visual consistency across different screens, components, and interface contexts throughout the app.",
           "status": "to do",
           "time_estimate": 21600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -65,6 +79,8 @@
           "description": "Preparation, selection, refinement, and integration of supporting visual assets such as illustrations, photography, graphical materials, and other interface-related visual elements based on the selected design direction and overall product style.\n\nAt the moment, many areas of the app contain noticeable visual repetition, empty spaces, or structurally weak content presentation. Carefully selected and properly integrated visual materials can help create a richer, more balanced, and more engaging product experience while improving overall interface atmosphere and communication quality.\n\nThe selected design direction will also play a major role in determining what kinds of visual assets, imagery styles, and supporting materials should become part of the product’s visual language throughout the redesign process.",
           "status": "to do",
           "time_estimate": 18000000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -74,6 +90,8 @@
           "description": "Development and organization of the core Figma design system structure, including color tokens, typography scales, spacing systems, grids, elevation styles, reusable UI components, and shared interface foundations.\n\nThis task focuses on building a scalable, organized, and reusable design environment that supports visual consistency, faster UI production, and long-term maintainability throughout the redesign process as the product system continues evolving.",
           "status": "to do",
           "time_estimate": 57600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
@@ -85,6 +103,8 @@
       "description": "Final refinement, delivery preparation, tablet adaptation review, and extended collaborative support processes following completion of the primary redesign workflow.\n\nThis phase focuses on reviewing the product as a complete system after the core redesign process has been completed. Certain tasks within this phase may continue evolving depending on final feedback, usability observations, operational findings, and overall project direction identified toward the later stages of production.",
       "status": "to do",
       "time_estimate": null,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -93,6 +113,8 @@
           "description": "Final full-app review process focused on identifying remaining visual inconsistencies, UX friction points, structural weaknesses, interface quality issues, and overall product-level refinement opportunities across the completed redesign system.\n\nThis phase may include additional design polishing, usability refinements, hierarchy improvements, consistency corrections, interaction refinements, and overall visual quality improvements discovered after reviewing the product as a more complete ecosystem rather than as isolated screens.",
           "status": "to do",
           "time_estimate": 28800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -102,6 +124,8 @@
           "description": "Review and adaptation planning for tablet experiences, including usability considerations, layout behavior, navigation adjustments, and overall interface adaptation across tablet screen sizes.\n\nDepending on the final design direction and workflow structures, certain areas may require dedicated tablet-specific refinements rather than simple responsive scaling solutions.",
           "status": "to do",
           "time_estimate": 28800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -111,6 +135,8 @@
           "description": "Preparation of collaborative surveys, structured workflow questions, and feedback-collection systems used throughout the redesign process in order to better understand operational requirements, client expectations, workflow behaviors, usability priorities, and design-direction decisions.\nThis process may include:\ninitial project-level surveys,\ndesign-direction questionnaires,\nworkflow clarification discussions,\npage-specific feedback structures,\noperational discovery questions,\nand task-related collaborative review forms where necessary throughout production.\nThe answers, notes, and feedback collected throughout these processes will play a critical role in shaping UX decisions, workflow structures, usability improvements, and overall product direction during the redesign process.",
           "status": "to do",
           "time_estimate": 28800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -120,6 +146,8 @@
           "description": "Final collaborative review process covering remaining feedback, refinement requests, minor UX improvements, polish iterations, and final adjustment cycles prior to project delivery.",
           "status": "to do",
           "time_estimate": 14400000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -129,6 +157,8 @@
           "description": "Ongoing organization, cleanup, and maintenance of the Figma project structure throughout the entire redesign process, including page organization, naming consistency, component structures, reusable assets, design system management, and overall file readability.\n\nThis phase also includes final preparation and structured delivery of the completed Figma project files to ensure the system remains scalable, organized, developer-friendly, and easy to navigate during both production and final handoff.",
           "status": "to do",
           "time_estimate": 28800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
@@ -140,6 +170,8 @@
       "description": "Full UI design process covering the existing FPV mobile app structure, including screens, sub-pages, modals, forms, and main and sub-navigation components. The current app structure is used as a reference foundation during the redesign process; however, layouts, navigation systems, page structures, flows, and screen organization may continue evolving throughout the UX analysis, solution development, and design production phases.\n\nThe subtasks and estimations listed throughout this proposal are primarily based on the current app structure and available screens at the time of evaluation. Depending on product and usability needs, new screens may be introduced, existing screens may be reorganized or divided into multiple parts, and interface structures may be refined to create a more scalable, functional, and improved user experience.\n\nThis phase will progress screen-by-screen throughout the production process. The workflow will generally include reviewing the current experience, identifying UX opportunities and structural problems, developing UX and interface solutions, producing updated UI designs, sharing the results for review, collecting revisions and feedback directly within Figma through pin-based comments and discussions, and iteratively refining the designs until satisfying results are achieved.\n\nAs the redesign evolves, many areas of the product may continue changing organically through ongoing UX evaluations, design decisions, workflow discoveries, usability considerations, and iterative refinement cycles during production.",
       "status": "to do",
       "time_estimate": 0,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -148,6 +180,8 @@
           "description": "",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": [
             {
@@ -156,6 +190,8 @@
               "description": "Design and integration of a contextual onboarding experience presented before authentication screens. This onboarding flow will introduce the app’s core functionality, workflow structure, and overall platform purpose through a step-by-step visual presentation.\n\nDepending on the selected visual direction and overall product style, the experience may include custom illustrations, curated imagery, visual storytelling elements, and supportive interface layouts designed to create a more engaging and welcoming first impression for users.\n\nThe onboarding screens will also include primary authentication entry points such as Login and Register actions, allowing users to directly continue into the platform experience.",
               "status": "to do",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -164,6 +200,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": 3600000,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -173,6 +211,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": 18000000,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -184,6 +224,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 10800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -193,6 +235,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 3600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -202,6 +246,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 3600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             }
@@ -213,6 +259,8 @@
           "description": "Main operational dashboard experience covering order summaries, active projects, upcoming appointments, notifications, quick-access actions, promotional content, and key workflow-related interface areas.\n\nThe current dashboard structure and available content are used as an initial reference foundation during estimation. However, dashboard organization, navigation structure, widget hierarchy, information architecture, interaction patterns, and overall layout direction may continue evolving throughout the UX analysis and redesign process depending on usability needs, workflow improvements, and overall product direction.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": [
             {
@@ -221,6 +269,8 @@
               "description": "Design and refinement of the main dashboard layout structure, including information hierarchy, operational widgets, summary areas, welcome sections, active project visibility, promotional content, and workflow-focused interface organization.\n\nThis task focuses on improving dashboard clarity, usability, accessibility of key actions, and overall operational experience while exploring alternative layout solutions where necessary.\n\nAs this is one of the most critical and frequently used areas of the entire app experience, this phase may involve a higher level of exploration, iteration, experimentation, and layout testing compared to other screens. The survey responses, workflow insights, and operational feedback collected from your side will also play a particularly important role in shaping the final dashboard structure and overall user experience direction.",
               "status": "to do",
               "time_estimate": 28800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -230,6 +280,8 @@
               "description": "Design and restructuring of the orders overview experience, including active orders, pending actions, appointment visibility, status tracking, project progression, and operational workflow visibility across different project states.\n\nAs this area represents one of the core operational centers of the app and directly affects the day-to-day workflow experience of users, it will require a particularly careful and product-focused design approach. Additional UX exploration, structural refinement, interaction testing, and iterative improvements may be necessary throughout the redesign process in order to establish a more intuitive, scalable, and operationally efficient experience.\n\nThis task may also involve improving status communication systems, expandable information structures, contextual actions, workflow visibility, and overall interaction clarity related to project and order management experiences.",
               "status": "to do",
               "time_estimate": 14400000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -239,6 +291,8 @@
               "description": "Design and refinement of the notifications and alerts experience, including notification listing, visibility, and overall alert organization. Depending on usability and workflow needs, notification grouping structures may also be explored for areas such as operational alerts, scheduling updates, invoice-related notifications, project completion messages, and other workflow-related system events.\n\nThis task may also include read/unread states, notification hierarchy, interaction clarity, and overall notification usability patterns throughout the app experience.\n\nThe importance level, structural complexity, and overall direction of this module may further evolve depending on the survey responses, workflow priorities, and operational feedback collected throughout the redesign process. At the current stage, the existing notification structure is being used as the primary reference foundation.",
               "status": "to do",
               "time_estimate": 3600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -248,6 +302,8 @@
               "description": "Design, restructuring, and refinement of the app’s primary navigation experience throughout the redesign process. This task focuses on improving navigation clarity, operational accessibility, workflow efficiency, and overall usability across the main areas of the application.\n\nBecause navigation structure directly affects how users interact with the entire product experience, this phase may involve iterative exploration of different navigation approaches, layout behaviors, interaction patterns, and accessibility solutions before reaching the most effective structure for the app ecosystem.\n\nDepending on UX findings, workflow requirements, survey responses, and usability considerations gathered during production, parts of the navigation system may continue evolving throughout the redesign process.",
               "status": "to do",
               "time_estimate": 14400000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             }
@@ -259,6 +315,8 @@
           "description": "User account and profile management area covering profile controls, order-related access points, preferences, payment management, settings, account-related utilities, and additional user-specific operational tools.\n\nThe current account structure is used as the primary reference foundation during estimation; however, parts of the page architecture, module organization, navigation hierarchy, and overall account-related workflows may continue evolving throughout the redesign process depending on usability findings, operational requirements, and overall product direction.\n\nParticular attention will also be given to improving structural clarity between account-related features and operational workflow areas throughout the redesign process.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": [
             {
@@ -267,6 +325,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 10800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -275,6 +335,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -286,6 +348,8 @@
               "description": "Design and restructuring of the orders and project tracking experience, including active projects, completed orders, search systems, order visibility, project progression, and operational workflow management across different project states.\n\nEven during the proposal and evaluation stage, it is already quite clear that this area represents one of the most important operational centers of the entire product experience. Based on the current app structure, this section may potentially require a more dedicated, standalone, and deeply considered product area rather than functioning only as a secondary account-related subsection.\n\nBecause order tracking appears to represent one of the primary operational experiences of the product ecosystem, the overall placement, accessibility, navigation hierarchy, and structural organization of this area may require deeper UX evaluation throughout the redesign process.",
               "status": "to do",
               "time_estimate": 57600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -294,6 +358,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -303,6 +369,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -312,6 +380,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -321,6 +391,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -329,6 +401,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -338,6 +412,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -347,6 +423,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -356,6 +434,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -365,6 +445,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -374,6 +456,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -383,6 +467,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -392,6 +478,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -405,6 +493,8 @@
               "description": "Although this area may initially appear as a simple settings or form screen, it actually represents a highly operational and workflow-critical preference system directly connected to future order creation flows.\n\nThe current structure contains a large amount of configuration-heavy content, repeated operational decisions, deliverable preferences, formatting logic, conditional options, and production-related defaults that may significantly affect the usability and efficiency of future order workflows.\n\nBecause of this, the redesign process for this area will likely require careful UX simplification, content grouping, hierarchy restructuring, progressive disclosure solutions, and improved interaction patterns in order to reduce cognitive load and create a more manageable and user-friendly experience.\n\nParticular attention may also be required for:\ncontent density reduction\nsmarter grouping structures\nreusable preference logic\nexpandable sections\nonboarding clarity\nconditional visibility patterns\nrepeat-order usability improvements\n\nTo improve workflow efficiency and reduce repetitive manual input, larger form-based and operational data-entry areas throughout the app may also benefit from contextual “Save as AutoFill Preference” actions. This would allow users — particularly real estate professionals handling repeated order workflows — to quickly reuse previously entered information, preferences, and operational settings across future orders and related production flows.\n\nThe overall structure and operational behavior of this area may continue evolving throughout the redesign process depending on workflow findings and real usage requirements.",
               "status": "to do",
               "time_estimate": 57600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -413,6 +503,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -422,6 +514,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -431,6 +525,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -440,6 +536,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -451,6 +549,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 14400000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -459,6 +559,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -468,6 +570,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -479,6 +583,8 @@
               "description": "",
               "status": "missing",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -488,6 +594,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 10800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -497,6 +605,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             }
@@ -508,6 +618,8 @@
           "description": "This area represents one of the most critical parts of the overall product experience. The order creation process directly affects usability, operational clarity, user confidence, and the overall perception of the platform.\n\nMy primary focus during the redesign of this area will be helping users complete what is currently a highly step-heavy and operationally dense workflow in a clearer, more comfortable, and more manageable way.\n\nThe current content and available flows were used as the primary reference during the time estimation process. Based on the existing app structure, several order categories and workflow branches appear to be incomplete, placeholder-based, or not yet fully implemented. Since these flows represent core operational services of the platform, they may require additional UX planning, new screen structures, interaction patterns, and dedicated workflow solutions throughout the redesign process.\n\nDue to the complexity and operational importance of this area, certain sections may require additional UX exploration, alternative structural solutions, iterative testing, and multiple refinement cycles in order to achieve the most effective workflow structure. The answers to the questions that will be asked throughout this process, along with additional notes and feedback from both you and your customers, will be especially critical for this area.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": [
             {
@@ -516,6 +628,8 @@
               "description": "",
               "status": "complete",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -525,6 +639,8 @@
               "description": "During the estimation and structural evaluation process, it became increasingly clear that the current order creation experience would benefit from a more functionally separated and user-friendly grouping structure. For this reason, the redesigned Create New Order experience will likely present workflows under two primary categories: creating new production orders from scratch, and working with existing property-related assets already available within the FPV ecosystem.\n\nThis approach aims to reduce complexity, improve clarity, and help users navigate operationally dense workflows in a more intuitive and manageable way. Additionally, when users begin creating a completely new order, the system may also benefit from informing or warning them if an existing plan, survey, or related property asset already exists within the inventory system based on the provided property information.",
               "status": "to do",
               "time_estimate": 28800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -534,6 +650,8 @@
               "description": "Order creation workflows focused on producing new property-related deliverables from scratch, including survey-based services, remodeling requests, scan operations, and production-oriented service flows throughout the platform.\n\nThese workflows represent operational production processes and may continue evolving throughout the redesign process depending on UX findings, workflow requirements, and service structure refinements.",
               "status": "to do",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -542,6 +660,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": 57600000,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -551,6 +671,8 @@
                   "description": "",
                   "status": "missing",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -560,6 +682,8 @@
                   "description": "",
                   "status": "missing",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -569,6 +693,8 @@
                   "description": "",
                   "status": "missing",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -580,6 +706,8 @@
               "description": "Workflows focused on searching, purchasing, reusing, and managing previously created property-related assets within the FPV inventory ecosystem, including existing plans, CAD files, and reusable deliverable packages.\n\nThis area may continue evolving throughout the redesign process as inventory structures, reusable asset workflows, and operational usage scenarios become clearer during UX analysis and product refinement.",
               "status": "to do",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -588,6 +716,8 @@
                   "description": "",
                   "status": "missing",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -597,6 +727,8 @@
                   "description": "",
                   "status": "missing",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -606,6 +738,8 @@
                   "description": "High probability of merging the Search Input and Results experience into a more unified and streamlined workflow rather than separating them into completely different pages.\n\nSearch & Results Experience\n Address / Property ID search input combined with filters such as State, City, ZIP Code, Square Footage, and CAD availability. Search results may be displayed within the same flow using property cards containing thumbnail previews, square footage information, CAD badges, pricing, and Select / Checkout actions.\nDetail & Checkout Experience\n Multi-step checkout and order completion flow including:\nTab 1 — Account Information\nTab 2 — Order Information\nTab 3 — Final Steps\nTab 4 — Terms & Confirmation\nThe overall structure, step organization, and workflow architecture may continue evolving throughout the UX and redesign process depending on usability findings and operational requirements.",
                   "status": "to do",
                   "time_estimate": 43200000,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -614,6 +748,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -623,6 +759,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -632,6 +770,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": null,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -645,6 +785,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 14400000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -653,6 +795,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -662,6 +806,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -671,6 +817,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -680,6 +828,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -689,6 +839,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -698,6 +850,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -707,6 +861,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -720,6 +876,8 @@
           "description": "Design and restructuring of the informational, service discovery, pricing, and support-related areas throughout the app ecosystem. This phase focuses on improving how users understand available services, production capabilities, pricing structures, operational workflows, and platform-related information during their overall app experience.\n\nRather than functioning only as isolated informational pages, these areas may evolve into more contextually integrated product-support layers connected directly to operational workflows such as order creation, service selection, onboarding, and customer support experiences.\n\nThroughout this process, the positioning, hierarchy, visibility, and accessibility of informational content may be reconsidered depending on usability findings, workflow requirements, and overall product direction. Your answers to the questions I will be asking, along with additional operational notes and feedback from your side, will also play an important role in defining the most effective structure for these areas.\n\nThe overall architecture of this section may continue evolving throughout the redesign process as user behaviors, workflow scenarios, and product priorities become clearer.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": [
             {
@@ -728,6 +886,8 @@
               "description": "Redesign and restructuring of the main About experience as a clearer and more useful informational entry point for users. This screen may function not only as a traditional company information page, but also as a lightweight operational guidance and service discovery layer within the app ecosystem.\n\nThe current structure and content organization will be re-evaluated from a UX perspective. Certain sections — particularly Services, pricing-related information, production details, and operational guidance — may benefit from becoming more contextually connected to related workflows or more visible within the primary navigation structure instead of remaining only inside the About section.\n\nFor example, users creating new orders may naturally expect to understand:\navailable services,\ndeliverable options,\noptional add-ons,\nand approximate pricing structures\ndirectly within related operational flows. Because of this, informational content hierarchy and contextual visibility may continue evolving throughout the redesign process depending on usability findings and workflow requirements.",
               "status": "to do",
               "time_estimate": 21600000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -737,6 +897,8 @@
               "description": "During the estimation process, it became very clear that this area represents one of the most commercially valuable and visually important sections of the entire platform. However, the current structure feels relatively minimal and visually repetitive despite the importance of the services being presented. Many valuable offerings currently appear inside highly similar layouts, which reduces differentiation, perceived value, and overall presentation quality.\n\nThis area may benefit from stronger visual hierarchy, clearer service positioning, more premium presentation structures, and potentially broader visibility within the app ecosystem rather than existing only as a secondary section accessible through the About area.",
               "status": "to do",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -745,6 +907,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": 7200000,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -753,6 +917,8 @@
                       "description": "Design and restructuring of service-category pages used to organize and present grouped service types such as Marketable, As-Built, 3D & Media, and Add-Ons.\nThese pages will likely require clearer visual hierarchy, stronger category differentiation, and more engaging browsing structures in order to improve service discovery and help users better understand the scope of available offerings. Depending on the selected design direction, these areas may also benefit from richer visual support such as custom illustrations, photography, visual previews, featured examples, or contextual media elements to create a more premium and informative browsing experience.\n\nAdditional attention may also be given to improving:\nservice grouping clarity,\ncategory navigation,\ncontextual guidance,\nand overall service exploration usability.",
                       "status": "to do",
                       "time_estimate": 14400000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -762,6 +928,8 @@
                       "description": "Design and refinement of individual service-detail pages used to present specific services, deliverables, use cases, and supporting informational content.\nThe current detail pages appear highly repetitive and visually limited despite representing highly important operational and commercial offerings of the platform. \n\nDuring the redesign process, these pages may evolve into richer presentation experiences supported by stronger layout structures, contextual visuals, production examples, testimonials, previous project references, or supporting media depending on the selected design direction.\nParticular attention may be given to helping users more quickly understand:\nwhat the service provides,\nwhen it should be used,\nwhat deliverables are included,\nand why the service may be valuable for their specific workflow or property type.\n\nIf it would not create any marketing or operational concerns for your side, pricing information related to each service should ideally also be accessible directly within the corresponding service pages in order to provide clearer expectations and support more informed decision-making throughout the user journey.\n\nThe goal will be creating a clearer, more premium, and more confidence-building service presentation experience throughout the platform.",
                       "status": "to do",
                       "time_estimate": 14400000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -773,6 +941,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -781,6 +951,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 7200000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -790,6 +962,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 7200000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -799,6 +973,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 7200000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -810,6 +986,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -818,6 +996,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 7200000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -827,6 +1007,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -836,6 +1018,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -845,6 +1029,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -854,6 +1040,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -865,6 +1053,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -873,6 +1063,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -882,6 +1074,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -891,6 +1085,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -900,6 +1096,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -911,6 +1109,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": [
                     {
@@ -919,6 +1119,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -928,6 +1130,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -937,6 +1141,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -946,6 +1152,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     },
@@ -955,6 +1163,8 @@
                       "description": "",
                       "status": "to do",
                       "time_estimate": 3600000,
+                      "start_date": null,
+                      "due_date": null,
                       "custom_fields": [],
                       "subtasks": []
                     }
@@ -968,6 +1178,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 28800000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": [
                 {
@@ -976,6 +1188,8 @@
                   "description": "",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -985,6 +1199,8 @@
                   "description": "State-selectable pricing (Arizona base). B&W and Color price brackets by sq ft: 0-1000sqft 50/00, 1001-2000sqft 00/50, 2001-3000sqft 50/00, 3001-4000sqft 00/50. 4000+ sqft: custom quote required.",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -994,6 +1210,8 @@
                   "description": "Conversion pricing for old/paper blueprints to layered AutoCAD+PDF. Base flat fee starting at 00. Incremental size brackets and revision review rates.",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -1003,6 +1221,8 @@
                   "description": "Visual rendering prices: 3D Exterior Rendering, 3D Interior Rendering (room/material), Fly-Over Animation Video (aerial), Interior Walk-Thru Animation Video. Custom quote via email CAD/PDF submission note.",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 },
@@ -1012,6 +1232,8 @@
                   "description": "Base services by sq ft: 0-1000sqft 50, 1001-2000sqft 00, 2001-3000sqft 50, 3001-4000sqft 00, 5000+sqft 50/hr. Add-On services: Outdoor Scans 00/hr, Detached Scan 0, Link Renewal 5/3mo, 2D Plan From Scan 50, 2D Color Plan 00, 3D Color Plan 50, Matterport Video below 1000sqft 25, above 1000sqft +0/1000sqft.",
                   "status": "to do",
                   "time_estimate": null,
+                  "start_date": null,
+                  "due_date": null,
                   "custom_fields": [],
                   "subtasks": []
                 }
@@ -1023,6 +1245,8 @@
               "description": "",
               "status": "to do",
               "time_estimate": 7200000,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             },
@@ -1032,6 +1256,8 @@
               "description": "",
               "status": "missing",
               "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
               "custom_fields": [],
               "subtasks": []
             }
@@ -1045,6 +1271,8 @@
       "description": "Presentation and refinement of the initial UI design direction developed following Phase 1. This phase focuses on applying the selected design approach to key screens and core interface areas, establishing the visual foundation and overall product feel of the app.\n\nThe initial design I present may already fully match your expectations. Alternatively, you may prefer to provide revisions and feedback on the proposed visual direction so the design can be further refined and improved throughout the process.\n\nThis phase will continue until a satisfying and approved design direction is established, without enforcing a strict iteration limit at this stage.",
       "status": "to do",
       "time_estimate": null,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -1053,6 +1281,8 @@
           "description": "Initial application of the selected design direction to key screens such as the Home screen and, where necessary, one or more additional interface areas. This task focuses on presenting the visual style, UI approach, layout structure, navigation behavior, and overall interface feel of the product in order to evaluate whether the proposed direction aligns with your expectations.\n\nAdditionally, I may present an alternative design proposal during this phase if the collected data suggests that a different design approach warrants your review and feedback.",
           "status": "to do",
           "time_estimate": 86400000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1062,6 +1292,8 @@
           "description": "Revision, refinement, and iterative improvement process following the initial design presentation. This phase includes visual adjustments, layout refinements, styling updates, and overall interface improvements based on your feedback and expectations until the design direction reaches a satisfying and approved state.",
           "status": "to do",
           "time_estimate": 28800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
@@ -1073,6 +1305,8 @@
       "description": "PHASE 6 — Iterative Review, Validation & Prototype Support\nContinuous collaborative review, revision, validation, and prototype support processes throughout the redesign workflow.\n\nThis phase represents the ongoing feedback and refinement layer of the project rather than a single presentation milestone. Throughout production, completed screens and workflows will be continuously reviewed together through Figma-based discussions, annotations, revisions, and iterative feedback cycles until the desired quality and usability direction are reached.\n\nCertain areas may also require partial interactive prototypes to better communicate navigation behavior, interaction logic, and workflow structures during the redesign process.\n\nDue to the highly iterative and exploratory nature of these tasks, scope and required effort may vary significantly throughout production. Some areas may require only lightweight revisions, while others may evolve into deeper UX exploration, validation, prototyping, and refinement cycles depending on workflow complexity, feedback, and operational findings discovered during the project.\nThe provided time estimations represent reasonable projections based on the currently available information and product structure at the time of evaluation.",
       "status": "to do",
       "time_estimate": 129600000,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -1081,6 +1315,8 @@
           "description": "Continuous screen-by-screen review, feedback collection, annotation handling, and collaborative refinement processes throughout the redesign workflow using Figma-based revision cycles.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1090,6 +1326,8 @@
           "description": "Creation of selective interactive prototypes where necessary in order to help communicate navigation flows, interaction behavior, operational logic, and overall user experience throughout the redesign process.\n\nPrototype creation may not be required for every area of the product and will depend on workflow complexity, presentation needs, and validation requirements during production.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1099,6 +1337,8 @@
           "description": "Implementation of revisions, UX refinements, structural improvements, visual updates, and interaction adjustments based on ongoing collaborative feedback and iterative review cycles throughout production.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
@@ -1110,6 +1350,8 @@
       "description": "Ongoing UX analysis, structural refinement, and interface usability improvements performed throughout the entire redesign and UI production process.\n\nThis phase represents the continuous UX-focused layer of the project rather than a separate one-time analysis stage. The goal is to progressively improve usability, clarity, layout structure, navigation behavior, interaction quality, and overall interface consistency as the product design evolves.\n\nThroughout the design process, I will also be asking screen-specific and workflow-specific questions regarding the core purpose of pages, component functionality, user expectations, operational requirements, and existing product problems. These discussions will play a critical role in restructuring screens, improving UX decisions, and building more effective interface solutions during the redesign process.\n\nDue to the iterative and ongoing nature of these UX-focused processes throughout the redesign workflow, estimation is handled collectively at the phase level rather than as isolated screen tasks.",
       "status": "to do",
       "time_estimate": 144000000,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -1118,6 +1360,8 @@
           "description": "Analysis and refinement of screen structures, content hierarchy, spacing logic, and layout organization on a screen-by-screen basis. This task focuses on improving usability, interface clarity, structural consistency, and visual balance across different areas of the product.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1127,6 +1371,8 @@
           "description": "Ongoing analysis and refinement of navigation systems, operational flows, user paths, and interaction structures throughout the redesign process. This task focuses on improving usability, reducing friction, and creating clearer and more efficient navigation experiences as different parts of the app evolve during UI production.\n\nBefore and throughout the design production process, broader changes to page structures, navigation logic, screen organization, and overall application flows may also be proposed where necessary in order to improve usability, scalability, and overall product experience.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1136,6 +1382,8 @@
           "description": "Screen-by-screen exploration and refinement of component behaviors, interaction patterns, contextual actions, and interface usability solutions throughout the design process. This task includes developing more functional, scalable, and user-friendly UI interaction approaches during ongoing UI production and refinement stages.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1145,6 +1393,8 @@
           "description": "Ongoing iterative UX review and refinement process performed throughout the redesign workflow as screens, layouts, flows, and interface structures continue evolving during production. This task represents the continuous back-and-forth UX layer of the project, including ongoing evaluations, usability reconsiderations, structural refinements, and progressive improvements applied as new design decisions, feedback, and product requirements emerge throughout the process.",
           "status": "to do",
           "time_estimate": null,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
@@ -1156,6 +1406,8 @@
       "description": "Throughout the estimation and structural review process, several areas of the current app appeared partially undefined, incomplete, placeholder-based, or operationally unclear. Because of this, certain workflows, screens, interaction structures, or service-related requirements may naturally evolve further once the redesign process begins and deeper product discussions take place.\n\nAdditionally, as the project progresses, new operational needs, structural changes, feature additions, workflow expansions, or more radical UX/UI direction changes may also emerge based on ongoing discoveries, collaborative discussions, and evolving product goals.\n\nWhenever possible, I will do my best to help accommodate and refine these areas within the existing project structure and allocated workflow. However, if certain requests evolve into substantially larger production tasks, new feature systems, or major structural expansions beyond the currently evaluated scope, additional estimation and scope adjustments may naturally become necessary later in the process.\n\nThe current estimations are therefore based on the presently visible app structure, available screens, existing workflows, and the information accessible during the evaluation stage.",
       "status": "to do",
       "time_estimate": null,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": []
     },
@@ -1165,6 +1417,8 @@
       "description": "Initial research, visual exploration, and direction-setting phase focused on establishing the overall UX/UI foundation and creative approach for the project before entering the main design production process.",
       "status": "to do",
       "time_estimate": null,
+      "start_date": null,
+      "due_date": null,
       "custom_fields": [],
       "subtasks": [
         {
@@ -1173,6 +1427,8 @@
           "description": "Initial visual and UX research focused on competitor products, industry standards, interface trends, and relevant app experiences before starting the design process. This task is intended to support internal design direction, inspiration gathering, and overall product positioning rather than producing a formal research presentation or deep analytical report.",
           "status": "to do",
           "time_estimate": 10800000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1182,6 +1438,8 @@
           "description": "Visual exploration and creative direction development based on the research phase and overall product goals. This process may include mood boards, style references, interface experiments, and early visual direction studies to help establish a suitable design language for the product. Depending on the workflow and project needs, selected visual directions or references may be shared during the process when necessary.",
           "status": "to do",
           "time_estimate": 21600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         },
@@ -1191,6 +1449,8 @@
           "description": "Selection and refinement of an initial visual direction based on research, explorations, and early design experiments conducted during the first stages of the project. This task focuses on narrowing down the overall design direction and establishing a clearer foundation for the upcoming UI design process before moving into the initial design proposal phase.",
           "status": "to do",
           "time_estimate": 21600000,
+          "start_date": null,
+          "due_date": null,
           "custom_fields": [],
           "subtasks": []
         }
