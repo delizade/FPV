@@ -697,14 +697,11 @@ def main():
             </button>
             
             <!-- Content -->
-            <div id="production-roadmap-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15 rounded-b">
-                <div class="max-w-[960px] space-y-12 text-left">
+            <div id="production-roadmap-content" class="hidden border-t border-[#1d1b20] p-6 md:pt-8 md:pb-16 md:px-[73px] bg-black/15 rounded-b">
+                <div class="max-w-[960px] space-y-10 text-left">
                     
                     <!-- GANTT TIMELINE -->
-                    <div class="space-y-6">
-                        <h3 class="text-lg font-normal text-[#CD9852] outfit-font tracking-wide">Visual Production Timeline</h3>
-                        
-                        <div class="bg-[#151418] border border-[#221f24] rounded-lg p-6 shadow-xl overflow-x-auto">
+                    <div class="bg-[#151418] border border-[#221f24] rounded-lg p-6 shadow-xl overflow-x-auto">
                             <div class="min-w-[900px] select-none font-sans relative pr-2">
                                 
                                 <!-- Timeline Date Labels -->
@@ -792,7 +789,6 @@ def main():
                                 </div>
                             </div>
                         </div>
-                    </div>
                     
                     <!-- MILESTONES TABLE -->
                     <div class="pt-6 space-y-4">
