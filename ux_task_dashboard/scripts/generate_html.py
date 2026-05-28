@@ -121,8 +121,8 @@ def main():
         top_labels_html.append(f'<div class="absolute -translate-x-1/2 {align_class}" style="left: {due_percent:.2f}%;">{due_date_str}<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">{label_desc}</span></div>')
         grid_lines_html.append(f'<div class="absolute inset-y-0 border-l border-dashed border-stone-800/60" style="left: {due_percent:.2f}%;"></div>')
         
-    roadmap_labels_html = "\\n".join(top_labels_html)
-    roadmap_grid_html = "\\n".join(grid_lines_html)
+    roadmap_labels_html = "\n".join(top_labels_html)
+    roadmap_grid_html = "\n".join(grid_lines_html)
 
     # Gantt rows
     gantt_rows_html = []
@@ -145,13 +145,13 @@ def main():
                                         <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
                                             {name} <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">({start_date_str} - {due_date_str})</span>
                                         </div>
-                                        <div class="grow relative h-7 mr-6">
+                                        <div class="grow relative h-[34px] mr-6">
                                             <div class="absolute h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all" style="left: {left_percent:.2f}%; width: {width_percent:.2f}%;">
                                             </div>
                                         </div>
                                     </div>
         """)
-    roadmap_gantt_html = "\\n".join(gantt_rows_html)
+    roadmap_gantt_html = "\n".join(gantt_rows_html)
 
     # Milestones table
     phase_1 = next((p for p in phases if "PHASE #01" in p["name"]), None)
@@ -875,7 +875,7 @@ def main():
                                 </div>
                                 
                                 <!-- Gantt Rows Container -->
-                                <div class="space-y-4 relative py-2">
+                                <div class="space-y-1.5 relative py-1">
                                     <!-- Grid Lines Background -->
                                     <div class="absolute inset-0 pointer-events-none flex">
                                         <div class="w-[320px] shrink-0"></div>
