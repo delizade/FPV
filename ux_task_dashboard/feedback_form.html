@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV Redesign - Project Discovery &amp; Feedback Form</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#CD9852', // Sophisticated gold accent
+                            600: '#c68426',
+                            700: '#a3671c',
+                            850: '#2a2219',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0806;
+            color: #f1f5f9;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(223, 158, 56, 0.05) 0px, transparent 40%),
+                radial-gradient(at 100% 100%, rgba(198, 132, 38, 0.02) 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Premium scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0b09;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #25201a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CD9852;
+        }
+
+        .glass-effect {
+            background: rgba(21, 19, 16, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(42, 34, 25, 0.4);
+        }
+
+        .input-tactile {
+            background-color: #111012;
+            border: 1px solid #221f24;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .input-tactile:focus {
+            background-color: #151310;
+            border-color: #CD9852;
+            box-shadow: 0 0 0 3px rgba(205, 152, 82, 0.15);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-500/20 selection:text-brand-300">
+
+    <!-- MAIN PAGE CONTAINER -->
+    <div class="w-full flex-grow py-12">
+        <div class="max-w-[960px] mx-auto px-6">
+            
+            <!-- HEADER -->
+            <header class="flex flex-col md:flex-row items-start md:items-end justify-between border-b border-stone-850 pb-8 mb-10 select-none">
+                <div class="space-y-1.5 text-left">
+                    <h1 class="text-xs uppercase tracking-[0.25em] font-sans font-bold text-slate-500">— FPV REDESIGN DISCOVERY</h1>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight text-[#CD9852] font-semibold leading-tight mt-1">Discovery &amp; Feedback Form</h2>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center gap-3">
+                    <a href="ux_redesign_tasks.html" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-lg border border-slate-850 flex items-center gap-1.5 transition-all">
+                        <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        Back to Workplan
+                    </a>
+                </div>
+            </header>
+
+            <!-- CONTEXT DESCRIPTION CARD -->
+            <div class="glass-effect rounded-2xl p-6 md:p-8 mb-10 text-left space-y-4 shadow-xl">
+                <div class="flex items-center gap-2.5 text-brand-500">
+                    <i class="fa-solid fa-circle-question text-lg"></i>
+                    <h3 class="text-lg font-semibold tracking-wide">Purpose &amp; Guidance</h3>
+                </div>
+                <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+                    This structured questionnaire is designed to align our initial thoughts regarding FPV's operational branding, visual identity preferences, user feedback inventory, and strategic business priorities.
+                </p>
+                <div class="flex items-start gap-2.5 text-xs text-slate-400 bg-slate-950/40 p-4 rounded-xl border border-brand-850/20">
+                    <i class="fa-solid fa-circle-info text-brand-500/80 mt-0.5 text-[10px]"></i>
+                    <span><strong>Pro-Tip:</strong> Your responses are automatically saved locally on your device as you type. You can safely close or refresh this tab without losing your work. Once completed, submit the form to download or copy your formatted responses.</span>
+                </div>
+            </div>
+
+            <!-- FORM START -->
+            <form id="discovery-form" class="space-y-8 text-left" onsubmit="handleFormSubmit(event)">
+                
+                <!-- SECTION 1: BRANDING & IDENTITY -->
+                <div class="glass-effect rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-500/30"></div>
+                    <div class="border-b border-stone-850 pb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-compass-drafting text-brand-500 text-xl"></i>
+                        <h3 class="text-lg font-semibold tracking-wide text-slate-100">01. Branding &amp; Visual Foundations</h3>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="space-y-2.5">
+                        <label for="q1" class="block text-sm font-semibold text-slate-200">
+                            1. Please share your current brand assets/documents, including the currently used wordmark/logo, emblem/symbol, colours, typography, or any existing brand-related materials.
+                        </label>
+                        <textarea id="q1" name="q1" rows="4" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Paste links to Google Drive, Dropbox, Figma files, or describe your existing assets here..."></textarea>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="space-y-2.5">
+                        <label for="q2" class="block text-sm font-semibold text-slate-200">
+                            2. Before starting the main UX/UI production process, I believe we should first review and rework the currently used wordmark/logo and emblem structure in order to establish a stronger and more consistent visual foundation for the redesign. Do you have any concerns, limitations, or preferences regarding how far the current branding can be updated, modernized, or visually expanded?
+                        </label>
+                        <textarea id="q2" name="q2" rows="5" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Share your expectations, constraints, or desires for the emblem and wordmark rework..."></textarea>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="space-y-2.5">
+                        <label for="q3" class="block text-sm font-semibold text-slate-200">
+                            3. Do you currently have any specific visual style or design direction in mind regarding the redesign or are there any apps, platforms, products, or digital experiences that you personally like, admire, or would want the redesign direction to feel closer to in terms of quality, usability, atmosphere, or overall presentation?
+                        </label>
+                        <textarea id="q3" name="q3" rows="5" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Mention apps or websites that inspire you, visual themes (minimalist, bold, functional), and specific design attributes you want to target..."></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: COMPETITORS -->
+                <div class="glass-effect rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-500/30"></div>
+                    <div class="border-b border-stone-850 pb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-users-rectangle text-brand-500 text-xl"></i>
+                        <h3 class="text-lg font-semibold tracking-wide text-slate-100">02. Competitor Analysis</h3>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-200">
+                                4. Could you please share your current competitors in order of importance from your perspective?
+                            </label>
+                            <span class="text-xs text-slate-500 block mt-1">Use the interactive list below to add competitors and capture key observations.</span>
+                        </div>
+
+                        <!-- Interactive competitor items -->
+                        <div id="competitors-list" class="space-y-3">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <!-- Add competitor form -->
+                        <div class="bg-black/30 p-4 rounded-xl border border-brand-850/15 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <input type="text" id="comp-name" class="input-tactile grow px-3.5 py-2 text-xs rounded-lg text-slate-200" placeholder="Competitor Name (e.g. Matterport)">
+                            <input type="text" id="comp-site" class="input-tactile grow px-3.5 py-2 text-xs rounded-lg text-slate-200" placeholder="Website URL (e.g. matterport.com)">
+                            <button type="button" onclick="addCompetitor()" class="px-4 py-2 bg-[#CD9852] hover:bg-brand-600 text-slate-950 hover:text-black font-semibold text-xs rounded-lg shadow transition-all cursor-pointer shrink-0 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                Add Competitor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: OPERATIONAL & USER INSIGHTS -->
+                <div class="glass-effect rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-500/30"></div>
+                    <div class="border-b border-stone-850 pb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-sliders text-brand-500 text-xl"></i>
+                        <h3 class="text-lg font-semibold tracking-wide text-slate-100">03. Operational UX &amp; User Feedback</h3>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="space-y-2.5">
+                        <label for="q5" class="block text-sm font-semibold text-slate-200">
+                            5. If you currently maintain any internal list of customer feedback, complaints, recurring requests, or app-related issues collected from users, please share them if possible.
+                        </label>
+                        <textarea id="q5" name="q5" rows="5" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Highlight primary friction points, customer complaints, beta observations, or list popular requests..."></textarea>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="space-y-2.5">
+                        <label for="q6" class="block text-sm font-semibold text-slate-200">
+                            6. Beyond the previously discussed needs and requests, I would appreciate it if you could internally discuss the app together with your full team and share any additional thoughts, concerns, priorities, or operational observations you collectively have regarding the current experience.
+                        </label>
+                        <textarea id="q6" name="q6" rows="5" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Note thoughts shared by account managers, service operations, sales teams, or general leadership observations..."></textarea>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="space-y-2.5">
+                        <label for="q7" class="block text-sm font-semibold text-slate-200">
+                            7. Which sections, workflows, or operational areas of the app do you consider the most critical, valuable, or important from both business and user perspectives? If possible, please also prioritize them in order of importance.
+                        </label>
+                        <textarea id="q7" name="q7" rows="5" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="e.g. 1. Residential Order Wizard, 2. Interactive Order Tracking Page, 3. Preference configurations, etc."></textarea>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: PROJECT GOVERNANCE -->
+                <div class="glass-effect rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative overflow-hidden">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-brand-500/30"></div>
+                    <div class="border-b border-stone-850 pb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-user-gear text-brand-500 text-xl"></i>
+                        <h3 class="text-lg font-semibold tracking-wide text-slate-100">04. Project Governance</h3>
+                    </div>
+
+                    <!-- Question 8 -->
+                    <div class="space-y-2.5">
+                        <label for="q8" class="block text-sm font-semibold text-slate-200">
+                            8. Who will primarily be responsible for reviewing and approving design decisions throughout the project?
+                        </label>
+                        <input type="text" id="q8" name="q8" class="input-tactile w-full px-4 py-3 text-sm rounded-xl text-slate-200" placeholder="Name, roles, or team stakeholders in charge of reviews and visual checkpoints...">
+                    </div>
+                </div>
+
+                <!-- SUBMIT BAR -->
+                <div class="flex items-center justify-end gap-3 pt-4">
+                    <button type="button" onclick="clearForm()" class="px-5 py-3 bg-stone-900/60 hover:bg-stone-900 border border-stone-850 text-slate-400 hover:text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">
+                        Clear Responses
+                    </button>
+                    <button type="submit" class="px-6 py-3 bg-[#CD9852] hover:bg-brand-600 border border-brand-500/20 text-slate-950 font-bold text-xs rounded-xl shadow-lg hover:shadow-brand-500/10 hover:shadow-xl transition-all cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-file-export text-[11px]"></i>
+                        Submit Discovery responses
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL overlay -->
+    <div id="success-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-effect max-w-2xl w-full mx-6 p-6 md:p-8 rounded-2xl border border-brand-500/20 shadow-2xl flex flex-col items-center max-h-[90vh] overflow-y-auto">
+            <div class="w-12 h-12 bg-brand-500/15 border border-brand-500/30 rounded-full flex items-center justify-center text-brand-400 text-xl mb-4 shrink-0">
+                <i class="fa-solid fa-check-double"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-slate-100 outfit-font tracking-wide mb-1 text-center">Discovery Response Compiled!</h3>
+            <p class="text-xs text-slate-400 mb-6 text-center max-w-md">Your answers have been formatted into a clean Markdown document. Since the server runs securely, copy or download the response file to send over.</p>
+            
+            <!-- Live Preview Area -->
+            <div class="w-full text-left bg-slate-950/60 p-4 rounded-xl border border-stone-850/60 font-mono text-[10px] text-slate-350 overflow-y-auto max-h-[220px] select-all mb-6">
+                <pre id="md-preview" class="whitespace-pre-wrap"></pre>
+            </div>
+
+            <!-- Action buttons grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                <button onclick="copyToClipboard()" id="copy-btn" class="w-full px-4 py-2.5 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 hover:text-brand-300 border border-brand-500/30 font-semibold text-xs rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-copy text-[11px]" id="copy-icon"></i>
+                    <span id="copy-text">Copy to Clipboard</span>
+                </button>
+                <button onclick="downloadMarkdown()" class="w-full px-4 py-2.5 bg-[#CD9852] hover:bg-brand-600 text-slate-950 font-bold text-xs rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-download text-[11px]"></i>
+                    Download Markdown (.md)
+                </button>
+                <button onclick="downloadJson()" class="w-full px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 font-semibold text-xs rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-file-code text-[11px]"></i>
+                    Download Raw Data (.json)
+                </button>
+                <button onclick="closeModal()" class="w-full px-4 py-2.5 bg-stone-900/60 hover:bg-stone-900 text-slate-500 hover:text-slate-300 border border-stone-850 font-semibold text-xs rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-[11px]"></i>
+                    Return to Form
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-950 py-8 mt-12 text-center text-xs text-slate-500 font-sans tracking-wide shrink-0">
+        <div class="max-w-[960px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>FPV Redesign &bull; Burak Ozdelice &bull; 2026</p>
+            <p class="text-[10px] text-slate-600 uppercase tracking-widest font-medium">Secured Locally</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE FORM SCRIPTS -->
+    <script>
+        // Form response state
+        let formResponses = {
+            q1: "", q2: "", q3: "",
+            competitors: [],
+            q5: "", q6: "", q7: "", q8: ""
+        };
+
+        // Initialize from localStorage on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFromStorage();
+            renderCompetitors();
+            
+            // Setup autosave listeners on text inputs
+            ['q1', 'q2', 'q3', 'q5', 'q6', 'q7', 'q8'].forEach(fieldId => {
+                const el = document.getElementById(fieldId);
+                if (el) {
+                    el.addEventListener('input', (e) => {
+                        formResponses[fieldId] = e.target.value;
+                        saveToStorage();
+                    });
+                }
+            });
+        });
+
+        // Save state to localStorage
+        function saveToStorage() {
+            localStorage.setItem('fpv_feedback_responses', JSON.stringify(formResponses));
+        }
+
+        // Load state from localStorage
+        function loadFromStorage() {
+            const data = localStorage.getItem('fpv_feedback_responses');
+            if (data) {
+                try {
+                    formResponses = JSON.parse(data);
+                    
+                    // Set elements
+                    ['q1', 'q2', 'q3', 'q5', 'q6', 'q7', 'q8'].forEach(fieldId => {
+                        const el = document.getElementById(fieldId);
+                        if (el && formResponses[fieldId]) {
+                            el.value = formResponses[fieldId];
+                        }
+                    });
+                } catch(e) {
+                    console.error("Error loading responses:", e);
+                }
+            }
+        }
+
+        // Clear responses completely
+        function clearForm() {
+            if (confirm("Are you sure you want to clear all your answers? This action cannot be undone.")) {
+                localStorage.removeItem('fpv_feedback_responses');
+                formResponses = {
+                    q1: "", q2: "", q3: "",
+                    competitors: [],
+                    q5: "", q6: "", q7: "", q8: ""
+                };
+                
+                ['q1', 'q2', 'q3', 'q5', 'q6', 'q7', 'q8'].forEach(fieldId => {
+                    const el = document.getElementById(fieldId);
+                    if (el) el.value = "";
+                });
+                
+                renderCompetitors();
+            }
+        }
+
+        // Render interactive competitor list
+        function renderCompetitors() {
+            const container = document.getElementById('competitors-list');
+            if (!container) return;
+            
+            container.innerHTML = "";
+            
+            if (formResponses.competitors.length === 0) {
+                container.innerHTML = `
+                    <div class="text-slate-500 text-xs py-4 text-center border border-dashed border-stone-850/60 rounded-xl bg-black/10">
+                        No competitors added yet. Use the fields below to add competitors in order of importance.
+                    </div>
+                `;
+                return;
+            }
+            
+            formResponses.competitors.forEach((c, idx) => {
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between bg-stone-900/40 border border-stone-850/40 p-3.5 rounded-xl text-left text-xs gap-4 hover:border-brand-500/20 transition-all select-none";
+                
+                // Format domain
+                let domainText = c.website ? c.website.replace(/^(https?:\/\/)?(www\.)?/, '') : '';
+                
+                row.innerHTML = `
+                    <div class="flex items-center gap-3 min-w-0">
+                        <div class="w-5 h-5 rounded-full bg-[#CD9852]/10 border border-[#CD9852]/20 flex items-center justify-center text-[#CD9852] font-mono text-[10px] font-bold">
+                            ${idx + 1}
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-semibold text-slate-200 truncate block">${c.name}</span>
+                            ${domainText ? `<span class="text-[10px] text-slate-500 font-mono truncate block mt-0.5">${domainText}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        ${idx > 0 ? `
+                            <button type="button" onclick="moveCompetitor(${idx}, -1)" class="p-1 bg-stone-850 hover:bg-[#CD9852]/15 text-slate-400 hover:text-brand-400 rounded transition-all cursor-pointer" title="Move Up">
+                                <i class="fa-solid fa-chevron-up text-[9px]"></i>
+                            </button>
+                        ` : ''}
+                        ${idx < formResponses.competitors.length - 1 ? `
+                            <button type="button" onclick="moveCompetitor(${idx}, 1)" class="p-1 bg-stone-850 hover:bg-[#CD9852]/15 text-slate-400 hover:text-brand-400 rounded transition-all cursor-pointer" title="Move Down">
+                                <i class="fa-solid fa-chevron-down text-[9px]"></i>
+                            </button>
+                        ` : ''}
+                        <button type="button" onclick="removeCompetitor(${idx})" class="p-1 bg-stone-850/60 hover:bg-red-950/20 text-slate-500 hover:text-red-400 border border-stone-850 hover:border-red-900/25 rounded transition-all cursor-pointer ml-1" title="Remove">
+                            <i class="fa-solid fa-trash-can text-[9px]"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // Add Competitor
+        function addCompetitor() {
+            const nameEl = document.getElementById('comp-name');
+            const siteEl = document.getElementById('comp-site');
+            
+            if (!nameEl || !nameEl.value.trim()) {
+                alert("Please enter a competitor name.");
+                if (nameEl) nameEl.focus();
+                return;
+            }
+            
+            formResponses.competitors.push({
+                name: nameEl.value.trim(),
+                website: siteEl ? siteEl.value.trim() : ""
+            });
+            
+            nameEl.value = "";
+            if (siteEl) siteEl.value = "";
+            
+            saveToStorage();
+            renderCompetitors();
+            nameEl.focus();
+        }
+
+        // Remove Competitor
+        function removeCompetitor(idx) {
+            formResponses.competitors.splice(idx, 1);
+            saveToStorage();
+            renderCompetitors();
+        }
+
+        // Move Competitor order
+        function moveCompetitor(idx, dir) {
+            const targetIdx = idx + dir;
+            if (targetIdx < 0 || targetIdx >= formResponses.competitors.length) return;
+            
+            // Swap items
+            const temp = formResponses.competitors[idx];
+            formResponses.competitors[idx] = formResponses.competitors[targetIdx];
+            formResponses.competitors[targetIdx] = temp;
+            
+            saveToStorage();
+            renderCompetitors();
+        }
+
+        // Generate formatted markdown response report
+        function generateMarkdownReport() {
+            let md = [];
+            md.push("# FPV Redesign - Project Discovery & Feedback Report");
+            md.push(`*Generated on: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}*`);
+            md.push("\n---\n");
+            
+            md.push("## 01. Branding & Visual Foundations");
+            md.push("\n### 1. Current Brand Assets & Link Documents");
+            md.push(`> Please share your current brand assets/documents, including the currently used wordmark/logo, emblem/symbol, colours, typography, or any existing brand-related materials.\n\n${formResponses.q1 || "*No response provided.*"}\n`);
+            
+            md.push("### 2. Wordmark, Logo & Emblem Rework Preferences");
+            md.push(`> Before starting the main UX/UI production process, I believe we should first review and rework the currently used wordmark/logo and emblem structure in order to establish a stronger and more consistent visual foundation for the redesign. Do you have any concerns, limitations, or preferences regarding how far the current branding can be updated, modernized, or visually expanded?\n\n${formResponses.q2 || "*No response provided.*"}\n`);
+            
+            md.push("### 3. Visual Style & Design Inspiration");
+            md.push(`> Do you currently have any specific visual style or design direction in mind regarding the redesign or are there any apps, platforms, products, or digital experiences that you personally like, admire, or would want the redesign direction to feel closer to in terms of quality, usability, atmosphere, or overall presentation?\n\n${formResponses.q3 || "*No response provided.*"}\n`);
+            
+            md.push("---\n\n## 02. Competitor Analysis");
+            md.push("\n### 4. Top Competitors in Order of Importance");
+            md.push("> Could you please share your current competitors in order of importance from your perspective?\n");
+            
+            if (formResponses.competitors.length === 0) {
+                md.push("*No competitors listed.*\n");
+            } else {
+                formResponses.competitors.forEach((c, idx) => {
+                    let siteText = c.website ? ` (${c.website})` : "";
+                    md.push(`${idx + 1}. **${c.name}**${siteText}`);
+                });
+                md.push("");
+            }
+            
+            md.push("---\n\n## 03. Operational UX & User Feedback");
+            md.push("\n### 5. Customer Feedback & Issue Catalog");
+            md.push(`> If you currently maintain any internal list of customer feedback, complaints, recurring requests, or app-related issues collected from users, please share them if possible.\n\n${formResponses.q5 || "*No response provided.*"}\n`);
+            
+            md.push("### 6. Full Team Collective Observations");
+            md.push(`> Beyond the previously discussed needs and requests, I would appreciate it if you could internally discuss the app together with your full team and share any additional thoughts, concerns, priorities, or operational observations you collectively have regarding the current experience.\n\n${formResponses.q6 || "*No response provided.*"}\n`);
+            
+            md.push("### 7. Critical Workflows & Prioritized Sections");
+            md.push(`> Which sections, workflows, or operational areas of the app do you consider the most critical, valuable, or important from both business and user perspectives? If possible, please also prioritize them in order of importance.\n\n${formResponses.q7 || "*No response provided.*"}\n`);
+            
+            md.push("---\n\n## 04. Project Governance");
+            md.push("\n### 8. Key Reviewers & Decision Makers");
+            md.push(`> Who will primarily be responsible for reviewing and approving design decisions throughout the project?\n\n${formResponses.q8 || "*No response provided.*"}\n`);
+            
+            md.push("---\n");
+            md.push("Report generated by Burak Ozdelice Redesign Workplan Suite.");
+            
+            return md.join("\n");
+        }
+
+        // Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Generate report
+            const mdReport = generateMarkdownReport();
+            
+            // Set preview text
+            const previewEl = document.getElementById('md-preview');
+            if (previewEl) {
+                previewEl.textContent = mdReport;
+            }
+            
+            // Open Modal
+            showModal('success-modal');
+        }
+
+        // Modal triggers
+        function showModal(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('pointer-events-none');
+                el.classList.add('opacity-100');
+            }
+        }
+
+        function closeModal() {
+            const el = document.getElementById('success-modal');
+            if (el) {
+                el.classList.add('pointer-events-none');
+                el.classList.remove('opacity-100');
+            }
+        }
+
+        // Copy to clipboard
+        async function copyToClipboard() {
+            const mdReport = generateMarkdownReport();
+            const copyBtn = document.getElementById('copy-btn');
+            const copyText = document.getElementById('copy-text');
+            const copyIcon = document.getElementById('copy-icon');
+            
+            try {
+                await navigator.clipboard.writeText(mdReport);
+                
+                if (copyText && copyIcon) {
+                    copyText.textContent = "Copied!";
+                    copyIcon.className = "fa-solid fa-check text-green-400";
+                    copyBtn.classList.add('border-green-500/30', 'bg-green-500/5');
+                    
+                    setTimeout(() => {
+                        copyText.textContent = "Copy to Clipboard";
+                        copyIcon.className = "fa-solid fa-copy text-[11px]";
+                        copyBtn.classList.remove('border-green-500/30', 'bg-green-500/5');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert("Failed to copy report to clipboard. You can select and copy the preview text directly.");
+            }
+        }
+
+        // File download handlers
+        function downloadMarkdown() {
+            const mdReport = generateMarkdownReport();
+            const blob = new Blob([mdReport], { type: "text/markdown;charset=utf-8;" });
+            const link = document.createElement("a");
+            
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", "FPV_Redesign_Discovery_Form_Report.md");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadJson() {
+            const jsonStr = JSON.stringify(formResponses, null, 2);
+            const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8;" });
+            const link = document.createElement("a");
+            
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", "FPV_Redesign_Discovery_Form_Raw.json");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

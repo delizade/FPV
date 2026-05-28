@@ -444,6 +444,12 @@ def main():
             <p class="text-[#C9C2B8] text-[16px] leading-[160%] font-normal max-w-[620px]">
                 {project_description}
             </p>
+            <div class="mt-6 flex items-center gap-3">
+                <a href="feedback_form.html" class="px-5 py-2.5 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 hover:text-brand-300 text-xs font-semibold rounded-lg border border-brand-500/35 hover:border-brand-500/50 shadow-md transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-pen text-[11px] text-[#CD9852]"></i>
+                    <span>Open Discovery &amp; Feedback Form</span>
+                </a>
+            </div>
         </div>
 
         <!-- Mobile/Tablet layout (visible below md) -->
@@ -458,6 +464,12 @@ def main():
             <p class="text-[#C9C2B8] text-sm sm:text-base leading-[160%] font-normal">
                 {project_description}
             </p>
+            <div class="mt-4">
+                <a href="feedback_form.html" class="px-4 py-2 bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 hover:text-brand-300 text-xs font-semibold rounded-lg border border-brand-500/35 hover:border-brand-500/50 transition-all inline-flex items-center gap-2">
+                    <i class="fa-solid fa-file-pen text-[10px] text-[#CD9852]"></i>
+                    <span>Discovery &amp; Feedback Form</span>
+                </a>
+            </div>
         </div>
         
         <!-- Bottom elements (Desktop) -->
