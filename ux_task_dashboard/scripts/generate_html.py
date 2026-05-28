@@ -30,6 +30,168 @@ def main():
     total_tasks, total_ms = get_stats(tasks_tree)
     total_hours = total_ms / (1000 * 60 * 60)
 
+    from datetime import datetime
+
+    def format_gantt_date(ts):
+        if not ts:
+            return ""
+        dt = datetime.fromtimestamp(int(ts)/1000)
+        months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        return f"{months[dt.month - 1]} {dt.day}"
+
+    roadmap_path = os.path.join(os.path.dirname(script_dir), "roadmap_tree.json")
+    phases = []
+    if os.path.exists(roadmap_path):
+        try:
+            with open(roadmap_path, "r", encoding="utf-8") as f:
+                roadmap_tree = json.load(f)
+                phases = roadmap_tree.get("subtasks", [])
+        except Exception as e:
+            print(f"Error loading roadmap_tree.json: {e}")
+
+    if not phases:
+        # Fallback values to match current ClickUp data
+        phases = [
+            {
+                "name": "PHASE #01 — Brand Rework & Initial Design Delivery",
+                "start_date": 1780534800000, # June 4, 2026
+                "due_date": 1781830800000    # June 19, 2026
+            },
+            {
+                "name": "PHASE #02 — First Part Delivery (Halfway)",
+                "start_date": 1781485200000, # June 15, 2026
+                "due_date": 1782694800000    # June 29, 2026
+            },
+            {
+                "name": "PHASE #03 — Second Part Delivery",
+                "start_date": 1782176400000, # June 23, 2026
+                "due_date": 1783990800000    # July 14, 2026
+            },
+            {
+                "name": "PHASE #04 — Final Delivery",
+                "start_date": 1783213200000, # July 5, 2026
+                "due_date": 1785027600000    # July 26, 2026
+            }
+        ]
+
+    # Calculate overall start and end dates from phases
+    phase_start_timestamps = []
+    phase_due_timestamps = []
+    
+    for p in phases:
+        sd = p.get("start_date")
+        dd = p.get("due_date")
+        if sd:
+            phase_start_timestamps.append(int(sd))
+        if dd:
+            phase_due_timestamps.append(int(dd))
+            
+    if phase_start_timestamps and phase_due_timestamps:
+        start_overall = min(phase_start_timestamps)
+        end_overall = max(phase_due_timestamps)
+    else:
+        start_overall = 1780534800000
+        end_overall = 1785027600000
+        
+    total_duration = max(1, end_overall - start_overall)
+
+    # Sort phases by due date to show them in order
+    sorted_phases = sorted(phases, key=lambda x: int(x.get("due_date") or 0))
+
+    # Top date labels
+    start_date_str = format_gantt_date(start_overall)
+    top_labels_html = [
+        f'<div class="absolute -translate-x-1/2 text-left" style="left: 0%;">{start_date_str}<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Project Start</span></div>'
+    ]
+    grid_lines_html = [
+        '<div class="absolute inset-y-0 border-l border-dashed border-stone-800/60" style="left: 0%;"></div>'
+    ]
+    
+    for i, p in enumerate(sorted_phases):
+        due_ts = int(p.get("due_date") or 0)
+        if not due_ts:
+            continue
+        due_percent = ((due_ts - start_overall) / total_duration) * 100.0
+        due_date_str = format_gantt_date(due_ts)
+        
+        is_last = (i == len(sorted_phases) - 1)
+        label_desc = "Project End" if is_last else f"Phase {i+1} End"
+        align_class = "text-right" if is_last else "text-center"
+        
+        top_labels_html.append(f'<div class="absolute -translate-x-1/2 {align_class}" style="left: {due_percent:.2f}%;">{due_date_str}<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">{label_desc}</span></div>')
+        grid_lines_html.append(f'<div class="absolute inset-y-0 border-l border-dashed border-stone-800/60" style="left: {due_percent:.2f}%;"></div>')
+        
+    roadmap_labels_html = "\\n".join(top_labels_html)
+    roadmap_grid_html = "\\n".join(grid_lines_html)
+
+    # Gantt rows
+    gantt_rows_html = []
+    for i, p in enumerate(sorted_phases):
+        name = p.get("name", "")
+        start_ts = int(p.get("start_date") or 0)
+        due_ts = int(p.get("due_date") or 0)
+        
+        if not start_ts or not due_ts:
+            continue
+            
+        start_date_str = format_gantt_date(start_ts)
+        due_date_str = format_gantt_date(due_ts)
+        
+        left_percent = ((start_ts - start_overall) / total_duration) * 100.0
+        width_percent = ((due_ts - start_ts) / total_duration) * 100.0
+        
+        gantt_rows_html.append(f"""
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            {name} <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">({start_date_str} - {due_date_str})</span>
+                                        </div>
+                                        <div class="grow relative h-7 mr-6">
+                                            <div class="absolute h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all" style="left: {left_percent:.2f}%; width: {width_percent:.2f}%;">
+                                            </div>
+                                        </div>
+                                    </div>
+        """)
+    roadmap_gantt_html = "\\n".join(gantt_rows_html)
+
+    # Milestones table
+    phase_1 = next((p for p in phases if "PHASE #01" in p["name"]), None)
+    phase_3 = next((p for p in phases if "PHASE #03" in p["name"]), None)
+    phase_4 = next((p for p in phases if "PHASE #04" in p["name"]), None)
+    
+    project_start_date = format_gantt_date(phase_1["start_date"]) if phase_1 and phase_1.get("start_date") else "June 4"
+    first_part_delivery_date = format_gantt_date(phase_1["due_date"]) if phase_1 and phase_1.get("due_date") else "June 19"
+    second_delivery_date = format_gantt_date(phase_3["due_date"]) if phase_3 and phase_3.get("due_date") else "July 14"
+    final_delivery_date = format_gantt_date(phase_4["due_date"]) if phase_4 and phase_4.get("due_date") else "July 26"
+
+    roadmap_milestones_html = f"""
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Project Start</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">{project_start_date}</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">First Part Delivery (Halfway)</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">{first_part_delivery_date}</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Second Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">{second_delivery_date}</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Final Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">{final_delivery_date}</td>
+                                    </tr>
+    """
+
+    roadmap_notes_html = """
+                    <div class="pt-6">
+                        <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Notes</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-xs md:text-sm text-slate-400 leading-relaxed font-normal">
+                            <li>Delivery phases and milestone dates may naturally adjust throughout the project as workflows evolve, design directions mature, and collaborative feedback/refinement cycles continue during production.</li>
+                            <li>I intentionally prepared a relatively tighter production schedule and will do my best to move the delivery process forward as efficiently as possible throughout the project.</li>
+                        </ul>
+                    </div>
+    """
+
     # Create the HTML page content
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -708,12 +870,7 @@ def main():
                                 <div class="flex items-center text-[9px] uppercase font-bold text-slate-500 border-b border-stone-900/60 pb-3 mb-6">
                                     <div class="w-[320px] shrink-0 pl-2">Phase Description</div>
                                     <div class="grow relative h-8 mr-6">
-                                        <div class="absolute left-0 -translate-x-1/2 text-left">June 4<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Project Start</span></div>
-                                        <div class="absolute left-[21.7%] -translate-x-1/2 text-center">June 14<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Phase 1 End</span></div>
-                                        <div class="absolute left-[32.6%] -translate-x-1/2 text-center">June 19<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Phase 2 End</span></div>
-                                        <div class="absolute left-[54.3%] -translate-x-1/2 text-center">June 29<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Phase 3 End</span></div>
-                                        <div class="absolute left-[82.6%] -translate-x-1/2 text-center">July 12<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Phase 4 End</span></div>
-                                        <div class="absolute left-[100%] -translate-x-1/2 text-right">July 20<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Project End</span></div>
+                                        {roadmap_labels_html}
                                     </div>
                                 </div>
                                 
@@ -723,69 +880,11 @@ def main():
                                     <div class="absolute inset-0 pointer-events-none flex">
                                         <div class="w-[320px] shrink-0"></div>
                                         <div class="grow relative h-full mr-6">
-                                            <div class="absolute left-0 inset-y-0 border-l border-dashed border-stone-800/60"></div>
-                                            <div class="absolute left-[21.7%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
-                                            <div class="absolute left-[32.6%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
-                                            <div class="absolute left-[54.3%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
-                                            <div class="absolute left-[82.6%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
-                                            <div class="absolute left-[100%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                            {roadmap_grid_html}
                                         </div>
                                     </div>
                                     
-                                    <!-- Row 1: PHASE 1 -->
-                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 1: Research &amp; Branding <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 4 - June 14)</span>
-                                        </div>
-                                        <div class="grow relative h-7 mr-6">
-                                            <div class="absolute left-0 w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Row 2: PHASE 2 -->
-                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 2: Design Presentation <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 11 - June 19)</span>
-                                        </div>
-                                        <div class="grow relative h-7 mr-6">
-                                            <div class="absolute left-[15.2%] w-[17.4%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Row 3: PHASE 3 -->
-                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 3: First Design Pack <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 16 - June 29)</span>
-                                        </div>
-                                        <div class="grow relative h-7 mr-6">
-                                            <div class="absolute left-[26.1%] w-[28.2%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Row 4: PHASE 4 -->
-                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 4: Second Design Pack <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(June 25 - July 12)</span>
-                                        </div>
-                                        <div class="grow relative h-7 mr-6">
-                                            <div class="absolute left-[45.7%] w-[36.9%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Row 5: PHASE 5 -->
-                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
-                                        <div class="w-[320px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
-                                            PHASE 5: Final Handover <span class="text-[10px] text-slate-500 font-mono block mt-0.5 sm:inline sm:mt-0 sm:ml-1.5">(July 10 - July 20)</span>
-                                        </div>
-                                        <div class="grow relative h-7 mr-6">
-                                            <div class="absolute left-[78.3%] w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {roadmap_gantt_html}
                                 </div>
                             </div>
                         </div>
@@ -803,37 +902,14 @@ def main():
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-stone-900/40 text-slate-300">
-                                    <tr class="hover:bg-slate-900/5 transition-colors">
-                                        <td class="py-3.5 px-6 font-medium text-slate-200">Project Start</td>
-                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 4</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-900/5 transition-colors">
-                                        <td class="py-3.5 px-6 font-medium text-slate-200">Brand Rework &amp; Initial Design Delivery</td>
-                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 14</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-900/5 transition-colors">
-                                        <td class="py-3.5 px-6 font-medium text-slate-200">First Design Pack Delivery</td>
-                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 29</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-900/5 transition-colors">
-                                        <td class="py-3.5 px-6 font-medium text-slate-200">Second Design Pack Delivery</td>
-                                        <td class="py-3.5 px-6 font-mono text-brand-500">July 12</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-900/5 transition-colors">
-                                        <td class="py-3.5 px-6 font-medium text-slate-200">Final Delivery</td>
-                                        <td class="py-3.5 px-6 font-mono text-brand-500">July 20</td>
-                                    </tr>
+                                    {roadmap_milestones_html}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     
                     <!-- NOTES -->
-                    <div class="pt-4 text-xs md:text-sm text-slate-450 leading-relaxed max-w-[800px] text-pretty">
-                        <p class="italic">
-                            <strong>Note:</strong> Delivery phases and milestone dates may naturally adjust throughout the project as workflows evolve, design directions mature, and collaborative feedback/refinement cycles continue during production.
-                        </p>
-                    </div>
+                    {roadmap_notes_html}
                     
                     <!-- Spacing after content -->
                     <div class="pb-6"></div>

@@ -44,6 +44,8 @@ def main():
             "description": task.get("description", ""),
             "status": task.get("status", {}).get("status") if isinstance(task.get("status"), dict) else task.get("status"),
             "time_estimate": task.get("time_estimate"),
+            "start_date": task.get("start_date"),
+            "due_date": task.get("due_date"),
             "custom_fields": task.get("custom_fields", []),
             "subtasks": []
         }
