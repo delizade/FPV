@@ -33,6 +33,10 @@ def main():
         
     root_task = tasks_by_id[root_id]
     
+    # Find roadmap root task: 86exrfkuu
+    roadmap_root_id = "86exrfkuu"
+    roadmap_root_task = tasks_by_id.get(roadmap_root_id)
+    
     def build_node(task):
         node = {
             "id": task["id"],
@@ -55,19 +59,21 @@ def main():
 
     tree = build_node(root_task)
     
-    # Save the tree
+    # Save the full tree
     tree_path = os.path.join(os.path.dirname(script_dir), "tasks_tree.json")
     with open(tree_path, "w", encoding="utf-8") as f:
         json.dump(tree, f, indent=2, ensure_ascii=False)
+    print("Saved tasks_tree.json")
         
-    # Print summary
-    def print_tree_summary(node, indent=0):
-        print("  " * indent + f"- [{node['id']}] {node['name']} ({len(node['subtasks'])} subtasks)")
-        for sub in node["subtasks"]:
-            print_tree_summary(sub, indent + 1)
-            
-    print("Task Tree Summary:")
-    print_tree_summary(tree)
+    # Save the roadmap tree if found
+    if roadmap_root_task:
+        roadmap_tree = build_node(roadmap_root_task)
+        roadmap_path = os.path.join(os.path.dirname(script_dir), "roadmap_tree.json")
+        with open(roadmap_path, "w", encoding="utf-8") as f:
+            json.dump(roadmap_tree, f, indent=2, ensure_ascii=False)
+        print("Saved roadmap_tree.json")
+    else:
+        print("Warning: Roadmap root task 86exrfkuu not found.")
 
 if __name__ == "__main__":
     main()

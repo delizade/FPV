@@ -671,6 +671,183 @@ def main():
             </div>
     </div>
 
+        <!-- PRODUCTION & DELIVERY ROADMAP ACCORDION -->
+        <div id="production-roadmap-wrapper" class="border border-[#221f24] bg-[#111012] rounded shadow-2xl transition-all duration-300">
+            <!-- Header -->
+            <button id="production-roadmap-header" onclick="toggleSection('production-roadmap')" class="sticky top-0 z-40 bg-[#111012] w-full py-6 px-6 md:px-[73px] flex items-center justify-between text-left hover:bg-stone-900/10 transition-all select-none rounded-t">
+                <!-- NORMAL STATE CONTENT -->
+                <div class="button-normal-state w-full flex items-center justify-between">
+                    <span class="text-xl sm:text-2xl font-normal tracking-[-0.02em] text-[#C9C2B8] outfit-font">Production &amp; Delivery Roadmap</span>
+                    <i id="production-roadmap-chevron" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                </div>
+                <!-- STUCK STATE CONTENT -->
+                <div class="button-stuck-state w-full flex items-center justify-between h-full">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-brand-500/80 leading-none">FPV Mobile App UX Improvements &amp; UI Redesign</span>
+                        <span class="text-base sm:text-lg text-[#C9C2B8] outfit-font font-normal mt-1 leading-none">Production &amp; Delivery Roadmap</span>
+                    </div>
+                    <div class="flex items-center gap-4 shrink-0">
+                        <a href="https://sharing.clickup.com/90182683899/l/h/6-901818298165-1/63f166fd8e9157e" target="_blank" onclick="event.stopPropagation()" class="btn-tactile shrink-0 px-2.5 py-1.5 bg-slate-950/40 hover:bg-brand-900/10 border border-stone-900 hover:border-brand-500/25 text-slate-400 hover:text-slate-200 text-[10px] font-semibold rounded-md shadow-sm transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-[#CD9852]"></i>
+                            <span>Open in ClickUp</span>
+                        </a>
+                        <i id="production-roadmap-chevron-stuck" class="fa-solid fa-chevron-down text-slate-500 text-base transition-transform duration-300"></i>
+                    </div>
+                </div>
+            </button>
+            
+            <!-- Content -->
+            <div id="production-roadmap-content" class="hidden border-t border-[#1d1b20] p-6 md:py-16 md:px-[73px] bg-black/15 rounded-b">
+                <div class="max-w-[960px] space-y-12 text-left">
+                    
+                    <!-- GANTT TIMELINE -->
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-normal text-[#CD9852] outfit-font tracking-wide">Visual Production Timeline</h3>
+                        
+                        <div class="bg-[#151418] border border-[#221f24] rounded-lg p-6 shadow-xl overflow-x-auto">
+                            <div class="min-w-[800px] select-none font-sans relative pr-4">
+                                
+                                <!-- Timeline Date Labels -->
+                                <div class="flex items-center text-[9px] uppercase font-bold text-slate-500 border-b border-stone-900/60 pb-3 mb-6">
+                                    <div class="w-[220px] shrink-0 pl-2">Phase Description</div>
+                                    <div class="grow relative h-8">
+                                        <div class="absolute left-0 -translate-x-1/2 text-left">June 4<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Project Start</span></div>
+                                        <div class="absolute left-[21.7%] -translate-x-1/2 text-center">June 14<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Brand &amp; Initial</span></div>
+                                        <div class="absolute left-[54.3%] -translate-x-1/2 text-center">June 29<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">First Pack</span></div>
+                                        <div class="absolute left-[82.6%] -translate-x-1/2 text-center">July 12<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Second Pack</span></div>
+                                        <div class="absolute left-[100%] -translate-x-1/2 text-right">July 20<br><span class="text-slate-600 text-[8px] font-normal block mt-0.5">Final Delivery</span></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Gantt Rows Container -->
+                                <div class="space-y-4 relative py-2">
+                                    <!-- Grid Lines Background -->
+                                    <div class="absolute inset-0 pointer-events-none flex">
+                                        <div class="w-[220px] shrink-0"></div>
+                                        <div class="grow relative h-full">
+                                            <div class="absolute left-0 inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                            <div class="absolute left-[21.7%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                            <div class="absolute left-[54.3%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                            <div class="absolute left-[82.6%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                            <div class="absolute left-[100%] inset-y-0 border-l border-dashed border-stone-800/60"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row 1: PHASE 1 -->
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 1: Research &amp; Branding
+                                        </div>
+                                        <div class="grow relative h-7">
+                                            <div class="absolute left-0 w-[21.7%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
+                                                10 Days
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row 2: PHASE 2 -->
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 2: Design Presentation
+                                        </div>
+                                        <div class="grow relative h-7">
+                                            <div class="absolute left-[21.7%] w-[32.6%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
+                                                15 Days
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row 3: PHASE 3 -->
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 3: First Design Pack
+                                        </div>
+                                        <div class="grow relative h-7">
+                                            <div class="absolute left-[54.3%] w-[28.3%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
+                                                13 Days
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row 4: PHASE 4 -->
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 4: Second Design Pack
+                                        </div>
+                                        <div class="grow relative h-7">
+                                            <div class="absolute left-[82.6%] w-[17.4%] h-full bg-gradient-to-r from-brand-500/15 to-brand-500/35 border border-brand-500/25 rounded flex items-center justify-center text-[10px] font-bold text-brand-400 hover:border-brand-500 hover:shadow-[0_0_12px_rgba(205,152,82,0.15)] transition-all">
+                                                8 Days
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row 5: PHASE 5 -->
+                                    <div class="flex items-center hover:bg-slate-900/10 py-1 rounded transition-all group relative z-10">
+                                        <div class="w-[220px] shrink-0 font-medium text-xs text-slate-350 group-hover:text-slate-100 pl-2">
+                                            PHASE 5: Final Handover
+                                        </div>
+                                        <div class="grow relative h-7">
+                                            <!-- Milestone diamond marker on July 20 (Day 46 -> 100%) -->
+                                            <div class="absolute left-[100%] -translate-x-1/2 w-4 h-4 bg-[#CD9852] border border-brand-300 rotate-45 rounded-sm hover:scale-125 transition-transform cursor-pointer" title="July 20: Final Handover &amp; Project Completion"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- MILESTONES TABLE -->
+                    <div class="pt-6 space-y-4">
+                        <h3 class="text-lg font-normal text-[#CD9852] outfit-font tracking-wide">Project Milestones</h3>
+                        
+                        <div class="bg-[#151418] border border-[#221f24] rounded-lg overflow-hidden shadow-xl">
+                            <table class="w-full text-left text-xs font-sans">
+                                <thead>
+                                    <tr class="bg-black/40 border-b border-stone-900/60 uppercase text-[10px] font-bold tracking-wider text-slate-400">
+                                        <th class="py-3.5 px-6">Phase / Milestone</th>
+                                        <th class="py-3.5 px-6">Planned Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-stone-900/40 text-slate-300">
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Project Start</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 4</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Brand Rework &amp; Initial Design Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 14</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">First Design Pack Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">June 29</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Second Design Pack Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">July 12</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/5 transition-colors">
+                                        <td class="py-3.5 px-6 font-medium text-slate-200">Final Delivery</td>
+                                        <td class="py-3.5 px-6 font-mono text-brand-500">July 20</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- NOTES -->
+                    <div class="pt-4 text-xs md:text-sm text-slate-450 leading-relaxed max-w-[800px] text-pretty">
+                        <p class="italic">
+                            <strong>Note:</strong> Delivery phases and milestone dates may naturally adjust throughout the project as workflows evolve, design directions mature, and collaborative feedback/refinement cycles continue during production.
+                        </p>
+                    </div>
+                    
+                    <!-- Spacing after content -->
+                    <div class="pb-6"></div>
+                    
+                </div>
+            </div>
+        </div>
+
     <!-- FOOTER: Premium, Minimalist Footnote Authored by Burak Ozdelice -->
     <footer class="border-t border-slate-950 py-10 mt-20 text-center text-xs text-slate-500 font-outfit tracking-wide">
         <div class="max-w-[1440px] mx-auto px-4 flex flex-col items-center gap-4">
@@ -770,7 +947,7 @@ def main():
         let searchQuery = "";
 
         // Global variables for sticky header elements (initialized in DOMContentLoaded)
-        let scopeWrapper, proposalWrapper, scopeHeader, proposalHeader;
+        let scopeWrapper, proposalWrapper, roadmapWrapper, scopeHeader, proposalHeader, roadmapHeader;
         
         function updateStickyHeaders() {{
             if (scopeWrapper && scopeHeader) {{
@@ -785,6 +962,12 @@ def main():
                 const headerHeight = proposalHeader.offsetHeight || 62;
                 const isStuck = rect.top <= 0 && rect.bottom > headerHeight;
                 proposalHeader.classList.toggle('is-stuck', isStuck);
+            }}
+            if (roadmapWrapper && roadmapHeader) {{
+                const rect = roadmapWrapper.getBoundingClientRect();
+                const headerHeight = roadmapHeader.offsetHeight || 62;
+                const isStuck = rect.top <= 0 && rect.bottom > headerHeight;
+                roadmapHeader.classList.toggle('is-stuck', isStuck);
             }}
         }}
 
@@ -1516,8 +1699,10 @@ def main():
             // Initialize global sticky elements
             scopeWrapper = document.getElementById('project-scope-wrapper');
             proposalWrapper = document.getElementById('project-proposal-wrapper');
+            roadmapWrapper = document.getElementById('production-roadmap-wrapper');
             scopeHeader = document.getElementById('project-scope-header');
             proposalHeader = document.getElementById('project-proposal-header');
+            roadmapHeader = document.getElementById('production-roadmap-header');
             
             // Stats bar morph elements
             const heroBanner = document.getElementById('hero-banner');
