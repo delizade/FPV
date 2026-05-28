@@ -138,7 +138,19 @@
           "start_date": null,
           "due_date": null,
           "custom_fields": [],
-          "subtasks": []
+          "subtasks": [
+            {
+              "id": "86exrr4u6",
+              "name": "Feedback Form & Survey Questions",
+              "description": "# Floor Plan Visuals Mobile App Design — Client Feedback & Discovery Survey\n\nThis task represents the discovery survey and feedback form prepared to align on branding, design directions, user feedback, and operational priorities. Please review and respond directly to the following questions:\n\n### 1. Brand Assets & Guidelines\nPlease share your current brand assets/documents, including the currently used wordmark/logo, emblem/symbol, colours, typography, or any existing brand-related materials.\n\n### 2. Branding Rework & Scope Limitations\nBefore starting the main UX/UI production process, I believe we should first review and rework the currently used wordmark/logo and emblem structure in order to establish a stronger and more consistent visual foundation for the redesign. Do you have any concerns, limitations, or preferences regarding how far the current branding can be updated, modernized, or visually expanded?\n\n### 3. Visual & Aesthetic Preferences\nDo you currently have any specific visual style or design direction in mind regarding the redesign or are there any apps, platforms, products, or digital experiences that you personally like, admire, or would want the redesign direction to feel closer to in terms of quality, usability, atmosphere, or overall presentation?\n\n### 4. Competitor Analysis\nCould you please share your current competitors in order of importance from your perspective?\n\n### 5. Existing Customer Feedback & Issues\nIf you currently maintain any list of customer feedback, complaints, recurring requests, or app-related issues collected from users, please share them if possible.\n\n### 6. Team Feedback & Operational Observations\nBeyond the previously discussed needs and requests, I would appreciate it if you could internally discuss the app together with your full team and share any additional thoughts, concerns, priorities, or operational observations you collectively have regarding the current experience.\n\n### 7. Critical Sections & Operational Workflows\nWhich sections, workflows, or operational areas of the app do you consider the most critical, valuable, or important from both business and user perspectives? If possible, please also prioritize them in order of importance.\n\n### 8. Project Reviewers & Approvers\nWho will primarily be responsible for reviewing and approving design decisions throughout the project?",
+              "status": "to do",
+              "time_estimate": null,
+              "start_date": null,
+              "due_date": null,
+              "custom_fields": [],
+              "subtasks": []
+            }
+          ]
         },
         {
           "id": "86expf9qe",
